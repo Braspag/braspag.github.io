@@ -44,16 +44,16 @@ O onboarding do seller no Split de Pagamentos ocorre da seguinte forma:
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro de sellers.|
-|**API de Onboarding Split 1.0** |https://splitonboardingsandbox.braspag.com.br | Consulta de sellers.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro e consulta de sellers 2.0.|
+|**API de Onboarding Split 1.0** [DEPRECATED]|https://splitonboardingsandbox.braspag.com.br | Consulta de sellers 1.0.|
 
 ## Produção
 
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro de sellers.|
-|**API de Onboarding Split 1.0** |https://splitonboarding.braspag.com.br | Consulta de sellers.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro e consulta de sellers 2.0.|
+|**API de Onboarding Split 1.0** [DEPRECATED]|https://splitonboarding.braspag.com.br | Consulta de sellers 1.0.|
 
 # Autenticação
 
@@ -1307,13 +1307,215 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 
 # Consulta de Sellers
 
-Você pode consultar um seller específico através do `MerchantId` do seller. Essa consulta é feita pela [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#ambientes).
+## Consulta de sellers 2.0
 
-## Requisição
+Você pode consultar um seller específico através do `MerchantId` do seller. Essa consulta é feita pela [API de Onboarding Split 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#ambientes).
 
-<aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
+### Requisição
 
-## Resposta
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-onboarding-api}/api/merchants/{merchant-id}</span></aside>
+
+**Path**
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-------------|------|---------|-------------|-----------|
+| `MerchantId` | GUID | 36 | sim | Identificação do seller |
+
+### Resposta
+
+```json
+{
+    "id": "4d60b133-478e-4ff2-beee-f19bcf618cee",
+    "type": "Subordinate",
+    "masterMerchantId": "71db272b-526f-4adf-b655-3c74670cbf0d",
+    "corporateName": "RAZAO SOCIAL LTDA",
+    "fancyName": "NOME FANTASIA LTDA",
+    "mcc": 8999,
+    "mccDescription": "Serviços Profissionais (não especificadas)",
+    "documentType": 1,
+    "documentNumber": "14625224000101",
+    "webSite": "https://www.website.com.br",
+    "contactName": "Nome do contato",
+    "mailAddress": "contato@minhaempresa.com.br",
+    "contactPhone": "999999999",
+    "blocked": false,
+    "notification": {
+        "url": "https://website.com/webhooks/braspag"
+    },
+    "analysis": {
+        "status": 4
+    },
+    "address": {
+        "zipCode": "06455030",
+        "street": "Alameda Xingu",
+        "number": "01",
+        "complement": "",
+        "city": "Barueri",
+        "neighborhood": "Alphaville Industrial",
+        "state": "SP"
+    },
+    "bankAccount": {
+        "bankId": 10,
+        "bank": "341",
+        "bankAccountType": "CheckingAccount",
+        "number": "0001",
+        "agencyNumber": "0001",
+        "agencyDigit": "1",
+        "verifierDigit": "1",
+        "operation": "1",
+        "documentNumber": "14625224000101",
+        "documentType": 1
+    },
+    "bankAccountValidationInfo": {
+        "id": "bb53d96e-c655-454b-9f82-41f893725ac0",
+        "status": "Created",
+        "bankId": 10,
+        "bank": "323",
+        "bankAccountType": "CheckingAccount",
+        "accountNumber": "9836457708",
+        "accountDigit": "4",
+        "agencyNumber": "0001",
+        "agencyDigit": "X",
+        "createdAt": "2024-03-08T12:07:07.0833333"
+    },
+    "onboardingValidationStatus": "UnderAnalysis",
+    "agreements": [
+        {
+            "fee": 20,
+            "bankSlipFee": 0,
+            "antiFraudFee": 50,
+            "antiFraudFeeWithReview": 0,
+            "merchantDiscountRates": [
+                {
+                    "paymentArrangement": {
+                        "product": "CreditCard",
+                        "brand": "Visa"
+                    },
+                    "initialInstallmentNumber": 1,
+                    "finalInstallmentNumber": 1,
+                    "percent": 1.81
+                },
+                {
+                    "paymentArrangement": {
+                        "product": "CreditCard",
+                        "brand": "Visa"
+                    },
+                    "initialInstallmentNumber": 2,
+                    "finalInstallmentNumber": 6,
+                    "percent": 1.92
+                },
+                {
+                    "paymentArrangement": {
+                        "product": "CreditCard",
+                        "brand": "Visa"
+                    },
+                    "initialInstallmentNumber": 7,
+                    "finalInstallmentNumber": 12,
+                    "percent": 2.24
+                }
+            ]
+        },
+        {
+            "fee": 0,
+            "bankSlipFee": 200,
+            "bankSlipChargeType": 1,
+            "antiFraudFee": 0,
+            "antiFraudFeeWithReview": 0,
+            "merchantDiscountRates": [
+                {
+                    "paymentArrangement": {
+                        "product": "BankSlip",
+                        "brand": "BancoDoBrasil"
+                    },
+                    "initialInstallmentNumber": 1,
+                    "finalInstallmentNumber": 1,
+                    "percent": 0.00
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "href": "http://splitonboardingapisandbox.braspag.com.br/api/merchants/4d60b133-478e-4ff2-beee-f19bcf618cee",
+            "rel": "self",
+            "method": "GET"
+        }
+    ]
+}
+```
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-------------|------|---------|-------------|-----------|
+| `Id` | GUID | 36 | sim | Identificação do seller |
+| `Type` | string | - | sim | Tipo do merchant |
+| `MasterMerchantId` | GUID | 36 | sim | Identificação do Master |
+| `CorporateName` | string | 100 | sim |  Razão social |
+| `Mcc` | int | 4 | sim | (MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços. |
+| `MccDescription` | string | 4 | sim | Descrição do MCC. |
+| `BusinessActivityId` | int| - | não - Disponível apenas para pessoa física | Id do ramo de atividade da empresa |
+| `BusinessActivityDescription` | string | 200 | não - Disponível apenas para pessoa física | Descrição do ramo de atividade |
+| `BusinessActivityCode` | string | 10 | não - Disponível apenas para pessoa física | Código do ramo de atividade |
+| `FancyName` | string | 50 | sim | Nome fantasia |
+| `DocumentType` | int | - | sim | Tipo do documento. Os tipos válidos são:<br> CNPJ = 1<br>CPF = 2 |
+| `DocumentNumber` | string | 14 | sim | Número do documento |
+| `Website` | string | 200 | não | Endereço do website |
+| `BirthdayDate` | Date | -| não - Disponível apenas para pessoa física | Data de nascimento |
+| `ContactName` | string | 100 | sim | Nome do contato responsável |
+| `MailAddress` | string | 50 | sim | Endereço de e-mail |
+| `ContactPhone` | string | 11 | sim | Número do telefone do contato responsável |
+| `Blocked` | booleano | - | - | Indica se o seller está bloqueado |
+| `Notification.Url` | string | - | - | URL de notificação. |
+| `Analysis.Status` | int | - | - | Status da análise do processo de KYC. Os Status válidos são:<br>*UnderAnalysis* = 1;<br>*Approved* = 2;<br>*ApprovedWithRestriction* = 3;<br>*Rejected* = 4;<br>*Pending* = 5 |
+| `Address.ZipCode` | string | 9 | sim | CEP |
+| `Address.Street` | string | 100 | sim | Logradouro |
+| `Address.Number` | string | 15 | sim | Número do endereço |
+| `Address.Complement` | string | 80 | não | Complemento do endereço |
+| `Address.City` | string | 50 | sim | Cidade |
+| `Address.Neighborhood` | string | 50 | sim | Bairro |
+| `Address.State` | string | 2 | sim | Sigla do estado |
+| `BankAccount.Bank` | string | 3 | sim | Código do banco |
+| `BankAccount.BankAccountType` | string | - | sim | Tipo de conta bancária. Os tipos válidos são CheckingAccount (Conta corrente) e SavingsAccount (Conta poupança). |
+| `BankAccount.Number` | string | 10 | sim | Número da conta |
+| `BankAccount.AgencyNumber` | string | 10 | sim | Número da agência |
+| `BankAccount.AgencyDigit` | Char | 1 | sim | Dígito da agência |
+| `BankAccount.VerifierDigit` | Char | 1 | sim | Dígito verificador da conta |
+| `BankAccount.Operation` | string | 10 | não | Operação da conta |
+| `BankAccount.DocumentNumber` | string | -| -|  Número do documento da conta |
+| `BankAccount.DocumentType` | string | -| -| Tipo do documento da conta. Os tipos válidos são:<br> CNPJ = 1<br>CPF = 2 |
+| `BankAccountValidationInfo.Id` | GUID | 36 | sim | Identificador da validação de domicílio. |
+| `BankAccountValidationInfo.Status` | string | -  | sim | Status da análise do processo de domicílio bancário. Os status válidos                                                            são:<br> internalError = 0;<br> Created = 1;<br> Processing = 2;<br> Success = 3;<br> Error = 4; |
+| `BankAccountValidationInfo.BankId` | string | -  | sim | Identificador do Banco.  |
+| `BankAccountValidationInfo.Bank` | string | 3 | sim | Código de compensação do banco. |
+| `BankAccountValidationInfo.BankAccountType` | string | - | sim | Tipo de conta bancária. Os tipos válidos são CheckingAccount (Conta corrente) e SavingsAccount (Conta poupança). |
+| `BankAccountValidationInfo.AccountNumber` | string | 10 | sim | Número da conta |
+| `BankAccountValidationInfo.AccountDigit` | char | 1 | sim | Dígito verificador da conta |
+| `BankAccountValidationInfo.AgencyNumber` | string | 10 | sim | Número da agência |
+| `BankAccountValidationInfo.AgencyDigit` | char | 1 | sim | Dígito da agência |
+| `OnboardingValidationStatus` | string | - | sim | Status do processo de Onboarding. Os status válidos são:<br>UnderAnalysis = 1; <br>Approved = 2;<br> AwaitingMerchantAction = 3;<br> Unknown = 4; |
+| `Agreements[].Fee` | int | - | sim | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = _"Fee" : 100_ |
+| `Agreements[].AntiFraudFee` | int | - | - | Taxa do anti-fraude |
+| `Agreements[].AntiFraudFeeWithReview` | int | - | - | Taxa do anti-fraude com revisão manual |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | string | - | sim | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são CreditCard e DebitCard |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | string | - | sim | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são Visa, Master, Amex, Elo, Diners e Hipercard |
+| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | int | - | sim | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser maior do que 0 e menor ou igual a 12. |
+| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | int | - | sim | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser maior do que 0 e menor ou igual a 12. | 
+| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | sim | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais. |
+| `Links` | - | - | não | Links para navegação |
+
+\* O objeto `BankAccountValidationInfo` guarda as informações referentes À validação do domicílio bancário.
+
+## [DEPRECATED] Consulta de Sellers 1.0
+
+<aside class="warning">Esta seção detalha a integração da API de Onboarding Split 1.0, que está sendo descontinuada.</aside>
+
+> Para novas integrações, veja a seção Consulta de Sellers 2.0.<br>
+> Para migração da versão 1.0 para a API de Onboarding Split 2.0, siga as instruções [deste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
+
+### Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1421,50 +1623,50 @@ Você pode consultar um seller específico através do `MerchantId` do seller. E
 
 | Propriedade  | Tipo    | Tamanho | Obrigatório | Descrição |
 |-----------------------------------------------------------------|---------|---------|-------------|------------------------------------------------|
-| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do seller  |
-| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do seller  |
-| `CorporateName`                                                 | Texto  | 100     | Sim         | Razão social  |
-| `FancyName`                                                     | Texto  | 50      | Sim         | Nome fantasia  |
-| `DocumentNumber`                                                | Texto  | 14      | Sim         | Número do documento   |
-| `DocumentType`                                                  | Texto  | -       | Sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj` |
-| `MerchantCategoryCode`                                          | Texto  | 4       | Sim         | (MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.|
-| `ContactName`                                                   | Texto  | 100     | Sim         | Nome do contato responsável   |
-| `ContactPhone`                                                  | Texto  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)  |
-| `MailAddress`                                                   | Texto  | 50      | Sim         | Endereço de e-mail   |
-| `Website`                                                       | Texto  | 200     | Não         | Endereço do website  |
-| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o seller está bloqueado para participar da transação  |
-| `Analysis.Status`                                               | Texto  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`  |
-| `Analysis.Score`                                                | Número     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100    |
-| `Analysis.DenialReason`                                         | Texto  | -       | Não         | Motivo de reprovação do seller |
-| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf){:target="_blank"} |
-| `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)  |
-| `BankAccount.Number`                                            | Texto  | 10      | Sim         | Número da conta  |
-| `BankAccount.Operation`                                         | Texto  | 10      | Não         | Operação da conta |
-| `BankAccount.VerifierDigit`                                     | Texto    | 1       | Sim         | Dígito verificador da conta  |
-| `BankAccount.AgencyNumber`                                      | Texto  | 15      | Sim         | Número da agência |
-| `BankAccount.AgencyDigit`                                       | Texto    | 1       | Sim         | Dígito da agência. Caso a agência não tenha dígito, informar o valor x    |
-| `BankAccount.DocumentNumber`                                    | Texto  | 14      | Sim         | Número do documento da conta    |
-| `BankAccount.DocumentType`                                      | Texto  | -       | Sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj`  | 
-| `Address.Street`                                                | Texto  | 100     | Sim         | Rua do endereço |
-| `Address.Number`                                                | Texto  | 15      | Sim         | Número do endereço |
-| `Address.Complement`                                            | Texto  | 80      | Não         | Complemento do endereço   |
-| `Address.Neighborhood`                                          | Texto  | 50      | Sim         | Bairro |
-| `Address.City`                                                  | Texto  | 50      | Sim         | Cidade  |
-| `Address.State`                                                 | Texto  | 2       | Sim         | Sigla do estado  |
-| `Address.ZipCode`                                               | Texto  | 9       | Sim         | CEP   |
-| `Agreement.Fee`                                                 | Número     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`  |
-| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do seller  |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são `CreditCard` e `DebitCard`   |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`   |
-| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**  |
-| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**   |
-| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais   |
-| `Notification.Url`                                              | Texto  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC   |
-| `Notification.Headers[].Key`                                    | Texto  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC   |
-| `Notification.Headers[].Value`                                  | Texto  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC  |
-| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)   |
-| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do seller  |
-| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg` |
+| `MasterMerchantId`                                              | GUID    | 36      | sim         | Identificação do master do seller  |
+| `MerchantId`                                                    | GUID    | 36      | sim         | Identificação do seller  |
+| `CorporateName`                                                 | texto  | 100     | sim         | Razão social  |
+| `FancyName`                                                     | texto  | 50      | sim         | Nome fantasia  |
+| `DocumentNumber`                                                | texto  | 14      | sim         | Número do documento   |
+| `DocumentType`                                                  | texto  | -       | sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj` |
+| `MerchantCategoryCode`                                          | texto  | 4       | sim         | (MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.|
+| `ContactName`                                                   | texto  | 100     | sim         | Nome do contato responsável   |
+| `ContactPhone`                                                  | texto  | 11      | sim         | Número do telefone do contato responsável (Apenas números)  |
+| `MailAddress`                                                   | texto  | 50      | sim         | Endereço de e-mail   |
+| `Website`                                                       | texto  | 200     | não         | Endereço do website  |
+| `Blocked`                                                       | booleanooo | -       | sim         | Flag para indicar se o seller está bloqueado para participar da transação  |
+| `Analysis.Status`                                               | texto  | -       | sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`  |
+| `Analysis.Score`                                                | Número     | -       | não         | Score da análise do processo de KYC. Range de 1 a 100    |
+| `Analysis.DenialReason`                                         | texto  | -       | não         | Motivo de reprovação do seller |
+| `BankAccount.Bank`                                              | texto  | 3       | sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf){:target="_blank"} |
+| `BankAccount.BankAccountType`                                   | texto  | -       | sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)  |
+| `BankAccount.Number`                                            | texto  | 10      | sim         | Número da conta  |
+| `BankAccount.Operation`                                         | texto  | 10      | não         | Operação da conta |
+| `BankAccount.VerifierDigit`                                     | texto    | 1       | sim         | Dígito verificador da conta  |
+| `BankAccount.AgencyNumber`                                      | texto  | 15      | sim         | Número da agência |
+| `BankAccount.AgencyDigit`                                       | texto    | 1       | sim         | Dígito da agência. Caso a agência não tenha dígito, informar o valor x    |
+| `BankAccount.DocumentNumber`                                    | texto  | 14      | sim         | Número do documento da conta    |
+| `BankAccount.DocumentType`                                      | texto  | -       | sim         | Tipo do documento. Os tipos válidos são `Cpf`, `Cnpj`  | 
+| `Address.Street`                                                | texto  | 100     | sim         | Rua do endereço |
+| `Address.Number`                                                | texto  | 15      | sim         | Número do endereço |
+| `Address.Complement`                                            | texto  | 80      | não         | Complemento do endereço   |
+| `Address.Neighborhood`                                          | texto  | 50      | sim         | Bairro |
+| `Address.City`                                                  | texto  | 50      | sim         | Cidade  |
+| `Address.State`                                                 | texto  | 2       | sim         | Sigla do estado  |
+| `Address.ZipCode`                                               | texto  | 9       | sim         | CEP   |
+| `Agreement.Fee`                                                 | Número     | -       | sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`  |
+| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | sim         | Identificação da taxa de desconto do seller  |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | texto  | -       | sim         | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são `CreditCard` e `DebitCard`   |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | texto  | -       | sim         | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`   |
+| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | sim         | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**  |
+| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | sim         | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**   |
+| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | sim         | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais   |
+| `Notification.Url`                                              | texto  | 200     | sim         | Url de notificação de mudança de status da análise do processo de KYC   |
+| `Notification.Headers[].Key`                                    | texto  | 100     | sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC   |
+| `Notification.Headers[].Value`                                  | texto  | 100     | sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC  |
+| `Attachments[].AttachmentType`                                  | texto  | -       | não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)   |
+| `Attachments[].File.Name`                                       | texto  | 50      | não         | Nome do arquivo do documento em anexo do seller  |
+| `Attachments[].File.FileType`                                   | texto  | -       | não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `PDF`, `PNG`, `JPG` e `JPEG` .|
 
 # Alteração de Taxas em Lote
 
