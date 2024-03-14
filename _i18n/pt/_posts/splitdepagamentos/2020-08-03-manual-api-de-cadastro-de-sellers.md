@@ -1508,7 +1508,7 @@ Você pode consultar um seller específico através do `MerchantId` do seller. E
 
 <aside class="warning">Esta seção detalha a integração da API de Onboarding Split 1.0, que está sendo descontinuada.</aside>
 
-> Para novas integrações, veja a seção Consulta de Sellers 2.0.<br>
+> Para novas integrações, veja a seção [Consulta de Sellers 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#consulta-de-sellers-2.0){:target="_blank"}.<br>
 > Para migração da versão 1.0 para a API de Onboarding Split 2.0, siga as instruções [deste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
 ### Requisição
