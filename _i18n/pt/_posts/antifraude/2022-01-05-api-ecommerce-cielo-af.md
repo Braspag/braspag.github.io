@@ -507,7 +507,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 
 ## Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
 {
