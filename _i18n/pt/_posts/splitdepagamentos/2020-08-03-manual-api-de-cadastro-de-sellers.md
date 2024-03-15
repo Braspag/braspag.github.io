@@ -19,7 +19,7 @@ Essa documentação apresenta a integração com a **API de Onboarding Split 2.0
 
 *A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Sellers 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#deprecated-cadastro-de-sellers-1.0){:target="_blank"}, mas será descontinuada em 03 junho de 2024.*
 
-> Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória** até **03 junho de 2024**. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
+> Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória até 03 junho de 2024**. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
 # Visão geral
 
