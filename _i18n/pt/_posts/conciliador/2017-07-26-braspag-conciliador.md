@@ -288,6 +288,9 @@ Para fazer a integração com a API do Agiliza Braspag, [veja a documentação n
 O arquivo de transações para upload é um arquivo de texto, mais especificamente um arquivo de valores separados por ponto-e-vírgula (CSV).
 As informações são guardadas em três tipos de registros, Header, Transação e Trailer.
 
+> **Modelo do arquivo CSV para importação**<br>
+> [Download do arquivo modelo de importação](https://braspag.github.io//attachment/modelo-arquivo-importacao.csv)
+
 ## Registro Header
 
 Apenas um registro deste tipo é permitido por arquivo. O registro header deve estar na primeira linha do arquivo. O registro segue o seguinte padrão:
