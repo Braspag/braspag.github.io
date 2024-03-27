@@ -1370,7 +1370,7 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 
 ### Cancelando/Estornando uma Transação
 
-A disponibilidade do serviço de estorno varia de adquirente para adquirente. Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno){:target="_blank"} você poderá conferir cada um deles.
+A disponibilidade do serviço de estorno varia de adquirente para adquirente. Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360003150692-Cancelamento-e-estorno-de-transa%C3%A7%C3%A3o){:target="_blank"} você poderá conferir cada um deles.
 
 Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment*, conforme o exemplo:
 
