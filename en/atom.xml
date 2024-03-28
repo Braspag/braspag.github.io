@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-03-28T12:29:39+00:00</updated>
+    <updated>2024-03-28T13:20:05+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -28403,9 +28403,9 @@ All the orders just authorized must be captured here. When the capture process i
   &lt;li&gt;&lt;strong&gt;Cybersource&lt;/strong&gt;: a Visa group company, that has been operating fraud management since 1994. CYbersource’s plan options are:
     &lt;blockquote&gt;
       &lt;ul&gt;
-        &lt;li&gt;Hierarchy: risk models standardized by the e-commerce industry;&lt;/li&gt;
-        &lt;li&gt;Advanced: allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag;&lt;/li&gt;
-        &lt;li&gt;Enterprise: has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Basic&lt;/strong&gt; (Hierarchy): risk models standardized by the e-commerce industry;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Advanced&lt;/strong&gt;: allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Complete&lt;/strong&gt; (Enterprise): has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
