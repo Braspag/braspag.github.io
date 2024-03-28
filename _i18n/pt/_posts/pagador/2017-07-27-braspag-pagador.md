@@ -2891,7 +2891,15 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 ![Fluxo Voucher]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/voucher.png)
 
 Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.
-Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
+
+Atualmente, suportamos os providers *Alelo* e *Ticket*.
+
+|Provider | Características |
+|---|---|
+|**Alelo** | - Permite captura automática quando `PaymentCapture` = *true* ou não informado; <br> - Não permite captura posterior; <br> - Permite cancelamento total; |
+| **Ticket** | - Permite captura automática quando `PaymentCapture` = *true* ou captura posterior (pré-autorização) quando `PaymentCapture` = *false*. <BR> - Permite cancelamento/estorno total e parcial. Saiba mais sobre cancelamento parcial em [Cancelando/estornando uma transação](https://braspag.github.io//manual/braspag-pagador#cancelando/estornando-uma-transa%C3%A7%C3%A3o).|
+
+> **Atenção**: Em caso de pré-autorização para o voucher Ticket, a API retornará o `PaymentStatus` = 1 e não retornará os parâmetros `Payment.CapturedAmount` e `Payment.PaidDate`.
 
 #### Requisição
 
