@@ -2463,7 +2463,16 @@ Refer to our [E-Wallets](https://braspag.github.io//en/manual/ewallets){:target=
 
 ### Creating a Voucher Transaction
 
-A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the *Alelo* and *Ticket* providers are supported in this modality.
+A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. 
+
+Currently, *Alelo* and *Ticket* providers are supported.
+
+|Provider | Characteristics |
+|---|---|
+|**Alelo** | - Automatic capture when `PaymentCapture` = *true* or not informed; <br> - Does not allow posterior capture; <br> - Allow total canceling; |
+| **Ticket** | - Automatic capture when `PaymentCapture` = *true* or posterior capture (pre-authorization) when `PaymentCapture` = *false*. <BR> - Allows total and partial canceling/refund. See more information at [Canceling/Refunding a Transaction](https://braspag.github.io//en/manual/braspag-pagador#canceling/refunding-a-transaction).|
+
+> **Important**: when performing pre-authorization for voucher Ticket, the API will return `PaymentStatus` = 1 and will not return parameters `Payment.CapturedAmount` and `Payment.PaidDate`.
 
 #### Request
 
