@@ -5246,8 +5246,32 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 <p>Veja abaixo a representação de um <strong>fluxo transacional</strong> padrão na criação de uma transação com voucher:
 <img src="https://braspag.github.io//images/braspag/pagador/fluxos/voucher.png" alt="Fluxo Voucher" /></p>
 
-<p>Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.
-Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modalidade.</p>
+<p>Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.</p>
+
+<p>Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Características</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Alelo</strong></td>
+      <td>- Permite captura automática quando <code class="language-plaintext highlighter-rouge">PaymentCapture</code> = <em>true</em> ou não informado; <br /> - Não permite captura posterior; <br /> - Permite cancelamento total;</td>
+    </tr>
+    <tr>
+      <td><strong>Ticket</strong></td>
+      <td>- Permite captura automática quando <code class="language-plaintext highlighter-rouge">PaymentCapture</code> = <em>true</em> ou captura posterior (pré-autorização) quando <code class="language-plaintext highlighter-rouge">PaymentCapture</code> = <em>false</em>. <br /> - Permite cancelamento/estorno total e parcial. Saiba mais sobre cancelamento parcial em <a href="https://braspag.github.io//manual/braspag-pagador#cancelando/estornando-uma-transa%C3%A7%C3%A3o">Cancelando/estornando uma transação</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção</strong>: Em caso de pré-autorização para o voucher Ticket, a API retornará o <code class="language-plaintext highlighter-rouge">PaymentStatus</code> = 1 e não retornará os parâmetros <code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code> e <code class="language-plaintext highlighter-rouge">Payment.PaidDate</code>.</p>
+</blockquote>
 
 <h4 id="requisição-13">Requisição</h4>
 
