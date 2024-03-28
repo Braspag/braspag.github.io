@@ -44,9 +44,9 @@ Anti-fraud providers offer neural network-based tools, non-relational databases,
 When integrating with Antifraude Gateway, you choose which provider(s) you want to analyze your transactions with and which plan.
 
 * **Cybersource**: a Visa group company, that has been operating fraud management since 1994. CYbersource's plan options are:
-> * Hierarchy: risk models standardized by the e-commerce industry;
-> * Advanced: allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag;
-> * Enterprise: has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.
+> * **Basic** (Hierarchy): risk models standardized by the e-commerce industry;
+> * **Advanced**: allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag;
+> * **Complete** (Enterprise): has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.
 
 * **ACI Worldwide**: a global mission-critical software company providing fraud control and prevention as well as real-time payment processing and management for corporations.
 
