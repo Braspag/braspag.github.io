@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-03-28T12:15:56+00:00</updated>
+    <updated>2024-03-28T12:29:39+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -15886,7 +15886,32 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;h3 id=&quot;creating-a-voucher-transaction&quot;&gt;Creating a Voucher Transaction&lt;/h3&gt;
 
-&lt;p&gt;A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the &lt;em&gt;Alelo&lt;/em&gt; and &lt;em&gt;Ticket&lt;/em&gt; providers are supported in this modality.&lt;/p&gt;
+&lt;p&gt;A transaction with a voucher card is similar to a debit card transaction; only without the authentication process.&lt;/p&gt;
+
+&lt;p&gt;Currently, &lt;em&gt;Alelo&lt;/em&gt; and &lt;em&gt;Ticket&lt;/em&gt; providers are supported.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Provider&lt;/th&gt;
+      &lt;th&gt;Characteristics&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Alelo&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;- Automatic capture when &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentCapture&lt;/code&gt; = &lt;em&gt;true&lt;/em&gt; or not informed; &lt;br /&gt; - Does not allow posterior capture; &lt;br /&gt; - Allow total canceling;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ticket&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;- Automatic capture when &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentCapture&lt;/code&gt; = &lt;em&gt;true&lt;/em&gt; or posterior capture (pre-authorization) when &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentCapture&lt;/code&gt; = &lt;em&gt;false&lt;/em&gt;. &lt;br /&gt; - Allows total and partial canceling/refund. See more information at &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#canceling/refunding-a-transaction&quot;&gt;Canceling/Refunding a Transaction&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: when performing pre-authorization for voucher Ticket, the API will return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentStatus&lt;/code&gt; = 1 and will not return parameters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CapturedAmount&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaidDate&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
 

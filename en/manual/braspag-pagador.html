@@ -4777,7 +4777,32 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h3 id="creating-a-voucher-transaction">Creating a Voucher Transaction</h3>
 
-<p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the <em>Alelo</em> and <em>Ticket</em> providers are supported in this modality.</p>
+<p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process.</p>
+
+<p>Currently, <em>Alelo</em> and <em>Ticket</em> providers are supported.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Characteristics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Alelo</strong></td>
+      <td>- Automatic capture when <code class="language-plaintext highlighter-rouge">PaymentCapture</code> = <em>true</em> or not informed; <br /> - Does not allow posterior capture; <br /> - Allow total canceling;</td>
+    </tr>
+    <tr>
+      <td><strong>Ticket</strong></td>
+      <td>- Automatic capture when <code class="language-plaintext highlighter-rouge">PaymentCapture</code> = <em>true</em> or posterior capture (pre-authorization) when <code class="language-plaintext highlighter-rouge">PaymentCapture</code> = <em>false</em>. <br /> - Allows total and partial canceling/refund. See more information at <a href="https://braspag.github.io//en/manual/braspag-pagador#canceling/refunding-a-transaction">Canceling/Refunding a Transaction</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Important</strong>: when performing pre-authorization for voucher Ticket, the API will return <code class="language-plaintext highlighter-rouge">PaymentStatus</code> = 1 and will not return parameters <code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code> and <code class="language-plaintext highlighter-rouge">Payment.PaidDate</code>.</p>
+</blockquote>
 
 <h4 id="request-12">Request</h4>
 
