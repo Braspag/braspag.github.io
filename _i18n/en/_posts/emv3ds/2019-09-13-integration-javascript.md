@@ -247,7 +247,7 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 
 |**CARD**|**BRAND**|**RESULT**|**DESCRIPTION**|  
 |---|---|---|---|     
-|4000000000001091<br>5200000000001096<br>6505050000001091|VISA<br>MASTER<br>ELO|SUCCESS|Authentication with challenge and cardholder successfully authenticated|  
+|4000000000001091<br>5200000000001096<br>6505290000001234|VISA<br>MASTER<br>ELO|SUCCESS|Authentication with challenge and cardholder successfully authenticated|  
 |4000000000001109<br>5200000000001104<br>6505050000001109|VISA<br>MASTER<br>ELO|FAILURE|Authentication with challenge and cardholder authentication terminated with failure|  
 |4000000000001117<br>5200000000001112<br>6505050000001117|VISA<br>MASTER<br>ELO|UNENROLLED|Authentication with challenge currently not available|  
 |4000000000001125<br>5200000000001120<br>6505050000001125|VISA<br>MASTER<br>ELO|UNENROLLED|System error during authentication|  
