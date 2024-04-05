@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-04-02T21:01:46+00:00</updated>
+    <updated>2024-04-05T13:14:56+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5647,7 +5647,7 @@ For more details on implementation, please visit: &lt;a href=&quot;https://brasp
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;4000000000001091&lt;br /&gt;5200000000001096&lt;br /&gt;6505050000001091&lt;/td&gt;
+      &lt;td&gt;4000000000001091&lt;br /&gt;5200000000001096&lt;br /&gt;6505290000001234&lt;/td&gt;
       &lt;td&gt;VISA&lt;br /&gt;MASTER&lt;br /&gt;ELO&lt;/td&gt;
       &lt;td&gt;SUCCESS&lt;/td&gt;
       &lt;td&gt;Authentication with challenge and cardholder successfully authenticated&lt;/td&gt;
