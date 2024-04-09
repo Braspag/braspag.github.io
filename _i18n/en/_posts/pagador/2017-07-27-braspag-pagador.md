@@ -593,7 +593,7 @@ Here are request and response examples on how to create a credit transaction:
 |`ECI`|Electronic Commerce Indicator. Represents the authentication result.|Text|2|E.g.: 5|
 |`ReasonCode`|Return code from operation.|Text|32|Alphanumeric|
 |`ReasonMessage`|Return message from operation.|Text|512|Alphanumeric|
-|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`Status`|Transaction status. See our [Transaction Status](https://braspag.github.io//en/manual/braspag-pagador#transaction-status-list) table.|Byte|2|E.g.: 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
