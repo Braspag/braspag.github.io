@@ -72,9 +72,9 @@ It is possible to test the VerifyCard (Zero Auth) returns in a sandbox environme
 
 | Card number | Status | Returns | Message |
 |---|---|---|---|
-| 4532117080573788 | 0 | 70 | Not authorized |
-| 4532117080573799 | 99 | BP900 | Operation failure |
-| 4532117080573701 | 1 | 4 | Authorized |
+| 4929751832037988 | 0 | 70 | Not authorized |
+| 4485845528427499 | 99 | BP900 | Operation failure |
+| 4556839012717881 | 1 | 4 | Authorized |
 
 ### Programmed Responses BIN Query
 
