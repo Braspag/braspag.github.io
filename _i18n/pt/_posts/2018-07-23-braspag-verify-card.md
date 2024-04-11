@@ -72,9 +72,9 @@ Abaixo veja a representação desse **fluxo transacional**, usando o **VerifyCar
 
 | Número do cartão | Status | Retorno | Mensagem |
 |---|---|---|---|
-| 4532117080573788 | 0 | 70 | Não autorizado |
-| 4532117080573799 | 99 | BP900 | Falha na operação |
-| 4532117080573701 | 1 | 4 | Autorizado |
+| 4929751832037988 | 0 | 70 | Não autorizado |
+| 4485845528427499 | 99 | BP900 | Falha na operação |
+| 4556839012717881 | 1 | 4 | Autorizado |
 
 ### Respostas Programadas Consulta BIN
 
