@@ -17,7 +17,7 @@ language_tabs:
 
 Essa documentação apresenta a integração com a **API de Onboarding Split 2.0** para o cadastro de sellers pelo master no Split de Pagamentos. 
 
-*A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Sellers 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#deprecated-cadastro-de-sellers-1.0){:target="_blank"}, mas será descontinuada em 03 junho de 2024.*
+*A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Sellers 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#deprecated-cadastro-de-sellers-1.0){:target="_blank"}, mas será descontinuada em junho de 2024.*
 
 > Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória até 01 junho de 2024**. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
@@ -2178,6 +2178,4 @@ Caso ache necessário, o master pode permitir o acesso do seller ao backoffice d
 | 755                   | Bank of America Merrill Lynch                  |
 | 756                   | Bancoob - Banco Cooperativo do Brasil (Sicoob) |
 | 757                   | BCO KEB HANA DO BRASIL S.A.                    |
-| 993                   | Alelo                                          |
-| 998                   | ENOPP                                          |
-| 999                   | Zoop Instituição de Pagamentos                 |
+| 595                   | Zoop Instituição de Pagamentos                 |
