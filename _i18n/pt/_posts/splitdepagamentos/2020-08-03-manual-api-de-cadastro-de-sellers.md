@@ -2153,6 +2153,7 @@ Caso ache necessário, o master pode permitir o acesso do seller ao backoffice d
 | 477                   | CITIBANK N.A.                                  |
 | 487                   | DEUTSCHE BANK S.A.BCO ALEMAO                   |
 | 542                   | Cloud Walk Meios de Pagamentos                 |
+| 595                   | Zoop Instituição de Pagamentos                 |
 | 600                   | Luso Brasileiro                                |
 | 604                   | Indl. do Brasil                                |
 | 611                   | Paulista                                       |
@@ -2178,4 +2179,3 @@ Caso ache necessário, o master pode permitir o acesso do seller ao backoffice d
 | 755                   | Bank of America Merrill Lynch                  |
 | 756                   | Bancoob - Banco Cooperativo do Brasil (Sicoob) |
 | 757                   | BCO KEB HANA DO BRASIL S.A.                    |
-| 595                   | Zoop Instituição de Pagamentos                 |
