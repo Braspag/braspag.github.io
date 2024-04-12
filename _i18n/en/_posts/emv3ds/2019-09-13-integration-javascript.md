@@ -260,6 +260,13 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 |**Device** |`bpmpi_device_#_fingerprint`|Id returned by Device Finger Print|Alphanumeric [without limitation]|No|
 |**Device** |`bpmpi_device_#_provider`|Device Finger Print Provider Name|Alphanumeric [up to 32 positions] cardinal<br>inauth<br>threatmetrix|No|
 |**Device**|`bpmpi_device_#_channel`| Channel from which the transaction came from. Possible values:<br>-Browser<br>-SDK<br>-3RI| Alphanumeric [up to 7 positions]|Yes|
+|**Recurrence**| `bpmpi_recurring_type` | Recurring payment type. | Number<br>1 - First transaction <br>2 - Subsequent transaction <br>3 - Modification <br>4-Cancellation|No|
+|**Recurrence**| `bpmpi_recurring_validationIndicator` |Indicates whether the recurring payment transaction was validated or not.| Number<br>0 - Not validated <br>1 - Validated|No|
+|**Recurrence**| `bpmpi_recurring_maximumAmount` |Maximum amount agreed by the cardholder.|numeric [up to 12 positions]|No|
+|**Recurrence**|`bpmpi_recurring_referenceNumber`|Unique reference number for the recurring payment transaction.|Alphanumeric [up to 35 positions]|No|
+|**Recurrence**| `bpmpi_recurring_occurrence`|Indicates how often a recurring payment occurs.|Number<br>01 - Daily<br>02 - Twice a week<br>03 - Weekly<br>04 - Every ten days<br>05 - Fortnightly <br>06- Monthly<br>07 - Bimonthly<br>08 - Every three months<br>09 - Every four months<br>10 - Every six months<br>11 - Annually <br>12 - Unscheduled.|No|
+|**Recurrence**|`bpmpi_recurring_numberOfPayments`|Total number of payments during the recurring subscription. |Number [up to 2 positions]|No|
+|**Recurrence**|`bpmpi_recurring_amountType`|Indicates the type of recurring amount agreed by the cardholder.| Supported values:<br>1 - Recurring payment of fixed value<br>2 - Recurring payment with maximum value.|No|
 |**Airline**|`bpmpi_airline_travelleg _ # _ carrier`|IATA code for the stretch|Alphanumeric [2 positions]|No|
 |**Airline**|`bpmpi_useraccount_createddate`|Indicates the date when the buyer account was created|Text<br>YYYY-MM-DD - Date Created|No|
 |**Airline**|`bpmpi_airline_travelleg_#_origin`|IATA code of origin airport|Alphanumeric [5 positions]|No|
