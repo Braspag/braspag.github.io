@@ -138,6 +138,48 @@ The JavaScript file must be saved on the server where the store application is l
 |ReturnCode|Authentication Request Return Code|Alphanumeric [up to 5 positions]|
 |ReturnMessage|Authentication Request Return Message|Alphanumeric [variable]|
 
+### Examples for script output
+
+**Example for event `OnSuccess`**
+
+```json
+{
+  Cavv: 'Y2FyZGluYWxjb21tZXJjZWF1dGg=',
+  Xid: null,
+  Eci: '01',
+  Version: '2',
+  ReferenceId: '973cf83d-b378-43d5-84b6-ce1531475f2a'
+}
+```
+
+**Example for event `OnFailure`**
+
+```json
+{
+  Xid: null,
+  Eci: null,
+  ReturnCode: '231',
+  ReturnMessage: 'Unexpected error ocurred',
+  ReferenceId: null
+}
+```
+
+**Example when card brand is not supported for authentication**
+
+When tha card brand is not supported for 3DS, the MPI returns the code "MPI600" and the message *"Brand not supported for authentication".*
+
+```json
+{
+  Xid: null,
+  Eci: null,
+  ReturnCode: 'MPI600',
+  ReturnMessage: 'Brand not supported for authentication',
+  ReferenceId: null
+}
+```
+
+Please refer to the full list of [ReturnCodes](https://braspag.github.io//en/manualp/integration-javascript#annex){:target="_blank"} for more information. 
+
 # Step 3 - Class Mapping
 
 The solution provides dozens of classes that must be mapped in your HTML code.
