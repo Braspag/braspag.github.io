@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-04-12T18:15:19+00:00</updated>
+    <updated>2024-04-12T18:31:16+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5533,6 +5533,69 @@ For more details on implementation, please visit: &lt;a href=&quot;https://brasp
       &lt;td&gt;Channel from which the transaction came from. Possible values:&lt;br /&gt;-Browser&lt;br /&gt;-SDK&lt;br /&gt;-3RI&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 7 positions]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Recurring payment type.&lt;/td&gt;
+      &lt;td&gt;Number&lt;br /&gt;1 - First transaction &lt;br /&gt;2 - Subsequent transaction &lt;br /&gt;3 - Modification &lt;br /&gt;4-Cancellation&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_validationIndicator&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates whether the recurring payment transaction was validated or not.&lt;/td&gt;
+      &lt;td&gt;Number&lt;br /&gt;0 - Not validated &lt;br /&gt;1 - Validated&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_maximumAmount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Maximum amount agreed by the cardholder.&lt;/td&gt;
+      &lt;td&gt;numeric [up to 12 positions]&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_referenceNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Unique reference number for the recurring payment transaction.&lt;/td&gt;
+      &lt;td&gt;Alphanumeric [up to 35 positions]&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_occurrence&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates how often a recurring payment occurs.&lt;/td&gt;
+      &lt;td&gt;Number&lt;br /&gt;01 - Daily&lt;br /&gt;02 - Twice a week&lt;br /&gt;03 - Weekly&lt;br /&gt;04 - Every ten days&lt;br /&gt;05 - Fortnightly &lt;br /&gt;06- Monthly&lt;br /&gt;07 - Bimonthly&lt;br /&gt;08 - Every three months&lt;br /&gt;09 - Every four months&lt;br /&gt;10 - Every six months&lt;br /&gt;11 - Annually &lt;br /&gt;12 - Unscheduled.&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_numberOfPayments&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Total number of payments during the recurring subscription.&lt;/td&gt;
+      &lt;td&gt;Number [up to 2 positions]&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_recurring_amountType&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the type of recurring amount agreed by the cardholder.&lt;/td&gt;
+      &lt;td&gt;Supported values:&lt;br /&gt;1 - Recurring payment of fixed value&lt;br /&gt;2 - Recurring payment with maximum value.&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
