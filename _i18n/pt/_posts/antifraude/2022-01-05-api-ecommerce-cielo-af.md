@@ -16,7 +16,7 @@ language_tabs:
 
 # Visão geral - API E-commerce Cielo com Antifraude Braspag
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API E-commerce Cielo** com a funcionalidade Antifraude Braspag. Para que o Antifraude funcione em conjunto com a API E-Commerce, é necessária a contratação através do telefone 3003-6554 ou [Site da Braspag](https://www.braspag.com.br/contato/){:target="_blank"}.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API E-commerce Cielo** com a funcionalidade **Antifraude Braspag**. Para que o Antifraude funcione em conjunto com a API E-Commerce, é necessária a contratação através do telefone 3003-6554 ou [Site da Braspag](https://www.braspag.com.br/contato/){:target="_blank"}.
 
 |                 | SandBox                                             | Produção                                      |
 |:----------------|:---------------------------------------------------:|:---------------------------------------------:|
