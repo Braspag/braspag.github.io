@@ -457,7 +457,7 @@ O cancelamento de transações via API permite o cancelamento total ou parcial d
 ## Regras para cancelamento
 
 * **Se o pedido de cancelamento for realizado e aprovado até às 18h30**, o prazo para retorno da confirmação do cancelamento é de *dois dias*;
-* **Se o pedido de cancelamento for realizado e aprovado após às 18h30**, o prazo para retorno da confirmação do cancelamento é *dois dias*;
+* **Se o pedido de cancelamento for realizado e aprovado após às 18h30**, o prazo para retorno da confirmação do cancelamento é de *dois dias*;
 * Se a transação já tiver um **pedido de cancelamento em processamento**, **não será possível pedir um novo cancelamento** para a mesma transação;
 * Se uma transação foi **cancelada parcialmente**, **é possível pedir um novo cancelamento** referente ao valor remanescente;
 * É permitido pedir o cancelamento de uma transação **até 330 dias após a data de captura**.
