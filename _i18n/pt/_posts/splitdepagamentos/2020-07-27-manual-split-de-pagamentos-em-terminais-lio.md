@@ -464,7 +464,7 @@ O cancelamento de transações via API permite o cancelamento total ou parcial d
 
 ## Como saber se o pedido de cancelamento foi aprovado?
 
-É possível consultar o status do cancelamento pela API ou pelo backoffice Split.
+É possível consultar o status do cancelamento pela API em [Consulta do Status do Cancelamento](https://braspag.github.io//manual/manual-split-de-pagamentos-em-terminais-lio#consulta-do-status-do-cancelamento) ou pelo backoffice Split.
 
 ## Cancelar valor total
 
@@ -672,7 +672,7 @@ Consulta o status do pedido de cancelamento parcial ou total.
 
 ### Requisição
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{splitApiUrl}}/transactions/{{TransactionId}}/voids/{{voidId}}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{splitApiUrl}/transactions/{TransactionId}/voids/{voidId}</span></aside>
 
 **Cabeçalho**
 
