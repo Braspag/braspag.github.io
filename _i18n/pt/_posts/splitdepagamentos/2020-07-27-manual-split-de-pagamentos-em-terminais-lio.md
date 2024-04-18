@@ -21,7 +21,7 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 # Configuração
 
-Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (Subadquirência) pelo qual serão realizadas as transações.
+Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (subadquirência) pelo qual serão realizadas as transações.
 
 Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um seller.
 
@@ -76,9 +76,9 @@ grant_type=client_credentials
 }
 ```
 
-> O MerchantId é o identificador dentro do Split, conhecido como MerchantId. O ClientSecret deve ser obtido junto ao Split.
+> O `MerchantId` é o identificador dentro do Split, conhecido como `MerchantId`. O `ClientSecret` deve ser obtido junto ao Split.
 
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar. 
+O token retornado (`access_token`) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar. 
 
 # Integração
 
@@ -450,10 +450,285 @@ Este tipo de consulta é indicado para buscar as informações de **transações
 
 *Tamanho máximo.
 
-# Cancelamento
+# Cancelamento de transações
 
-Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.
+O cancelamento de transações via API permite o cancelamento total ou parcial das transações de mundo físico no Split.
+
+## Regras para cancelamento
+
+* **Se o pedido de cancelamento for realizado e aprovado até às 18h30**, o prazo para retorno da confirmação do cancelamento é de *dois dias*;
+* **Se o pedido de cancelamento for realizado e aprovado após às 18h30**, o prazo para retorno da confirmação do cancelamento é *dois dias*;
+* Se a transação já tiver um **pedido de cancelamento em processamento**, **não será possível pedir um novo cancelamento** para a mesma transação;
+* Se uma transação foi **cancelada parcialmente**, **é possível pedir um novo cancelamento** referente ao valor remanescente;
+* É permitido pedir o cancelamento de uma transação **até 330 dias após a data de captura**.
+
+## Como saber se o pedido de cancelamento foi aprovado?
+
+É possível consultar o status do cancelamento pela API ou pelo backoffice Split.
+
+## Cancelar valor total
+
+Cancela o valor total da transação.
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApiUrl}/transactions/{PaymentId}/void</span></aside>
+
+**Cabeçalho**
+
+|Key|Value|
+|---|---|
+|Authorization|Bearer {token}|
+
+**Path**
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `PaymentId` | GUID | 36 | Sim | Campo identificador do pedido. |
+
+### Resposta
+
+```json
+{
+    "Id": "c838ac6a-249a-4d69-bb7d-5b85075e8e61",
+    "StatusId": 3,
+    "StatusDescription": "Undefined",
+    "Amount": 20000,
+    "VoidedSplitPayments": [
+        {
+            "SubordinateMerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+            "VoidedAmount": 20000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+                    "VoidedAmount": 19690
+                },
+                {
+                    "MerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
+                    "VoidedAmount": 310
+                }
+            ]
+        }
+    ],
+    "Date": "2023-04-04"
+}
+```
+
+| Campo | Descrição  | Tipo | Formato |
+|---------|---------|---------|---------|
+| `Id` | Identificador do cancelamento. | GUID | "c838ac6a-249a-4d69-bb7d-5b85075e8e61"
+| `StatusId` |  Status do cancelamento. Valores possíveis:<br> 1 = Successful <br> 2 = Unsuccessful <br> 3 = Undefined <br> 4 = Pending <br> 6 = Reversed|  int | 3|
+| `StatusDescription` | Descrição do status do cancelamento (Succesful, Unsuccessful, Undefined, Pending ou Reversed).| String | "Undefined"|
+| `Amount` | Valor a ser cancelado, em centavos.| long| 20000 |
+| `VoidedSplitPayments` | Detalhes do pagamento a ser cancelado, como está divido os valores. |  Lista de objetos | - |
+| `VoidedSplitPayments.SubordinateMerchantId` | `MerchantId` (identificador) do seller | GUID| "768d0acf-9502-4411-9ec0-c5413c671771"|
+| `VoidedSplitPayments.VoidedAmount` | Valor total cancelado, em centavos. | long| 20000*|
+| `VoidedSplitPayments.VoidedSplits` | A divisão do pagamento dos valores cancelados  | Lista de objetos | -|
+| `VoidedSplitPayments.VoidedSplits.MerchantId` | `MerchantId` (identificador) do seller ou do master.  | GUID | "768d0acf-9502-4411-9ec0-c5413c671771"|
+| `VoidedSplitPayments.VoidedSplits.VoidedAmount` | Valor que irá receber do cancelamento, em centavos. | Sim | long | 20000|
+| `Date` | Data do cancelamento. | DateTime | "2023-04-04"|
+
+## Cancelar valor parcial
+
+Cancela valor parcial da transação.
+
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada seller deve ser igual ao valor do cancelamento parcial.
+
+> **Atenção**: Não é obrigatório informar todos os sellers no cancelamento parcial. Você pode informar apenas os sellers para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação. Por isso, a resposta irá apresentar mais de um `SubordinateMerchantId`.
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApiUrl}/transactions/{PaymentId}/void?amount={amount*}</span></aside>
+
+**Cabeçalho**
+
+|Key|Value|
+|---|---|
+|Authorization|Bearer {token}|
+
+**Query string**
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `PaymentId` | GUID | 36 | Sim | Campo identificador do pedido. |
+| `amount` | int | - | Sim | Total ou parte do valor destinado ao seller a ser cancelado, em centavos.|
+
+**Exemplo de transação com valor total de R$ 100,00 e dois participantes**:
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApiUrl}/transactions/{PaymentId}/void?amount=10000</span></aside>
+
+```json
+[
+    {
+        "SubordinateMerchantId": "{{GUID-MerchantIdA}}",
+        "VoidedAmount": 8000
+    },
+    {
+        "SubordinateMerchantId": "{{GUID-MerchantIdB}}",
+        "VoidedAmount": 2000
+    }
+]
+```
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `SubordinateMerchantId` | GUID | 36 | Sim | MerchantId (Identificador) do Seller. |
+| `VoidedAmount` | int | - | Sim | Valor que irá receber do cancelamento.|
+
+### Resposta
+
+```json
+{
+    "Id": "cc7a0260-6a11-4787-a7f8-a5fd3a37c52c",
+    "StatusId": 3,
+    "StatusDescription": "Undefined",
+    "Amount": 20000,
+    "VoidedSplitPayments": [
+        {
+            "SubordinateMerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+            "VoidedAmount": 10000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+                    "VoidedAmount": 9840
+                },
+                {
+                    "MerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
+                    "VoidedAmount": 160
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "d436ad59-6be9-4146-a757-35b97659bedc",
+            "VoidedAmount": 10000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "d436ad59-6be9-4146-a757-35b97659bedc",
+                    "VoidedAmount": 9775
+                },
+                {
+                    "MerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
+                    "VoidedAmount": 225
+                }
+            ]
+        }
+    ],
+    "Date": "2023-04-04"
+}
+```
+
+| Campo | Descrição  | Obrigatório | Tipo | Exemplo |
+|---------|---------|---------|---------|---------|
+| `Id` | Identificador do cancelamento. | Sim | GUID | "c838ac6a-249a-4d69-bb7d-5b85075e8e61"|
+| `StatusId` |  Status do cancelamento. Valores possíveis:<br> 1 = Successful <br> 2 = Unsuccessful <br> 3 = Undefined <br> 4 = Pending <br> 6 = Reversed| Sim | int | 3|
+| `StatusDescription` | Descrição do status do cancelamento (Succesful, Unsuccessful, Undefined, Pending ou Reversed).| Sim | string | "Undefined"|
+| `Amount` | Valor a ser cancelado, em centavos. | Sim | long| 20000*|
+| `VoidedSplitPayments` | Detalhes do pagamento a ser cancelado, como está divido os valores. | Sim | Lista de Objetos | -|
+| `VoidedSplitPayments.SubordinateMerchantId` | MerchantId (Identificador) do Seller. | Sim | GUID| "768d0acf-9502-4411-9ec0-c5413c671771"|
+| `VoidedSplitPayments.VoidedAmount` | Valor total cancelado, em centavos. | Sim | long| 20000*|
+| `VoidedSplitPayments.VoidedSplits` | A divisão do pagamento dos valores cancelados.  | Sim | Lista de objetos | -|
+| `VoidedSplitPayments.VoidedSplits.MerchantId` | MerchantId (Identificador) do Seller ou do Master  | Sim | GUID | "768d0acf-9502-4411-9ec0-c5413c671771"|
+| `VoidedSplitPayments.VoidedSplits.VoidedAmount` | Valor que irá receber do cancelamento. | Sim | Long | 20000*|
+| `Date` | Data do cancelamento | Sim | DateTime | "2023-04-04"|
+
+## Erros possíveis
+
+O padrão da resposta de erro será o retorno do status code mais o retorno da mensageria, como o exemplo a seguir:
+
+```json
+{
+    "Errors": [
+        {
+            "Message": "Mensagem de erro."
+        }
+    ]
+}
+```
+
+|StatusCode| Descrição|
+|--|--|
+| 201 | Cancelamento solicitado com sucesso  |
+| 400 | Erro em validação. |  
+| 500| Exceção Interna. Falha.|
+
+A seguir listamos algumas mensagens de erro possíveis:
+
+| `Message` (mensagem) | Detalhamento do erro|  
+|--|--|
+| *The sum of subordinate voids amount is different to void provided amount* | O valor de cancelamento enviado para cada participante não está de acordo com o cancelamento solicitado. |
+|  *Master can only void POS transactions*| O master não pode cancelar transação de e-commerce. |
+|*Cannot schedule already existing void if void status is different than Successful*| Uma transação não pode ter múltiplos cancelamentos com status não finalizado para a mesma transação. Aguarde o cancelamento ser finalizado para solicitar novo cancelamento. |
+| *Transaction not available to void. Try again tomorrow* | Não é permitido iniciar mais de um cancelamento parcial para a transação no mesmo dia.|
+|*Merchant {{merchantId}} does not have balance to void.*| Caso algum participante não tenha agenda futura não será possível cancelar a venda.|
+|*Full Transaction Void with Transaction ID {{transactionId}}already exists in Split.* | Transação já foi submetida ao cancelamento total.|
+| *Partial Transaction Void with Transaction ID {{transactionId}} exceeds total transaction amount in Split* | O valor solicitado no cancelamento parcial excede o valor total|
+|*Transaction Void with Transaction ID {{transactionId}} already exists in Split with Undefined Status to void. Please, wait for the Void to process.* | O cancelamento está com status não finalizado. Aguarde o processamento para confirmar o status do cancelamento.|
+|*VoidIsNotPossibleContactSupport* | O cancelamento não foi permitido. Tente novamente ou entre em contato com o Suporte.|
+|*POS Refund error* | Erro de comunicação. Tente novamente |
+
+## Consulta do status do cancelamento
+
+Consulta o status do pedido de cancelamento parcial ou total.
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{splitApiUrl}}/transactions/{{TransactionId}}/voids/{{voidId}}</span></aside>
+
+**Cabeçalho**
+
+|Key|Value|
+|---|---|
+|Authorization|Bearer {token}|
+
+**Path**
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `voidId` | GUID | 36 | Sim | Identificador do cancelamento. É o `Id` retornado na resposta das requisições de cancelamento total ou parcial. |
+
+### Resposta
+
+```json
+{
+    "Id": "c838ac6a-249a-4d69-bb7d-5b85075e8e61",
+    "StatusId": 3,
+    "StatusDescription": "Undefined",
+    "Amount": 20000,
+    "VoidedSplitPayments": [
+        {
+            "SubordinateMerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+            "VoidedAmount": 20000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+                    "VoidedAmount": 19690
+                },
+                {
+                    "MerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
+                    "VoidedAmount": 310
+                }
+            ]
+        }
+    ],
+}
+```
+
+| Campo | Descrição  | Obrigatório | Tipo | Exemplo |
+|---------|---------|---------|---------|---------|
+| `Id` | Identificador do cancelamento | Sim | Guid | "c838ac6a-249a-4d69-bb7d-5b85075e8e61"
+| `StatusId` |  Status do cancelamento | Sim | Int | 3|
+| `StatusDescription` | Descrição do status do cancelamento | Sim | String | "Undefined"|
+| `Amount` | Valor a ser cancelado* | Sim | Long| 20000*|
+| `VoidedSplitPayments` | Detalhes do pagamento a ser cancelado, como está divido os valores | Sim | Lista de Objetos | -----------------------|
+| `VoidedSplitPayments.SubordinateMerchantId` | MerchantId (Identificador) do Subordinado | Sim | Guid| "768d0acf-9502-4411-9ec0-c5413c671771"
+| `VoidedSplitPayments.VoidedAmount` | Valor total cancelado | Sim | Long| 20000*|
+| `VoidedSplitPayments.VoidedSplits` | A divisão do pagamento dos valores cancelados  | Sim | Lista de objetos | -----------------------|
+| `VoidedSplitPayments.VoidedSplits.MerchantId` | MerchantId (Identificador) do Subordinado ou do Master  | Sim | Guid | "768d0acf-9502-4411-9ec0-c5413c671771"|
+| `VoidedSplitPayments.VoidedSplits.VoidedAmount` | Valor que irá receber do cancelamento | Sim | Long | 20000*|
+| `Date` | Data do cancelamento | Sim | DateTime | "2023-04-04"|
+
+*Valor considerando os centavos.
 
 # Agenda Financeira
 
-Utilize as informações publicadas em [Split de Pagamentos - Conciliação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao){:target="_blank"} para consultar a agenda e as unidades de recebíveis.
+Consulte as informações publicadas em [Split de Pagamentos - Conciliação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao){:target="_blank"} para consultar a agenda e as unidades de recebíveis.
