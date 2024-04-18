@@ -124,7 +124,7 @@
 
 <h1 id="configuração">Configuração</h1>
 
-<p>Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (Subadquirência) pelo qual serão realizadas as transações.</p>
+<p>Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (subadquirência) pelo qual serão realizadas as transações.</p>
 
 <p>Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um seller.</p>
 
@@ -216,10 +216,10 @@
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>O MerchantId é o identificador dentro do Split, conhecido como MerchantId. O ClientSecret deve ser obtido junto ao Split.</p>
+  <p>O <code class="language-plaintext highlighter-rouge">MerchantId</code> é o identificador dentro do Split, conhecido como <code class="language-plaintext highlighter-rouge">MerchantId</code>. O <code class="language-plaintext highlighter-rouge">ClientSecret</code> deve ser obtido junto ao Split.</p>
 </blockquote>
 
-<p>O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
+<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
 
 <h1 id="integração">Integração</h1>
 
@@ -847,13 +847,686 @@
 
 <p>*Tamanho máximo.</p>
 
-<h1 id="cancelamento">Cancelamento</h1>
+<h1 id="cancelamento-de-transações">Cancelamento de transações</h1>
 
-<p>Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.</p>
+<p>O cancelamento de transações via API permite o cancelamento total ou parcial das transações de mundo físico no Split.</p>
+
+<h2 id="regras-para-cancelamento">Regras para cancelamento</h2>
+
+<ul>
+  <li><strong>Se o pedido de cancelamento for realizado e aprovado até às 18h30</strong>, o prazo para retorno da confirmação do cancelamento é de <em>dois dias</em>;</li>
+  <li><strong>Se o pedido de cancelamento for realizado e aprovado após às 18h30</strong>, o prazo para retorno da confirmação do cancelamento é <em>dois dias</em>;</li>
+  <li>Se a transação já tiver um <strong>pedido de cancelamento em processamento</strong>, <strong>não será possível pedir um novo cancelamento</strong> para a mesma transação;</li>
+  <li>Se uma transação foi <strong>cancelada parcialmente</strong>, <strong>é possível pedir um novo cancelamento</strong> referente ao valor remanescente;</li>
+  <li>É permitido pedir o cancelamento de uma transação <strong>até 330 dias após a data de captura</strong>.</li>
+</ul>
+
+<h2 id="como-saber-se-o-pedido-de-cancelamento-foi-aprovado">Como saber se o pedido de cancelamento foi aprovado?</h2>
+
+<p>É possível consultar o status do cancelamento pela API ou pelo backoffice Split.</p>
+
+<h2 id="cancelar-valor-total">Cancelar valor total</h2>
+
+<p>Cancela o valor total da transação.</p>
+
+<h3 id="requisição-5">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApiUrl}/transactions/{PaymentId}/void</span></aside>
+
+<p><strong>Cabeçalho</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td>Bearer {token}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Path</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Campo identificador do pedido.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-5">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c838ac6a-249a-4d69-bb7d-5b85075e8e61"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"VoidedSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">19690</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">310</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-04-04"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>Identificador do cancelamento.</td>
+      <td>GUID</td>
+      <td>“c838ac6a-249a-4d69-bb7d-5b85075e8e61”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StatusId</code></td>
+      <td>Status do cancelamento. Valores possíveis:<br /> 1 = Successful <br /> 2 = Unsuccessful <br /> 3 = Undefined <br /> 4 = Pending <br /> 6 = Reversed</td>
+      <td>int</td>
+      <td>3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StatusDescription</code></td>
+      <td>Descrição do status do cancelamento (Succesful, Unsuccessful, Undefined, Pending ou Reversed).</td>
+      <td>String</td>
+      <td>“Undefined”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor a ser cancelado, em centavos.</td>
+      <td>long</td>
+      <td>20000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments</code></td>
+      <td>Detalhes do pagamento a ser cancelado, como está divido os valores.</td>
+      <td>Lista de objetos</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> (identificador) do seller</td>
+      <td>GUID</td>
+      <td>“768d0acf-9502-4411-9ec0-c5413c671771”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedAmount</code></td>
+      <td>Valor total cancelado, em centavos.</td>
+      <td>long</td>
+      <td>20000*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits</code></td>
+      <td>A divisão do pagamento dos valores cancelados</td>
+      <td>Lista de objetos</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits.MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> (identificador) do seller ou do master.</td>
+      <td>GUID</td>
+      <td>“768d0acf-9502-4411-9ec0-c5413c671771”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits.VoidedAmount</code></td>
+      <td>Valor que irá receber do cancelamento, em centavos.</td>
+      <td>Sim</td>
+      <td>long</td>
+      <td>20000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Date</code></td>
+      <td>Data do cancelamento.</td>
+      <td>DateTime</td>
+      <td>“2023-04-04”</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cancelar-valor-parcial">Cancelar valor parcial</h2>
+
+<p>Cancela valor parcial da transação.</p>
+
+<p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada seller deve ser igual ao valor do cancelamento parcial.</p>
+
+<blockquote>
+  <p><strong>Atenção</strong>: Não é obrigatório informar todos os sellers no cancelamento parcial. Você pode informar apenas os sellers para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação. Por isso, a resposta irá apresentar mais de um <code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code>.</p>
+</blockquote>
+
+<h3 id="requisição-6">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApiUrl}/transactions/{PaymentId}/void?amount={amount*}</span></aside>
+
+<p><strong>Cabeçalho</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td>Bearer {token}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Query string</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Campo identificador do pedido.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Total ou parte do valor destinado ao seller a ser cancelado, em centavos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo de transação com valor total de R$ 100,00 e dois participantes</strong>:</p>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApiUrl}/transactions/{PaymentId}/void?amount=10000</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>MerchantId (Identificador) do Seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedAmount</code></td>
+      <td>int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Valor que irá receber do cancelamento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-6">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cc7a0260-6a11-4787-a7f8-a5fd3a37c52c"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"VoidedSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9840</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d436ad59-6be9-4146-a757-35b97659bedc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d436ad59-6be9-4146-a757-35b97659bedc"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9775</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-04-04"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+      <th>Tipo</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>Identificador do cancelamento.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>“c838ac6a-249a-4d69-bb7d-5b85075e8e61”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StatusId</code></td>
+      <td>Status do cancelamento. Valores possíveis:<br /> 1 = Successful <br /> 2 = Unsuccessful <br /> 3 = Undefined <br /> 4 = Pending <br /> 6 = Reversed</td>
+      <td>Sim</td>
+      <td>int</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StatusDescription</code></td>
+      <td>Descrição do status do cancelamento (Succesful, Unsuccessful, Undefined, Pending ou Reversed).</td>
+      <td>Sim</td>
+      <td>string</td>
+      <td>“Undefined”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor a ser cancelado, em centavos.</td>
+      <td>Sim</td>
+      <td>long</td>
+      <td>20000*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments</code></td>
+      <td>Detalhes do pagamento a ser cancelado, como está divido os valores.</td>
+      <td>Sim</td>
+      <td>Lista de Objetos</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.SubordinateMerchantId</code></td>
+      <td>MerchantId (Identificador) do Seller.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>“768d0acf-9502-4411-9ec0-c5413c671771”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedAmount</code></td>
+      <td>Valor total cancelado, em centavos.</td>
+      <td>Sim</td>
+      <td>long</td>
+      <td>20000*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits</code></td>
+      <td>A divisão do pagamento dos valores cancelados.</td>
+      <td>Sim</td>
+      <td>Lista de objetos</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits.MerchantId</code></td>
+      <td>MerchantId (Identificador) do Seller ou do Master</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>“768d0acf-9502-4411-9ec0-c5413c671771”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits.VoidedAmount</code></td>
+      <td>Valor que irá receber do cancelamento.</td>
+      <td>Sim</td>
+      <td>Long</td>
+      <td>20000*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Date</code></td>
+      <td>Data do cancelamento</td>
+      <td>Sim</td>
+      <td>DateTime</td>
+      <td>“2023-04-04”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="erros-possíveis">Erros possíveis</h2>
+
+<p>O padrão da resposta de erro será o retorno do status code mais o retorno da mensageria, como o exemplo a seguir:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mensagem de erro."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>StatusCode</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>201</td>
+      <td>Cancelamento solicitado com sucesso</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Erro em validação.</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Exceção Interna. Falha.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A seguir listamos algumas mensagens de erro possíveis:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">Message</code> (mensagem)</th>
+      <th>Detalhamento do erro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>The sum of subordinate voids amount is different to void provided amount</em></td>
+      <td>O valor de cancelamento enviado para cada participante não está de acordo com o cancelamento solicitado.</td>
+    </tr>
+    <tr>
+      <td><em>Master can only void POS transactions</em></td>
+      <td>O master não pode cancelar transação de e-commerce.</td>
+    </tr>
+    <tr>
+      <td><em>Cannot schedule already existing void if void status is different than Successful</em></td>
+      <td>Uma transação não pode ter múltiplos cancelamentos com status não finalizado para a mesma transação. Aguarde o cancelamento ser finalizado para solicitar novo cancelamento.</td>
+    </tr>
+    <tr>
+      <td><em>Transaction not available to void. Try again tomorrow</em></td>
+      <td>Não é permitido iniciar mais de um cancelamento parcial para a transação no mesmo dia.</td>
+    </tr>
+    <tr>
+      <td><em>Merchant  does not have balance to void.</em></td>
+      <td>Caso algum participante não tenha agenda futura não será possível cancelar a venda.</td>
+    </tr>
+    <tr>
+      <td><em>Full Transaction Void with Transaction ID already exists in Split.</em></td>
+      <td>Transação já foi submetida ao cancelamento total.</td>
+    </tr>
+    <tr>
+      <td><em>Partial Transaction Void with Transaction ID  exceeds total transaction amount in Split</em></td>
+      <td>O valor solicitado no cancelamento parcial excede o valor total</td>
+    </tr>
+    <tr>
+      <td><em>Transaction Void with Transaction ID  already exists in Split with Undefined Status to void. Please, wait for the Void to process.</em></td>
+      <td>O cancelamento está com status não finalizado. Aguarde o processamento para confirmar o status do cancelamento.</td>
+    </tr>
+    <tr>
+      <td><em>VoidIsNotPossibleContactSupport</em></td>
+      <td>O cancelamento não foi permitido. Tente novamente ou entre em contato com o Suporte.</td>
+    </tr>
+    <tr>
+      <td><em>POS Refund error</em></td>
+      <td>Erro de comunicação. Tente novamente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="consulta-do-status-do-cancelamento">Consulta do status do cancelamento</h2>
+
+<p>Consulta o status do pedido de cancelamento parcial ou total.</p>
+
+<h3 id="requisição-7">Requisição</h3>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{splitApiUrl}}/transactions//voids/</span></aside>
+
+<p><strong>Cabeçalho</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td>Bearer {token}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Path</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">voidId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador do cancelamento. É o <code class="language-plaintext highlighter-rouge">Id</code> retornado na resposta das requisições de cancelamento total ou parcial.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-7">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c838ac6a-249a-4d69-bb7d-5b85075e8e61"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"VoidedSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">19690</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">310</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+      <th>Tipo</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>Identificador do cancelamento</td>
+      <td>Sim</td>
+      <td>Guid</td>
+      <td>“c838ac6a-249a-4d69-bb7d-5b85075e8e61”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StatusId</code></td>
+      <td>Status do cancelamento</td>
+      <td>Sim</td>
+      <td>Int</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StatusDescription</code></td>
+      <td>Descrição do status do cancelamento</td>
+      <td>Sim</td>
+      <td>String</td>
+      <td>“Undefined”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor a ser cancelado*</td>
+      <td>Sim</td>
+      <td>Long</td>
+      <td>20000*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments</code></td>
+      <td>Detalhes do pagamento a ser cancelado, como está divido os valores</td>
+      <td>Sim</td>
+      <td>Lista de Objetos</td>
+      <td>———————–</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.SubordinateMerchantId</code></td>
+      <td>MerchantId (Identificador) do Subordinado</td>
+      <td>Sim</td>
+      <td>Guid</td>
+      <td>“768d0acf-9502-4411-9ec0-c5413c671771”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedAmount</code></td>
+      <td>Valor total cancelado</td>
+      <td>Sim</td>
+      <td>Long</td>
+      <td>20000*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits</code></td>
+      <td>A divisão do pagamento dos valores cancelados</td>
+      <td>Sim</td>
+      <td>Lista de objetos</td>
+      <td>———————–</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits.MerchantId</code></td>
+      <td>MerchantId (Identificador) do Subordinado ou do Master</td>
+      <td>Sim</td>
+      <td>Guid</td>
+      <td>“768d0acf-9502-4411-9ec0-c5413c671771”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidedSplitPayments.VoidedSplits.VoidedAmount</code></td>
+      <td>Valor que irá receber do cancelamento</td>
+      <td>Sim</td>
+      <td>Long</td>
+      <td>20000*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Date</code></td>
+      <td>Data do cancelamento</td>
+      <td>Sim</td>
+      <td>DateTime</td>
+      <td>“2023-04-04”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Valor considerando os centavos.</p>
 
 <h1 id="agenda-financeira">Agenda Financeira</h1>
 
-<p>Utilize as informações publicadas em <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao" target="_blank">Split de Pagamentos - Conciliação</a> para consultar a agenda e as unidades de recebíveis.</p>
+<p>Consulte as informações publicadas em <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao" target="_blank">Split de Pagamentos - Conciliação</a> para consultar a agenda e as unidades de recebíveis.</p>
 
 </div>
 
