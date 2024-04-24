@@ -1480,8 +1480,6 @@ In case of a Velocity rule rejection, *ProviderReasonCode* will be "BP 171 - Rej
 |`VelocityAnalysis.Id`|Identification of the analysis performed.|GUID|36|
 |`VelocityAnalysis.ResultMessage`|Analysis result ("Accept" / "Reject").|Text|25|
 |`VelocityAnalysis.Score`|Number of points given to the operation. E.g.: 100.|Number|10|
-|`VelocityAnalysis.RejectReasons.RuleId`|Rejection rule code.|Number|10|
-|`VelocityAnalysis.RejectReasons.Message`|Description of the rejection rule.|Text|512|
 
 ### Using DCC (Currency Converter)
 
