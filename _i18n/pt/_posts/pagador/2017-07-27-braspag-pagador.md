@@ -1486,8 +1486,6 @@ No caso da rejeição pela regra de Velocity, o *ProviderReasonCode* será "BP 1
 |`VelocityAnalysis.Id`|Identificador da análise efetuada.|GUID|36|
 |`VelocityAnalysis.ResultMessage`|Resultado da análise feita ("Accept" / "Reject").|texto|25|
 |`VelocityAnalysis.Score`|Número de pontos dado à operação. Ex.: 100.|número|10|
-|`VelocityAnalysis.RejectReasons.RuleId`|Código da regra que rejeitou.|número|10|
-|`VelocityAnalysis.RejectReasons.Message`|Descrição da regra que rejeitou.|texto|512|
 
 ### Utilizando o DCC (Conversor de Moedas)
 
