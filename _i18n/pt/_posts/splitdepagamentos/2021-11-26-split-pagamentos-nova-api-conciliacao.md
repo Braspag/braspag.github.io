@@ -537,6 +537,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 |42| ScheduleBalanceCredit|
 |43| ScheduleBalanceDebit|
 |44| CompensationBetweenDifferentArrangementsDebit|
+|45| DebitBalanceCompensationVoid|
+|46| DebitBalanceCompensationChargeback|
 
 ## Tipos de pagamento
 
