@@ -492,6 +492,8 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |41|CompensationBetweenSamePaymentArrangementDebit|Evento de débito para balanceamento de saldo dentro do mesmo arranjo de pagamento.|
 |42|ScheduleBalanceCredit|Evento de crédito para balanceamento de saldo dentro do mesmo arranjo de pagamento e estabelecimentos de mesmo CNPJ/CPF.|
 |43|ScheduleBalanceDebit|Evento de débito para balanceamento de saldo dentro do mesmo arranjo de pagamento e estabelecimentos de mesmo CNPJ/CPF.|
+|45|DebitBalanceCompensationVoid| Evento de crédito devido a compensação de saldo devedor em agenda quando a cobrança do valor do cancelamento da transação já liquidada não pode ser feita nos casos em que a transação não conste na Unidade de Recebíveis ou seu negócio não tenha saldo disponível nela.|
+|46|DebitBalanceCompensationChargeback|Evento de crédito devido a compensação de saldo devedor em agenda quando a cobrança do valor do chargeback efetivado não pode ser feita nos casos em que a transação não conste na Unidade de Recebíveis ou seu negócio não tenha saldo disponível nela.|
 
 ## Tabela VII - Ajustes Financeiros
 
