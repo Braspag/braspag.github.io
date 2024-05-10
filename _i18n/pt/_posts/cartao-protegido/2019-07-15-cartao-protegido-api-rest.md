@@ -15,7 +15,7 @@ language_tabs:
 
 # Cartão Protegido
 
-O **Cartão Protegido** é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança *PCI Security Standards Council*, que assegura que a Braspag siga plenamente os rígidos requisitos e normas determinadas pelo mesmo.
+O **Cartão Protegido** é uma plataforma que permite o **armazenamento seguro de cartões de crédito e débito**. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança *PCI Security Standards Council*, que assegura que a Braspag siga plenamente os rígidos requisitos e normas determinadas pelo mesmo.
 
 A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"}, também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
 
