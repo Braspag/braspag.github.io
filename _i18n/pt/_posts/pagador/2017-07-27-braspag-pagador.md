@@ -371,6 +371,8 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 
 ***Obrigatório caso não estejam pré configurados nos meios de pagamento do MerchantID utilizado.*
 
+> Se as suas transações forem uma chamada conjunta com o Antifraude, os tamanhos de campos podem ser diferentes. Consulte o tópico [Pagamentos com Análise de Fraude](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude).
+
 #### Resposta
 
 ```json
