@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-05-13T21:25:35+00:00</updated>
+    <updated>2024-05-13T21:35:58+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -11736,6 +11736,10 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If your transaction is undergoing fraud analysis, the property sizes may differ. Please refer to &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#payments-with-fraud-analysis&quot;&gt;Payments with Fraud Analysis&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
