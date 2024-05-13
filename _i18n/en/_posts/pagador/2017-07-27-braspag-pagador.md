@@ -303,6 +303,8 @@ Here are request and response examples on how to create a credit transaction:
 --verbose
 ```
 
+> If your transaction is undergoing fraud analysis, the property sizes may differ. Please refer to [Payments with Fraud Analysis](https://braspag.github.io//en/manual/braspag-pagador#payments-with-fraud-analysis).
+
 |Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
