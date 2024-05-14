@@ -5142,11 +5142,11 @@ Confira a seguir a chave pública Braspag/Cielo para importação de tokens:
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
-Comment: User-ID:	Infra Estrutura <infra.suporte@braspag.com.br>
-Comment: Created:	6/1/2016 3:50 PM
-Comment: Type:	2,048-bit RSA (secret key available)
-Comment: Usage:	Signing, Encryption, Certifying User-IDs
-Comment: Fingerprint:  79F726DE4826AA22D889C2A23EF692D49108FBCA
+Comment: User-ID: Infra Estrutura <infra.suporte@braspag.com.br>
+Comment: Created: 6/1/2016 3:50 PM
+Comment: Type: 2,048-bit RSA (secret key available)
+Comment: Usage: Signing, Encryption, Certifying User-IDs
+Comment: Fingerprint: 79F726DE4826AA22D889C2A23EF692D49108FBCA
 
 mQENBFdPLo0BCADTvdf6RVTu+FR9Wdh0KFEfMKT0/WWSoVHyqZ0yCw5vBLnu8U43
 ooEFQd3vaFB8jMEDLfbZOFeHUjk9KdRbvfmoJuidG+smIHvcBwOIwmKL0A46Yp1w
