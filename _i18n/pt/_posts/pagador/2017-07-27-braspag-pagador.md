@@ -5138,42 +5138,9 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 
 * **Importação de token de cartão**: é quando a loja deseja importar para o ambiente Braspag os tokens de cartão criados pela loja em outros serviços de tokenização. Para isso, a loja deverá listar os tokens de cartão dentro de um layout fornecido pela Braspag, preparar o ambiente SFTP, informar credenciais e usar a chave pública PGP Braspag/Cielo. Para informações detalhadas deste processo, consulte o suporte.
 
-Confira a seguir a chave pública Braspag/Cielo para importação de tokens:
-
------BEGIN PGP PUBLIC KEY BLOCK-----
-Comment: User-ID: Infra Estrutura <infra.suporte@braspag.com.br>
-Comment: Created: 6/1/2016 3:50 PM
-Comment: Type: 2,048-bit RSA (secret key available)
-Comment: Usage: Signing, Encryption, Certifying User-IDs
-Comment: Fingerprint: 79F726DE4826AA22D889C2A23EF692D49108FBCA
-
-mQENBFdPLo0BCADTvdf6RVTu+FR9Wdh0KFEfMKT0/WWSoVHyqZ0yCw5vBLnu8U43
-ooEFQd3vaFB8jMEDLfbZOFeHUjk9KdRbvfmoJuidG+smIHvcBwOIwmKL0A46Yp1w
-saDIMUWK8WQdmghoQDJr4Rfsl/lkS1fSVfVM7Mu4uiHS6+TiEIjkF2mSzvLUccgq
-chI63rEP7Tbdaa4IP6R618+o8Wyeq/Obm6ZVTtCbHdbtkJRbkvmfLbUvNbkkvhZJ
-fNBcsaK1UjwoHDpTicLF7c9B8mWaTMO+NMTSfQCuELpEaYJ939WXshHO8U4DOojn
-nbzWM154sTcOBTIiwI6LnYlg2zHgKLgMZkvBABEBAAG0LkluZnJhIEVzdHJ1dHVy
-YSA8aW5mcmEuc3Vwb3J0ZUBicmFzcGFnLmNvbS5icj6JATkEEwEIACMFAldPLo0C
-GwMHCwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRA+9pLUkQj7ys0FB/kB04px
-GFmmOHQDTmCnhZenjuIJeRz0CiCnltPqy9Iwuy2wZDctfBTOZ0c7oLADEgSnNE09
-kJH9YdTFVvi6iJavlzOCkWqVs7pLKgxFJ05QE5BGI3h5iIJDFPX4+bnrntH0Ae4j
-244zL9NWHEK6tzRYDYud5JeaBxNCgkrHf0PPGEZ3kKZBPXmcJO0xLgVpMc6hY40p
-NY/KRw7CBmhLsjGnJb3C113valX7Ut/STicfdz7cKWDBqVjFcUewkDDAB+QhvYPB
-LlRFDzmYSc5TOKhDPaz/OeQ/rCAFdkWNv4TOw6VhngS1bptZb/hxcVMrf0CWNQhp
-kHXRCkP28Xaxg9mYuQENBFdPLo0BCADEyPLelCOIMmoBRPkj4dYeH/JHnVHbUcT4
-H+aBwRYXpI8RALshW2C9rIffRyaTvz9qCApC0lQNQdfLvnWyuhj/RcgTVB6/+kno
-KHWK6r4ftXdDzwXdfjFM23rfIq4OlU8+gvdY6Mr74UuiXuI9hNxEyaXjw5vmbgdV
-Gcb5lHOgzzrt1zwKhu8znQJobTgUHovDxQ8Rz3Q3kfjeE6+fnpxYQ4NI93St5c5P
-BLsRBPpVs6M7aREHvkmX0Xj5GP/QVgX7k/0Cshz3pbc4z78RIx2dtOGhUzPFKIJq
-SVSexeorb2agT/9PBx8rbuoq3YGlDj1SFBMiJazinw3sGubUAN53ABEBAAGJAR8E
-GAEIAAkFAldPLo0CGwwACgkQPvaS1JEI+8r9mggAzS/ceU8sLDr1QUAHXRV8iL69
-Jo8Io4Jx6Q2PGJaVAx4to/UetkWUpVvuEYBtajh+RnonVk1+By7dx4GX0Kz90Fm8
-wCQtXMC6mVSXnAl17zWIfw6zS+s1x7Tv4fSdXPLdZYE0EZoGKpxboVH0FpdxW6kX
-0HZ+cjGBkHZhN7ZidYKdfP4PmTv50jJCQxPyQ7ZR+XXGTuelG+P/Y7EJJmVymu6F
-lxOLUh3DFk4mM5AdEvxglH9fN4j4W0r2jVt3TTvxDGzB3DcFPL5a75hxK4GJpLwM
-46sGNVcx+IJeLWadggFONy2tM8cfKZsDS0VlFq/BrJmdv/vDn9MkZxZH10faDQ==
-=LLpM
------END PGP PUBLIC KEY BLOCK-----
+Para que o processo de exportação e importação ocorra com segurança, usamos a criptografia PGP. 
+ 
+> Faça o [download da chave pública](https://braspag.github.io/attachment/chave-publica.txt){:target="_blank"} Braspag/Cielo para exportação e importação de tokens.
 
 # Pagamentos com Análise de Fraude
 
