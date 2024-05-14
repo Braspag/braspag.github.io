@@ -5140,7 +5140,7 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 
 Para que o processo de exportação e importação ocorra com segurança, usamos a criptografia PGP. 
  
-> Faça o [download da chave pública](https://braspag.github.io/attachment/chave-publica.txt){:target="_blank"} Braspag/Cielo para exportação e importação de tokens.
+> Faça o [download da chave pública](https://braspag.github.io/attachment/chave-publica.txt){:target="_blank"} Braspag/Cielo para importação de tokens.
 
 # Pagamentos com Análise de Fraude
 
