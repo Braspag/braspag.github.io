@@ -5130,7 +5130,6 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 
-
 ## Exportação e importação e de tokens
 
 É possível exportar os cartões tokenizados (`CardToken`) armazenados no cofre Braspag para uso em outros provedores de pagamento e também trazer para a Braspag os cartões tokenizados criados pela sua loja em outros serviços de tokenização.
@@ -5178,7 +5177,6 @@ lxOLUh3DFk4mM5AdEvxglH9fN4j4W0r2jVt3TTvxDGzB3DcFPL5a75hxK4GJpLwM
 =LLpM
 -----END PGP PUBLIC KEY BLOCK-----
 ```
-
 
 # Pagamentos com Análise de Fraude
 
