@@ -5140,7 +5140,6 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 
 Confira a seguir a chave pública Braspag/Cielo para importação de tokens:
 
-```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Comment: User-ID: Infra Estrutura <infra.suporte@braspag.com.br>
 Comment: Created: 6/1/2016 3:50 PM
@@ -5175,7 +5174,6 @@ lxOLUh3DFk4mM5AdEvxglH9fN4j4W0r2jVt3TTvxDGzB3DcFPL5a75hxK4GJpLwM
 46sGNVcx+IJeLWadggFONy2tM8cfKZsDS0VlFq/BrJmdv/vDn9MkZxZH10faDQ==
 =LLpM
 -----END PGP PUBLIC KEY BLOCK-----
-```
 
 # Pagamentos com Análise de Fraude
 
