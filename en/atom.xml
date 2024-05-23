@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-05-15T13:22:48+00:00</updated>
+    <updated>2024-05-23T13:40:32+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -19430,6 +19430,23 @@ To change the payment details, simply make a PUT call as shown in the example.&l
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h2 id=&quot;exporting-and-importing-card-tokens&quot;&gt;Exporting and importing card tokens&lt;/h2&gt;
+
+&lt;p&gt;You are able to export card tokens (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;) stored in Braspag vault to use in other payment providers and also to import card tokens created in any other tokenization service to Braspag.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Exporting a card token&lt;/strong&gt;: when the merchant exports their card tokens token to be used in other payment providers. The exporting process may be charged by Braspag, and there are other requirements such as signing a responsability agreement, inform the PCI DSS certificate for the token destination entity, prepare the SFTP environment, provide a public PGP key and inform the credentials. For further information about this process, plase refer to &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/19914071862811-Exporta%C3%A7%C3%A3o-de-tokens-do-Cart%C3%A3o-Protegido&quot; target=&quot;_blank&quot;&gt;Exportação de tokens do Cartão Protegido&lt;/a&gt; or contact Support;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Importing a card token&lt;/strong&gt;: when the merchant imports card tokens created in any other tokenization service to Braspag. In order to import a set of card tokens, the merchant must list every card token in a layout provided by Braspag, prepare the SFTP environment, inform the credentials and use the public Braspag/Cielo PGP key. For further information about this process, contact Support.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For security reasons, Braspag uses PGP encryption. &lt;a href=&quot;https://braspag.github.io/attachment/chave-publica.txt&quot; target=&quot;_blank&quot;&gt;Download the public key&lt;/a&gt; Braspag/Cielo for importing card tokens.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;payments-with-fraud-analysis&quot;&gt;Payments with Fraud Analysis&lt;/h1&gt;
 

@@ -8220,6 +8220,23 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
+<h2 id="exporting-and-importing-card-tokens">Exporting and importing card tokens</h2>
+
+<p>You are able to export card tokens (<code class="language-plaintext highlighter-rouge">CardToken</code>) stored in Braspag vault to use in other payment providers and also to import card tokens created in any other tokenization service to Braspag.</p>
+
+<ul>
+  <li>
+    <p><strong>Exporting a card token</strong>: when the merchant exports their card tokens token to be used in other payment providers. The exporting process may be charged by Braspag, and there are other requirements such as signing a responsability agreement, inform the PCI DSS certificate for the token destination entity, prepare the SFTP environment, provide a public PGP key and inform the credentials. For further information about this process, plase refer to <a href="https://suporte.braspag.com.br/hc/pt-br/articles/19914071862811-Exporta%C3%A7%C3%A3o-de-tokens-do-Cart%C3%A3o-Protegido" target="_blank">Exportação de tokens do Cartão Protegido</a> or contact Support;</p>
+  </li>
+  <li>
+    <p><strong>Importing a card token</strong>: when the merchant imports card tokens created in any other tokenization service to Braspag. In order to import a set of card tokens, the merchant must list every card token in a layout provided by Braspag, prepare the SFTP environment, inform the credentials and use the public Braspag/Cielo PGP key. For further information about this process, contact Support.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>For security reasons, Braspag uses PGP encryption. <a href="https://braspag.github.io/attachment/chave-publica.txt" target="_blank">Download the public key</a> Braspag/Cielo for importing card tokens.</p>
+</blockquote>
+
 <h1 id="payments-with-fraud-analysis">Payments with Fraud Analysis</h1>
 
 <p>You can verify whether a transaction is likely to be a fraud or not during an authorization. This verification can be triggered in different stages of the transaction, according to the rules defined by the client. The fraud analysis will have a different behavior for each type of integration, as described below :</p>
