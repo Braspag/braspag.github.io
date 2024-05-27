@@ -1852,7 +1852,7 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Customer.Identity` | Customer's CPF or CNPJ number. | Text | 14 | Yes |
 | `Customer.IdentityType` | Customer’s ID document type (CPF or CNPJ). | Text | 255 | Yes |
 | `Payment.Type` | Payment method type. In this case, "Pix". | Text | - | Yes |
-| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30", "Bradesco2" or "BancoDoBrasil3". | Text | - | Yes |
+| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30", "Bradesco2". | Text | - | Yes |
 | `Payment.Amount`| Order amount, in cents. | Number | 15 | Yes |
 | `Payment.QrCodeExpiration` | QR Code expiration time, in seconds. E.g.: 24 hours = 86400.<br>**Provider Cielo30**: QR Code expiration time is **two hours** and cannot be configured.<br>**Provider Bradesco2**: QR Code expiration time can be configured at Bradesco Shopfácil or in the authorization request through parameter `Payment.QrCodeExpiration`.<br>**Provider BancoDoBrasil3**: QR Code expiration time can be sent at the time of authorization via the `Payment.QrCodeExpiration` parameter.| Number | 3600 | No |
 
@@ -7202,7 +7202,7 @@ The following lists refer to providers for the REST API integration:
 
 |Provider|
 |--------|
-|Cielo30, Bradesco2, BancoDoBrasil3|
+|Cielo30, Bradesco2|
 
 ## Transaction Status List
 
@@ -7219,14 +7219,6 @@ List of statuses returned by the API:
 | 12     | Pending             | Credit and debit cards (electronic transfer), e-wallets and pix. | **Awaiting return from financial institution**. <br>Means that the transaction was sent to Cielo in the pre-authorization process, awaiting a response from the issuing bank to validate it.                                                                                                                                                                                        |
 | 13     | Aborted             | All                                                                    | **Payment canceled due to processing failure**.<br>Means that the transaction was canceled due to processing failure. It can also be aborted if Anti-Fraud denies the transaction before authorization.                                                                                                                                                                         |
 | 20     | Scheduled           |Credit card and e-wallets.                                           | **Scheduled recurrence**.<br>Means that the transaction will have a scheduled recurrence, that is, the purchase amount will be collected on the day it was scheduled by the store.                                                                                                                                                                                                                  |
-
-## Pix Banco do Brasil transaction status list
-
-|Code |Status | Description |
-|---|---|---|
-|06 | Settled |Shopper paid via barcode, the amount has already been cleared and credited to the beneficiary - effective settlement.|
-|14 | Title in settlement | Shopper paid via QR Code Pix - can be considered effective settlement.|
-|15 | Scheduled title |The shopper paid/scheduled the payment using the barcode, but the payment can still be canceled as the amount has not yet been cleared.|
 
 ## Anti-Fraud Status List
 
