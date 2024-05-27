@@ -2251,7 +2251,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | texto | - | Sim |
 | `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30", "Bradesco2" ou "BancoDoBrasil3". | texto | - | Sim |
 | `Payment.Amount` | Valor do pedido, em centavos.| número | 15 | Sim |
-| `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br> **Para provider Cielo30**: o tempo de expiração é de duas horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.<br>**Para provider BancoDoBrasil3**: o tempo de expiração do QR Code pode ser enviado no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.| número | 3600 | Não |
+| `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br> **Para provider Cielo30**: o tempo de expiração é de duas horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.<br>
 
 #### Resposta
 
@@ -8544,7 +8544,7 @@ As listas a seguir se referem a provedores na integração com a API REST:
 
 |Provider|
 |--------|
-|Cielo30, Bradesco2, BancoDoBrasil3|
+|Cielo30, Bradesco2|
 
 ## Lista de Status da Transação
 
@@ -8561,14 +8561,6 @@ Lista de status retornados pela API:
 |12|Pending|Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.|**Esperando retorno da instituição financeira**. <br>Significa que a transação foi enviada para a Braspag em processo de pré-autorização, esperando uma resposta do banco emissor para validá-la. |
 |13|Aborted|Todos|**Pagamento cancelado por falha no processamento**.<br>Significa que a transação foi cancelada por falha de processamento. Também pode ser abortada, caso o Antifraude negue a transação antes da autorização. |
 |20|Scheduled|Cartão de crédito e e-wallets.|**Recorrência agendada**.<br>Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja. |
-
-## Lista de status Pix Banco do Brasil
-
-|Código |Status | Descrição |
-|---|---|---|
-|06 | Liquidado | Comprador pagou pelo código de barras, o valor já transitou pela compensação e já foi creditado ao beneficiário - liquidação efetiva.|
-|14 | Título em liquidação | Comprador pagou pelo QR Code Pix - pode ser considerado como liquidação efetiva.|
-|15 | Título agendado |Cliente pagou/agendou pelo código de barras, porém o pagamento ainda pode ser cancelado já que o valor ainda não passou pela compensação.|
 
 ## Lista de Status do Antifraude
 
