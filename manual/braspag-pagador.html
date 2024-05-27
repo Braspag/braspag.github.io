@@ -3987,10 +3987,10 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.QrCodeExpiration</code></td>
-      <td>Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br /> <strong>Para provider Cielo30</strong>: o tempo de expiração é de duas horas e não é parametrizavel.<br /><strong>Para provider Bradesco2</strong>: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro <code class="language-plaintext highlighter-rouge">Payment.QrCodeExpiration</code>.<br /><strong>Para provider BancoDoBrasil3</strong>: o tempo de expiração do QR Code pode ser enviado no momento da autorização pelo parâmetro <code class="language-plaintext highlighter-rouge">Payment.QrCodeExpiration</code>.</td>
-      <td>número</td>
-      <td>3600</td>
-      <td>Não</td>
+      <td>Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br /> <strong>Para provider Cielo30</strong>: o tempo de expiração é de duas horas e não é parametrizavel.<br /><strong>Para provider Bradesco2</strong>: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro <code class="language-plaintext highlighter-rouge">Payment.QrCodeExpiration</code>.<br /></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -16018,7 +16018,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </thead>
   <tbody>
     <tr>
-      <td>Cielo30, Bradesco2, BancoDoBrasil3</td>
+      <td>Cielo30, Bradesco2</td>
     </tr>
   </tbody>
 </table>
@@ -16090,35 +16090,6 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
       <td>Scheduled</td>
       <td>Cartão de crédito e e-wallets.</td>
       <td><strong>Recorrência agendada</strong>.<br />Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="lista-de-status-pix-banco-do-brasil">Lista de status Pix Banco do Brasil</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Código</th>
-      <th>Status</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>06</td>
-      <td>Liquidado</td>
-      <td>Comprador pagou pelo código de barras, o valor já transitou pela compensação e já foi creditado ao beneficiário - liquidação efetiva.</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>Título em liquidação</td>
-      <td>Comprador pagou pelo QR Code Pix - pode ser considerado como liquidação efetiva.</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>Título agendado</td>
-      <td>Cliente pagou/agendou pelo código de barras, porém o pagamento ainda pode ser cancelado já que o valor ainda não passou pela compensação.</td>
     </tr>
   </tbody>
 </table>
