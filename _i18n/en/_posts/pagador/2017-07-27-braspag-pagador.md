@@ -6359,12 +6359,12 @@ The Fingerprint is the digital identification of the shopper's device. This iden
 
 # Queries
 
-You can query a transaction for up to 12 months after it was created. Here are different ways to perform a sale or transaction query, depending on its lifetime:
+You can query a transaction for up to 18 months after it was created. Here are different ways to perform a sale or transaction query, depending on its lifetime:
 
 |LIFETIME|FORM OF QUERY|
 |---|---|
-|Up to 3 months|Via API or Admin Braspag panel.|
-|From 3 to 12 months|Via Admin Braspag panel with the “History” option selected.|
+|Up to 5 months|Via API or Admin Braspag panel.|
+|From 5 to 18 months|Via Admin Braspag panel with the “History” option selected.|
 
 ## Querying a Transaction via PaymentID
 
