@@ -103,7 +103,7 @@ Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio
 
 Clique no aviso de configuração.
 
-![aviso de configuração]({{ site.baseurl_root }}/images/braspag/pagador/notificacao-clicar.png
+![aviso de configuração]({{ site.baseurl_root }}/images/braspag/pagador/notificacao-clicar.png)
 
 Preencha os campos necessários e clique em **Salvar**:
 
