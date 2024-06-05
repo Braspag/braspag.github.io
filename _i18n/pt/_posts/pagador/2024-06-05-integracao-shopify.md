@@ -52,7 +52,7 @@ Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio
 
 Clique no aviso de configuração:
 
-(imagem)
+![aviso de configuração]({{ site.baseurl_root }}/images/braspag/pagador/notificacao-clicar.png
 
 Insira as suas credenciais `MerchantId` e `MerchantKey`. Para saber como acessar essas credenciais, [siga essas instruções](https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf).
 
@@ -102,6 +102,8 @@ Crie uma senha de acesso para o seu painel admin da Cielo:
 Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio de pagamento boleto.
 
 Clique no aviso de configuração.
+
+![aviso de configuração]({{ site.baseurl_root }}/images/braspag/pagador/notificacao-clicar.png
 
 Preencha os campos necessários e clique em **Salvar**:
 
