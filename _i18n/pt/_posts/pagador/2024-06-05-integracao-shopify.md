@@ -42,7 +42,7 @@ Você será direcionado para a tela de login na Cielo. Caso você já tenha seu 
 
 Quando a Cielo fizer seu cadastro, você receberá um e-mail de confirmação. Clique em **Confirmar E-mail**:
 
-![Confirmação e-mail]({{ site.baseurl_root }}/images/braspag/pagador/email-confirmacao-cadastro.png
+![Confirmação e-mail]({{ site.baseurl_root }}/images/braspag/pagador/email-confirmacao-cadastro.png)
 
 Crie uma senha de acesso para o seu painel admin da Cielo:
 
@@ -52,7 +52,7 @@ Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio
 
 Clique no aviso de configuração:
 
-![aviso de configuração]({{ site.baseurl_root }}/images/braspag/pagador/notificacao-clicar.png
+![aviso de configuração]({{ site.baseurl_root }}/images/braspag/pagador/notificacao-clicar.png)
 
 Insira as suas credenciais `MerchantId` e `MerchantKey`. Para saber como acessar essas credenciais, [siga essas instruções](https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf).
 
