@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Integração Shopify &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/integracao-shopify" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/integracao-shopify" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/integracao-shopify">Integração Shopify</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="integração-shopify">Integração Shopify</h1>
+
+<p>Para fazer a integração com a plataforma Shopify, o lojista deve instalar o aplicativo referente ao meio de pagamento desejado.</p>
+
+<h1 id="meios-de-pagamento">Meios de Pagamento</h1>
+
+<ul>
+  <li><strong>Pix</strong>: O aplicativo <strong>Pix</strong> da Cielo permite transações instantâneas e seguras. Usuários podem efetuar pagamentos e transferências a qualquer hora, com o dinheiro sendo transferido de forma imediata.</li>
+  <li><strong>Boleto</strong>: Os boletos são seguros e fáceis de gerenciar.</li>
+  <li><strong>Cartão de crédito</strong>: Com o aplicativo, o usuário pode ver suas vendas em tempo real, gerenciar pagamentos e antecipar recebimentos. Ele suporta mais de 80 bandeiras e oferece soluções digitais para vendas online.</li>
+</ul>
+
+<h2 id="instalação-do-pix">Instalação do Pix</h2>
+
+<p>Para instalar o aplicativo do meio de pagamento Pix, <a href="https://accounts.shopify.com/storelogin?redirect=%2Fadmin%2Fsettings%2Fpayments%2Falternativeproviders%2F45776897">acesse o portal</a> e faça login em sua conta da Shopify.</p>
+
+<p>Após fazer login, clique em <strong>Instalar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/instalacao-pix.jpg" alt="Tela instalação pix" /></p>
+
+<p>Em seguida, clique novamente em <strong>Instalar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/intalacao-pix-2.jpg" alt="Tela instalação pix segunda etapa" /></p>
+
+<p>Você será direcionado para a tela de login na Cielo. Caso você já tenha seu usuário e senha basta fazer login. Caso não tenha, entre em contato com a Cielo para gerar seu usuário e senha.</p>
+
+<ul>
+  <li><strong>Atendimento via Telefone:</strong> 3003-6554</li>
+  <li><strong>Atendimento via WhatsApp:</strong> (11)98541-0288</li>
+</ul>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/tela-login-nova.jpg" alt="Tela login" /></p>
+
+<p>Quando a Cielo fizer seu cadastro, você receberá um e-mail de confirmação. Clique em <strong>Confirmar E-mail</strong>:</p>
+
+<p>![Confirmação e-mail](https://braspag.github.io//images/braspag/pagador/email-confirmacao-cadastro.png</p>
+
+<p>Crie uma senha de acesso para o seu painel admin da Cielo:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/confirmacao-email.png" alt="Criar senha" /></p>
+
+<p>Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio de pagamento Pix.</p>
+
+<p>Clique no aviso de configuração:</p>
+
+<p>(imagem)</p>
+
+<p>Insira as suas credenciais <code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code>. Para saber como acessar essas credenciais, <a href="https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf">siga essas instruções</a>.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/configuracao-pix-4.jpg" alt="Mid e Mk" /></p>
+
+<p>Preencha o campo <strong>Provider</strong> com <code class="language-plaintext highlighter-rouge">Cielo30</code> e informe o tempo de expiração desejado para o código Pix em segundos.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/salvar-pix-5.jpg" alt="salvar pix" /></p>
+
+<p>Clique em <strong>SALVAR</strong>. Em seguida, clique no aviso indicando para ativar o meio de pagamento na Shopify:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/salvar-pix-5.jpg" alt="salvar informações" /></p>
+
+<p>Após ser redirecionado para a Shopify, clique em <strong>Ativar</strong>.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/ativar-pix-6.jpg" alt="ativar pix" /></p>
+
+<p>Você receberá uma mensagem de confirmação indicando que o Pix Cielo foi ativado e está pronto para uso.</p>
+
+<h2 id="instalação-de-boleto">Instalação de boleto</h2>
+
+<p>Para instalar o aplicativo do meio de pagamento boleto, <a href="https://accounts.shopify.com/store-login?redirect=%2Fadmin%2Fsettings%2Fpayments%2Falternativeproviders%2F46759937">acesse o portal</a> e faça login em sua conta da Shopify.</p>
+
+<p>Após fazer login, clique em <strong>Instalar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/instalacao-boleto-1.jpg" alt="Instalar boleto" /></p>
+
+<p>Em seguida, clique novamente em <strong>Instalar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/instalcao-boleto-2.jpg" alt="Instalar boleto segunda parte" /></p>
+
+<p>Você será direcionado para a tela de login na Cielo. Caso você já tenha seu usuário e senha basta fazer login. Caso não tenha, entre em contato com a Cielo para gerar seu usuário e senha.</p>
+
+<ul>
+  <li><strong>Atendimento via Telefone:</strong> 3003-6554</li>
+  <li><strong>Atendimento via WhatsApp:</strong> (11)98541-0288</li>
+</ul>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/tela-login-nova.jpg" alt="Login Cielo" /></p>
+
+<p>Quando a Cielo fizer seu cadastro, você receberá um e-mail de confirmação. Clique em <strong>Confirmar E-mail</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/email-confirmacao-cadastro.png" alt="Confirmar e-mail" /></p>
+
+<p>Crie uma senha de acesso para o seu painel admin da Cielo:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/confirmacao-email.png" alt="Criar senha" /></p>
+
+<p>Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio de pagamento boleto.</p>
+
+<p>Clique no aviso de configuração.</p>
+
+<p>Preencha os campos necessários e clique em <strong>Salvar</strong>:</p>
+
+<blockquote>
+  <p><strong>Nosso Número</strong> é uma informação dada pela Cielo, se não souber como preencher, entre em contato com o Atendimento.</p>
+</blockquote>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/config-boleto-4.jpg" alt="Preencher campos" /></p>
+
+<p>Clique novamente na aba <strong>Boletos</strong>. Em seguida, clique no aviso indicando para ativar o meio de pagamento na Shopify:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/config-boleto-5.jpg" alt="Ativar boleto" /></p>
+
+<p>Após ser redirecionado para a Shopify, clique em <strong>Ativar</strong>.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/ativar-boleto-6.jpg" alt="Ativar boleto segunda parte" /></p>
+
+<p>Você receberá uma mensagem de confirmação indicando que o <strong>Cielo Boleto</strong> foi ativado e está pronto para uso.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/boleto-ativado.jpg" alt="Boleto ativo" /></p>
+
+<h2 id="instalação-de-cartão-de-crédito">Instalação de cartão de crédito</h2>
+
+<p>Para instalar o aplicativo do meio de pagamento cartão de crédito, <a href="https://accounts.shopify.com/store-login?redirect=%2Fadmin%2Fsettings%2Fpayments%2Falternativeproviders%2F46792705">acesse o portal</a> e faça login em sua conta da Shopify.</p>
+
+<p>Após fazer login, clique em <strong>Instalar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/instalacao-cartao-credito-1.jpg" alt="Instalar cartão de crédito" /></p>
+
+<p>Em seguida, clique novamente em <strong>Instalar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/instalacao-cartao-credito-2.jpg" alt="Instalar cartão de crédito segunda parte" /></p>
+
+<p>Você será direcionado para a tela de login na Cielo. Caso você já tenha seu usuário e senha basta fazer login. Caso não tenha, entre em contato com a Cielo para gerar seu usuário e senha.</p>
+
+<ul>
+  <li><strong>Atendimento via Telefone:</strong> 3003-6554</li>
+  <li><strong>Atendimento via WhatsApp:</strong> (11)98541-0288</li>
+</ul>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/tela-login-nova.jpg" alt="Login Cielo" /></p>
+
+<p>Quando a Cielo fizer seu cadastro, você receberá um e-mail de confirmação. Clique em <strong>Confirmar E-mail</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/email-confirmacao-cadastro.png" alt="Confirmação e-mail" /></p>
+
+<p>Crie uma senha de acesso para o seu painel admin da Cielo:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/confirmacao-email.png" alt="Criar senha" /></p>
+
+<p>Agora que você tem acesso ao seu Painel Admin da Cielo, vamos configurar o meio de pagamento Pix.</p>
+
+<p>Clique no aviso de configuração.</p>
+
+<p>Preencha os campos:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/config-cartao-credito-3.jpg" alt="Preenchimento dos campos" /></p>
+
+<p>Caso queira informar os juros por parcela, habilite o campo <strong>Habilite parcelamento com juros</strong>, preencha os campos relacionados e clique em <strong>SALVAR</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/cartao-credito-juros-parcelado.jpg" alt="Parcelamento juros" /></p>
+
+<p>Clique novamente na aba <strong>Cartão de Crédito</strong>.Em seguida, clique no aviso indicando para ativar o meio de pagamento na Shopify:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/ativar-cartao-credito-5.jpg" alt="Ativar meio de pagamento" /></p>
+
+<p>Após ser redirecionado para a Shopify, selecione quais bandeiras de cartão de crédito poderão ser utilizadas e clique em <strong>Ativar</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/ativacao-cartao-credito-6.jpg" alt="Ativar bandeira" /></p>
+
+<p>Você receberá uma mensagem de confirmação indicando que o <strong>Cielo Credicard</strong> foi ativado e está pronto para uso.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
