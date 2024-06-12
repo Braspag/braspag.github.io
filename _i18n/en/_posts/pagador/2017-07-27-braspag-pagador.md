@@ -1786,6 +1786,21 @@ The life cycle of a Pix transaction:
 | 7 | Store | Receives refund confirmation notification. | 11 - Refunded |
 | * | Store | Queries the transaction status. | 11 - Refunded |
 
+### PIX code Bradesco
+
+Below are the Bradesco Pix codes:
+
+| STATUS | DESCRIPTION |
+|--------------|------------|------------|
+|0| Operation carried out successfully. |
+|120| Unpaid | Status informing that the payment by Pix has not yet been made. |
+|121| Paid| Status informing that the payment by Pix was successful. |
+|124| Expired | Status informing that the time for payment by Pix has expired. |
+|125| Canceled | Status informing that the payment by Pix has been canceled. |
+|126| Completely returned | Status informing that the payment by Pix had the amount paid returned in its entirety. |
+|127| Partially returned | Status informing that the payment by Pix had a fraction of the amount paid returned. |
+|130| PIX Removed by SPS | Status informing that the QRCode/Payload is expired and has been removed by the bank from the list of available Pix. |
+
 ### Creating a transaction with QR code Pix
 
 You can generate a Pix QR code through the API Pagador by simply perform the integration as specified below.
