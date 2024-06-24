@@ -281,6 +281,7 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 |**Merchant-defined data**|`bpmpi_mdd3`|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
 |**Merchant-defined data**|`bpmpi_mdd4`|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
 |**Merchant-defined data**|`bpmpi_mdd5`|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
+| **Establishment** | `bpmpi_brand_establishment_code` | Amex Establishment Code (EC) | Text [10 positions] | Required on Amex authentications |
 
 # Step 4 - Implementing the Authentication Event Request
 
