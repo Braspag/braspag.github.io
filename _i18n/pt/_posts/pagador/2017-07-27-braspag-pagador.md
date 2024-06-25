@@ -2202,7 +2202,7 @@ Abaixo segue os códigos Pix do Bradesco:
 
 Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo.
 
-Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix"; e `Provider`, que deve ser "Cielo30", "Bradesco2" ou "BancoDoBrasil3". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que deve ser disponibilizado ao comprador.
+Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix"; e `Provider`, que deve ser "Cielo30" ou "Bradesco2". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que deve ser disponibilizado ao comprador.
 
 Veja abaixo a representação do **fluxo transacional** na geração do QR code Pix:
 ![Fluxo Geração QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix.png)
@@ -2264,7 +2264,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `Customer.Identity` | Número do CPF ou CNPJ do cliente. | texto | 14 | Sim |
 | `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | texto | 255 | Sim |
 | `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | texto | - | Sim |
-| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30", "Bradesco2" ou "BancoDoBrasil3". | texto | - | Sim |
+| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | texto | - | Sim |
 | `Payment.Amount` | Valor do pedido, em centavos.| número | 15 | Sim |
 | `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br> **Para provider Cielo30**: o tempo de expiração é de duas horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.<br>
 
