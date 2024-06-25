@@ -7248,9 +7248,9 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Customer.IdentityType`|Tipo de documento de identificação do comprador. <br/> Possíveis valores: "CPF" ou "CNPJ".|texto|255|Não|
 |`Customer.Email`|E-mail do comprador.|texto|100|Sim|
 |`Customer.Birthdate`|Data de nascimento do comprador. <br/> Ex.: 1991-01-10.|data|10|Sim|
-|`Customer.Phone`|Telefone residencial. Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-1001. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
-|`Customer.Mobile`| Celular. Fomato +DDI DDD NNNNN-NNNN Exemplo: +55 11 99999-9999. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
-|`Customer.Workphone`|Telefone comercial. Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-2002. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
+|`Customer.Phone`|Telefone residencial. Formato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-1001. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
+|`Customer.Mobile`| Celular. Formato +DDI DDD NNNNN-NNNN Exemplo: +55 11 99999-9999. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
+|`Customer.Workphone`|Telefone comercial. Formato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-2002. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
 |`Customer.Address.Street`|Logradouro do endereço de cobrança.|texto|54|Sim|
 |`Customer.Address.Number`|Número do endereço de cobrança.|texto|5|Sim|
 |`Customer.Address.Complement`|Complemento do endereço de cobrança.|texto|14|Não|
@@ -7288,7 +7288,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.FingerPrintId`|Identificador único da sessão do usuário. <br> Saiba mais em [Fingerprint com a ClearSale](https://braspag.github.io//manual/antifraude#fingerprint-com-a-clearsale){:target="_blank"}.|string|?|Sim|
 |`Payment.FraudAnalysis.Shipping.Addressee`| Nome do destinatário.|string|60|Sim|
 |`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega.|string|
-|`Payment.FraudAnalysis.Shipping.Phone`| Telefone residencial - Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 3333-3333. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Phone`| Telefone residencial - Formato +DDI DDD NNNN-NNNN Exemplo: +55 11 3333-3333. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
 |`Payment.FraudAnalysis.Shipping.Identity`|Documento do destinatário.|string|14|Sim|
 |`Payment.FraudAnalysis.Shipping.IdentityType`|1 = Pessoa Física<br>2 = Pessoa Jurídica.|string|255|Não|
 |`Payment.FraudAnalysis.Shipping.Street`|Nome do logradouro do destinatário.|string|200|Sim|
