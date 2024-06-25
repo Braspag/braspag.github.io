@@ -1771,7 +1771,7 @@ In the third step, the store system sends the transaction confirmation with the 
 In Pix, the transmission of the payment order and the availability of funds to the receiving user takes place in real time, 24 hours a day and without the need for intermediates. Thus, it is a type of payment method that enables fast payments with lower transaction costs.
 
 <aside class="notice">Pix specifications may undergo changes and adaptations until the official release date of the feature by Braspag.</aside>
-<aside class="warning">Pix is currently available for providers Cielo 3.0, Bradesco and Banco do Brasil. First, you need to contact the provider in order to authorize this type of payment method.</aside>
+<aside class="warning">Pix is currently available for providers Cielo 3.0 and Bradesco. First, you need to contact the provider in order to authorize this type of payment method.</aside>
 
 The life cycle of a Pix transaction:
 
@@ -1869,7 +1869,7 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Payment.Type` | Payment method type. In this case, "Pix". | Text | - | Yes |
 | `Payment.Provider` | Name of payment method provider. In this case, "Cielo30", "Bradesco2". | Text | - | Yes |
 | `Payment.Amount`| Order amount, in cents. | Number | 15 | Yes |
-| `Payment.QrCodeExpiration` | QR Code expiration time, in seconds. E.g.: 24 hours = 86400.<br>**Provider Cielo30**: QR Code expiration time is **two hours** and cannot be configured.<br>**Provider Bradesco2**: QR Code expiration time can be configured at Bradesco Shopfácil or in the authorization request through parameter `Payment.QrCodeExpiration`.<br>**Provider BancoDoBrasil3**: QR Code expiration time can be sent at the time of authorization via the `Payment.QrCodeExpiration` parameter.| Number | 3600 | No |
+| `Payment.QrCodeExpiration` | QR Code expiration time, in seconds. E.g.: 24 hours = 86400.<br>**Provider Cielo30**: QR Code expiration time is **two hours** and cannot be configured.<br>**Provider Bradesco2**: QR Code expiration time can be configured at Bradesco Shopfácil or in the authorization request through parameter `Payment.QrCodeExpiration`.| Number | 3600 | No |
 
 #### Response
 
