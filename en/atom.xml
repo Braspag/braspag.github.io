@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-06-27T18:28:05+00:00</updated>
+    <updated>2024-06-27T18:31:30+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -14665,62 +14665,6 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;pix-code-bradesco&quot;&gt;PIX code Bradesco&lt;/h3&gt;
-
-&lt;p&gt;Below are the Bradesco Pix codes:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;STATUS&lt;/th&gt;
-      &lt;th&gt;DESCRIPTION&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;Operation carried out successfully.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;120&lt;/td&gt;
-      &lt;td&gt;Unpaid&lt;/td&gt;
-      &lt;td&gt;Status informing that the payment by Pix has not yet been made.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;121&lt;/td&gt;
-      &lt;td&gt;Paid&lt;/td&gt;
-      &lt;td&gt;Status informing that the payment by Pix was successful.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;124&lt;/td&gt;
-      &lt;td&gt;Expired&lt;/td&gt;
-      &lt;td&gt;Status informing that the time for payment by Pix has expired.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;125&lt;/td&gt;
-      &lt;td&gt;Canceled&lt;/td&gt;
-      &lt;td&gt;Status informing that the payment by Pix has been canceled.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;126&lt;/td&gt;
-      &lt;td&gt;Completely returned&lt;/td&gt;
-      &lt;td&gt;Status informing that the payment by Pix had the amount paid returned in its entirety.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;127&lt;/td&gt;
-      &lt;td&gt;Partially returned&lt;/td&gt;
-      &lt;td&gt;Status informing that the payment by Pix had a fraction of the amount paid returned.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;130&lt;/td&gt;
-      &lt;td&gt;PIX Removed by SPS&lt;/td&gt;
-      &lt;td&gt;Status informing that the QRCode/Payload is expired and has been removed by the bank from the list of available Pix.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;h3 id=&quot;creating-a-transaction-with-qr-code-pix&quot;&gt;Creating a transaction with QR code Pix&lt;/h3&gt;
 
 &lt;p&gt;You can generate a Pix QR code through the API Pagador by simply perform the integration as specified below.&lt;/p&gt;
@@ -15117,6 +15061,62 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;pix-code-bradesco&quot;&gt;PIX code Bradesco&lt;/h3&gt;
+
+&lt;p&gt;Below are the Bradesco Pix codes:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;STATUS&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Operation carried out successfully.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;120&lt;/td&gt;
+      &lt;td&gt;Unpaid&lt;/td&gt;
+      &lt;td&gt;Status informing that the payment by Pix has not yet been made.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;121&lt;/td&gt;
+      &lt;td&gt;Paid&lt;/td&gt;
+      &lt;td&gt;Status informing that the payment by Pix was successful.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;124&lt;/td&gt;
+      &lt;td&gt;Expired&lt;/td&gt;
+      &lt;td&gt;Status informing that the time for payment by Pix has expired.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;125&lt;/td&gt;
+      &lt;td&gt;Canceled&lt;/td&gt;
+      &lt;td&gt;Status informing that the payment by Pix has been canceled.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;126&lt;/td&gt;
+      &lt;td&gt;Completely returned&lt;/td&gt;
+      &lt;td&gt;Status informing that the payment by Pix had the amount paid returned in its entirety.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;127&lt;/td&gt;
+      &lt;td&gt;Partially returned&lt;/td&gt;
+      &lt;td&gt;Status informing that the payment by Pix had a fraction of the amount paid returned.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;130&lt;/td&gt;
+      &lt;td&gt;PIX Removed by SPS&lt;/td&gt;
+      &lt;td&gt;Status informing that the QRCode/Payload is expired and has been removed by the bank from the list of available Pix.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
