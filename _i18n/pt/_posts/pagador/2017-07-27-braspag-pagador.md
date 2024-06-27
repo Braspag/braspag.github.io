@@ -2183,21 +2183,6 @@ Conheça o ciclo de vida de uma transação Pix:
 |7| Loja | Recebimento da notificação de confirmação de devolução. | 11 - Estornado |
 |8| Loja | Consulta ao status da transação. | 11 - Estornado |
 
-### Códigos PIX Bradesco
-
-Abaixo segue os códigos Pix do Bradesco:
-
-| STATUS | DESCRIÇÃO |
-|--------------|------------|------------|
-|0| Operação realizada com sucesso. |
-|120| A pagar | Status informando que o pagamento por Pix ainda não foi realizado. |
-|121| Pago | Status informando que o pagamento por Pix foi realizado com sucesso. |
-|124| Expirado | Status informando que o tempo para pagamento por Pix foi expirado. |
-|125| Cancelado | Status informando que o pagamento por Pix foi cancelado. |
-|126| Devolvido completamente | Status informando que o pagamento por Pix teve o valor pago devolvido em sua totalidade. |
-|127| Devovildo parcialmente | Status informando que o pagamento por Pix teve uma fração do valor pago devolvido. |
-|130| PIX Removido pelo SPS | Status informando que o QRCode/Payload encontra-se vencido e foi removido, pelo banco da lista de Pix disponíveis. |
-
 ### Criando uma Transação com QR Code Pix
 
 Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo.
@@ -2412,6 +2397,21 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 |`Status`|Status da transação. |byte | 2 | Ex.: "1" |
 |`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação. |texto |32 |texto alfanumérico|
 |`ReasonMessage`| Mensagem correspondente ao `ReasonCode`.|texto |512 |texto alfanumérico|
+
+### Códigos PIX Bradesco
+
+Abaixo segue os códigos Pix do Bradesco:
+
+| STATUS | DESCRIÇÃO |
+|--------------|------------|------------|
+|0| Operação realizada com sucesso. |
+|120| A pagar | Status informando que o pagamento por Pix ainda não foi realizado. |
+|121| Pago | Status informando que o pagamento por Pix foi realizado com sucesso. |
+|124| Expirado | Status informando que o tempo para pagamento por Pix foi expirado. |
+|125| Cancelado | Status informando que o pagamento por Pix foi cancelado. |
+|126| Devolvido completamente | Status informando que o pagamento por Pix teve o valor pago devolvido em sua totalidade. |
+|127| Devovildo parcialmente | Status informando que o pagamento por Pix teve uma fração do valor pago devolvido. |
+|130| PIX Removido pelo SPS | Status informando que o QRCode/Payload encontra-se vencido e foi removido, pelo banco da lista de Pix disponíveis. |
 
 ## QR Code
 
