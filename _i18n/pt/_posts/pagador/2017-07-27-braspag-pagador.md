@@ -2168,7 +2168,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 No Pix, a transmissão da ordem de pagamento e a disponibilidade de fundos para o usuário recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.
 
 <aside class="notice">As especificações do Pix poderão sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.</aside>
-<aside class="warning">No momento, a habilitação do Pix está disponível para as adquirentes Cielo 3.0, Bradesco e Banco do Brasil. É necessário entrar em contato primeiramente com esses fornecedores para a liberação do meio de pagamento.</aside>
+<aside class="warning">No momento, a habilitação do Pix está disponível para as adquirentes Cielo 3.0 e Bradesco. É necessário entrar em contato primeiramente com esses fornecedores para a liberação do meio de pagamento.</aside>
 
 Conheça o ciclo de vida de uma transação Pix:
 
