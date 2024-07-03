@@ -227,7 +227,7 @@
 
 <h3 id="requisição-1">Requisição</h3>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{`split-anticipation-api`}/merchants/{merchantId}/receivable-anticipations/simulation</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-anticipation-api}/merchants/{merchantId}/receivable-anticipations/simulation</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
@@ -268,7 +268,7 @@
       <td>GUID</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Código do master merchant</td>
+      <td>Identificador do master merchant.</td>
     </tr>
   </tbody>
 </table>
@@ -299,14 +299,14 @@
       <td>long</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Valor a antecipar</td>
+      <td>Valor a antecipar.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SettlementDate</code></td>
       <td>DateTime</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Data de liquidação</td>
+      <td>Data de liquidação.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecipientDocumentNumber</code></td>
@@ -320,7 +320,7 @@
       <td>string</td>
       <td>-</td>
       <td>Sim</td>
-      <td>E-mail do master</td>
+      <td>E-mail do master.</td>
     </tr>
   </tbody>
 </table>
@@ -479,7 +479,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Href</code></td>
       <td>string</td>
-      <td>link de download de planilha dos recebíveis antecipados</td>
+      <td>link de download de planilha dos recebíveis antecipados.</td>
     </tr>
   </tbody>
 </table>
@@ -490,7 +490,7 @@
 
 <h2 id="requisição-2">Requisição</h2>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{`split-anticipation-api`}/merchants/{merchantId}/receivable-anticipations</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-anticipation-api}/merchants/{merchantId}/receivable-anticipations</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
@@ -531,7 +531,7 @@
       <td>GUID</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Código do master merchant</td>
+      <td>Identificador do master merchant.</td>
     </tr>
   </tbody>
 </table>
@@ -557,13 +557,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>GUID</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Código do master merchant.</td>
-    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>long</td>
@@ -760,7 +753,7 @@
 
 <h2 id="requisição-3">Requisição</h2>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-anticipation-api}merchants//receivable-anticipations/</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-anticipation-api}merchants/{merchantId}/receivable-anticipations/{AnticipationId}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
@@ -804,7 +797,7 @@
       <td>Código do master merchant</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationId</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Sim</td>
@@ -1016,7 +1009,7 @@
 
 <ol>
   <li>
-    <p>Caso o <strong>merchantId</strong> informado na rota não seja do cliente logado e o usuário seja do tipo master</p>
+    <p>Caso o <code class="language-plaintext highlighter-rouge">MerchantId</code> informado na rota não seja do cliente logado e o usuário seja do tipo master, o retorno será:</p>
 
     <blockquote>
       <p>Status Code = 400</p>
@@ -1025,7 +1018,7 @@
     <p>Mensagem: <em>Not possible to consult an anticipation for {merchantId} master merchant id.</em></p>
   </li>
   <li>
-    <p>Caso a antecipação informada não faça parte do merchant informado</p>
+    <p>Caso a antecipação informada não faça parte do merchant informado, o retorno será:</p>
 
     <blockquote>
       <p>Status Code = 400</p>
@@ -1034,7 +1027,7 @@
     <p>Mensagem: <em>User hasn’t permission for this anticipation or anticipation doesn’t exist</em></p>
   </li>
   <li>
-    <p>Caso a antecipação informada não seja encontrada</p>
+    <p>Caso a antecipação informada não seja encontrada, o retorno será:</p>
 
     <blockquote>
       <p>Status Code = 404</p>
