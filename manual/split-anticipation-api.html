@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Split de Pagamentos - Antecipação de Recebíveis &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/split-anticipation-api" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/split-anticipation-api" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-anticipation-api">Split de Pagamentos - Antecipação de Recebíveis</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="antecipação-de-recebíveis">Antecipação de recebíveis</h1>
+
+<p>A API de Antecipação de Recebíveis do Split de Pagamentos é mais um canal para que o master solicite a antecipação de valores, sem precisar entrar em contato com a Braspag.</p>
+
+<p><strong>Quem pode solicitar a antecipação de recebíveis via API?</strong></p>
+
+<p>Qualquer usuário com perfil master pode solicitar antecipação dos recebíveis do próprio master ou dos seus sellers.</p>
+
+<p><strong>Quais são os requisitos para que a antecipação seja aprovada?</strong></p>
+
+<p>O master ou seller precisa ter saldo livre disponível em agenda na data do pedido de antecipação.</p>
+
+<p><strong>Qual é o prazo para receber o valor da antecipação?</strong></p>
+
+<p>O prazo de liquidação é de <strong>até dois dias úteis</strong> a partir da data da solicitação da antecipação (D+2). É importante considerar que o horário de operação da mesa de antecipação de recebíveis é de segunda à sexta, das 8h às 16h30. Assim, se o pedido de antecipação for feito após às 16h30, o pedido será processado somente no próximo dia útil.</p>
+
+<h1 id="ambientes">Ambientes</h1>
+
+<h2 id="sandbox">Sandbox</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Braspag OAUTH2 Server</code></td>
+      <td>https://authsandbox.braspag.com.br/</td>
+      <td>Autenticação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">split-anticipation-api</code></td>
+      <td>https://splitsandbox.braspag.com.br/anticipation-api </td>
+      <td>Simular, criar e consultar antecipação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="produção">Produção</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Braspag OAUTH2 Server</code></td>
+      <td>https://auth.braspag.com.br/</td>
+      <td>Autenticação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">split-anticipation-api</code></td>
+      <td>https://split.braspag.com.br/anticipation-api </td>
+      <td>Simular, criar e consultar antecipação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="autenticação">Autenticação</h1>
+
+<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAUTH2</a>, no qual é necessário primeiro obter um token de acesso por meio das suas credenciais, e posteriormente enviar o token de acesso à API de de Antecipação de Recebíveis.</p>
+
+<p>Para obter um token de acesso:</p>
+
+<ol>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>: <code class="language-plaintext highlighter-rouge">MerchantId:ClientSecret</code>;</li>
+  <li>Codifique o resultado da concatenação em Base64;</li>
+  <li>Realize uma requisição ao servidor de autorização.</li>
+</ol>
+
+<p><img src="https://braspag.github.io//images/braspag/split/split5-auth.png" alt="SplitAuth" /></p>
+
+<h2 id="requisição">Requisição</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
+<span class="nv">grant_type</span><span class="o">=</span>client_credentials
+</code></pre></div></div>
+
+<h2 id="resposta">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>O <code class="language-plaintext highlighter-rouge">MerchantId</code> é o mesmo utilizado na integração com a API Cielo E-Commerce ou com a API do Pagador. O <code class="language-plaintext highlighter-rouge">ClientSecret</code> deve ser obtido junto ao Split.</p>
+</blockquote>
+
+<p>Use o token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) em toda requisição à API de Antecipação de Recebíveis como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
+
+<h1 id="simular-antecipação">Simular antecipação</h1>
+
+<p>Simula o cadastro de antecipações para o master.</p>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{`split-anticipation-api`}/merchants/{merchantId}/receivable-anticipations/simulation</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer {<code class="language-plaintext highlighter-rouge">access_token</code>}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na rota (path)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Código do master merchant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (body)</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecipientDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61817215000194"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RequesterEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requester@company.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>long</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Valor a antecipar</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SettlementDate</code></td>
+      <td>DateTime</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Data de liquidação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientDocumentNumber</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número de documento do recebedor. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequesterEmail</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>E-mail do master</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2106498e-5569-4c39-a778-8e3aafd740b3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AmountToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="mi">35619733</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AnticipationNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"271928"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PrecificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-28"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EmProcessamento"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"SubAcquirerAnticipationRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23145"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"MasterAnticipationRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12312"</span><span class="p">,</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"LegalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"RecipientDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93719314000120"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecipientCorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alexsander alterado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecipientFancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alexsander alterado"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93719314000120"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cnpj"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitblobstr.blob.core.windows.net/anticipation-precification-sandbox/20240531/alexsander%20alterado%20(93719314000120)%20-%2020240531%20-%20v7.xlsx?sv=2018-03-28&amp;sr=b&amp;sig=fRVy6pA2vpK9Ln4Y2TVkrs2SGRXi7SytbPSAC6cHjJ0%3D&amp;st=2024-05-28T18%3A34%3A46Z&amp;se=2024-05-28T23%3A59%3A59Z&amp;sp=r"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>GUID</td>
+      <td>Identificador da antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>long</td>
+      <td>Valor de antecipação solicitado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AmountToAnticipate</code></td>
+      <td>long</td>
+      <td>Valor bruto alcançado para antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AnticipateNetAmount</code></td>
+      <td>long</td>
+      <td>Valor líquido a receber.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PrecificationDate</code></td>
+      <td>string</td>
+      <td>Data de precificação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SettlementDate</code></td>
+      <td>string</td>
+      <td>Data de liquidação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AverageTerm</code></td>
+      <td>long</td>
+      <td>Prazo médio em dias.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubAcquirerAnticipationRate</code></td>
+      <td>long</td>
+      <td>Taxa do subadquirente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterAnticipationRate</code></td>
+      <td>long</td>
+      <td>Taxa de comissão do master.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>string</td>
+      <td>Situação da antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientDocumentNumber</code></td>
+      <td>string</td>
+      <td>Número de documento da pessoa física/jurídica recebedora. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientCoporateName</code></td>
+      <td>string</td>
+      <td>Nome da corporação da pessoa física/jurídica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientFancyName</code></td>
+      <td>string</td>
+      <td>Nome comum da pessoa física/jurídica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccountNumber</code></td>
+      <td>string</td>
+      <td>Número da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccountDigit</code></td>
+      <td>char</td>
+      <td>Dígito da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyNumber</code></td>
+      <td>string</td>
+      <td>Número da agência.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyDigit</code></td>
+      <td>char</td>
+      <td>Dígito da agência.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>string</td>
+      <td>Número de documento da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>string</td>
+      <td>Tipo de documento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccountType</code></td>
+      <td>string</td>
+      <td>Tipo de conta bancária.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CompeCode</code></td>
+      <td>string</td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de código de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Href</code></td>
+      <td>string</td>
+      <td>link de download de planilha dos recebíveis antecipados</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="criar-antecipação-de-recebíveis">Criar antecipação de recebíveis</h1>
+
+<p>Solicita a antecipação de recebíveis para o master.</p>
+
+<h2 id="requisição-2">Requisição</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{`split-anticipation-api`}/merchants/{merchantId}/receivable-anticipations</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer {<code class="language-plaintext highlighter-rouge">access_token</code>}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na rota (path)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Código do master merchant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (body)</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecipientDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61817215000194"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RequesterEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requester@company.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Código do master merchant.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>long</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Valor a antecipar.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SettlementDate</code></td>
+      <td>DateTime</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Data de liquidação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientDocumentNumber</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número de documento do recebedor. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequesterEmail</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>E-mail do master.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta-2">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2106498e-5569-4c39-a778-8e3aafd740b3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AmountToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="mi">35619733</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AnticipationNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"271928"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PrecificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-28"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EmProcessamento"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"SubAcquirerAnticipationRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23145"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"MasterAnticipationRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12312"</span><span class="p">,</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"LegalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"RecipientDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93719314000120"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecipientCorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alexsander alterado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RecipientFancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alexsander alterado"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93719314000120"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cnpj"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitblobstr.blob.core.windows.net/anticipation-precification-sandbox/20240531/alexsander%20alterado%20(93719314000120)%20-%2020240531%20-%20v7.xlsx?sv=2018-03-28&amp;sr=b&amp;sig=fRVy6pA2vpK9Ln4Y2TVkrs2SGRXi7SytbPSAC6cHjJ0%3D&amp;st=2024-05-28T18%3A34%3A46Z&amp;se=2024-05-28T23%3A59%3A59Z&amp;sp=r"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>GUID</td>
+      <td>Identificador da antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>long</td>
+      <td>Valor de antecipação solicitado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AmountToAnticipate</code></td>
+      <td>long</td>
+      <td>Valor bruto alcançado para antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AnticipateNetAmount</code></td>
+      <td>long</td>
+      <td>Valor líquido a receber.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PrecificationDate</code></td>
+      <td>string</td>
+      <td>Data de precificação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SettlementDate</code></td>
+      <td>string</td>
+      <td>Data de liquidação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AverageTerm</code></td>
+      <td>long</td>
+      <td>Prazo médio em dias.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubAcquirerAnticipationRate</code></td>
+      <td>long</td>
+      <td>Taxa do subadquirente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterAnticipationRate</code></td>
+      <td>long</td>
+      <td>Taxa de comissão do master.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>string</td>
+      <td>Situação da antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientDocumentNumber</code></td>
+      <td>string</td>
+      <td>Número de documento da pessoa física/jurídica recebedora. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientCorporateName</code></td>
+      <td>string</td>
+      <td>Nome da corporação da pessoa física/jurídica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecipientFancyName</code></td>
+      <td>string</td>
+      <td>Nome comum da pessoa física/jurídica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccountNumber</code></td>
+      <td>string</td>
+      <td>Número da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccountDigit</code></td>
+      <td>char</td>
+      <td>Dígito da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyNumber</code></td>
+      <td>string</td>
+      <td>Número da agência.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyDigit</code></td>
+      <td>char</td>
+      <td>Dígito da agência.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>string</td>
+      <td>Número de documento da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>string</td>
+      <td>Tipo de documento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccountType</code></td>
+      <td>string</td>
+      <td>Tipo de conta bancária.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CompeCode</code></td>
+      <td>string</td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de código de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Href</code></td>
+      <td>string</td>
+      <td>Link de download de planilha dos recebíveis antecipados.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="consultar-antecipação">Consultar antecipação</h1>
+
+<p>Consulta uma antecipação pelo identificador da antecipação e do merchant.</p>
+
+<h2 id="requisição-3">Requisição</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-anticipation-api}merchants//receivable-anticipations/</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer {<code class="language-plaintext highlighter-rouge">access_token</code>}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na rota (path)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Código do master merchant</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Identificador da antecipação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta-3">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d1f9698-a9bb-44f6-be03-6e0d258df2b8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AmountToAnticipate"</span><span class="p">:</span><span class="w"> </span><span class="mi">35288571</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AnticipationNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">271928</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PrecificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-28"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TargetDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"LastReceivableDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03T14:56:19.85"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AverageTerm"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Recipient"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678912345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fancy Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CorporateName"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"RateDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"SubAcquirerAnticipationRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.35</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MasterAnticipationRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"BankId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678912345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cnpj"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Identificador da Antecipação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Long</td>
+      <td>-</td>
+      <td>Valor requerido da antecipação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AmountToAnticipate</code></td>
+      <td>Long</td>
+      <td>-</td>
+      <td>Valor que será antecipado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PrecificationDate</code></td>
+      <td>Date</td>
+      <td>-</td>
+      <td>Data de quando foi feito a precificação da antecipação, não necessariamente a data que será antecipado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TargetDate</code></td>
+      <td>Date</td>
+      <td>-</td>
+      <td>Data da antecipação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LastReceivableDate</code></td>
+      <td>Date</td>
+      <td>-</td>
+      <td>Data do ultimo recebível</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreatedAt</code></td>
+      <td>Date</td>
+      <td>-</td>
+      <td>Data da  criação da antecipação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AverageTerm</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Valor médio em dias  do pagamento da antecipação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Status indicado da antecipação (“Undefined”, “Processing”, “Processed”, “Canceled”, “Settled”)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Recipient</code></td>
+      <td>Object</td>
+      <td>-</td>
+      <td>Objeto com os detalhes do recebedor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Recipient.DocumentNumber</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Número de documento do recebedor. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Recipient.FancyName</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Nome comum da pessoa física/jurídica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Recipient.CorporateName</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Nome da corporação da pessoa física/jurídica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RateDetails</code></td>
+      <td>Object</td>
+      <td>-</td>
+      <td>Objeto com os valores das porcentagens da antecipação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubAcquirerAnticipationRate</code></td>
+      <td>Long</td>
+      <td>-</td>
+      <td>Taxa do Sub adquirente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterAnticipationRate</code></td>
+      <td>Long</td>
+      <td>-</td>
+      <td>Taxa do master</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount</code></td>
+      <td>Object</td>
+      <td>-</td>
+      <td>Objeto com as informações da conta bancária</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankId</code></td>
+      <td>Long</td>
+      <td>-</td>
+      <td>Identificador do Banco</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankName</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Valor da taxa de exceção atual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccountNumber</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccountDigit</code></td>
+      <td>Char</td>
+      <td>-</td>
+      <td>Dígito da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyNumber</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Número de documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Tipo de documento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccountType</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Tipo de conta bancária</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="validações-e-retornos-possíveis">Validações e retornos possíveis</h3>
+
+<ol>
+  <li>
+    <p>Caso o <strong>merchantId</strong> informado na rota não seja do cliente logado e o usuário seja do tipo master</p>
+
+    <blockquote>
+      <p>Status Code = 400</p>
+    </blockquote>
+
+    <p>Mensagem: <em>Not possible to consult an anticipation for {merchantId} master merchant id.</em></p>
+  </li>
+  <li>
+    <p>Caso a antecipação informada não faça parte do merchant informado</p>
+
+    <blockquote>
+      <p>Status Code = 400</p>
+    </blockquote>
+
+    <p>Mensagem: <em>User hasn’t permission for this anticipation or anticipation doesn’t exist</em></p>
+  </li>
+  <li>
+    <p>Caso a antecipação informada não seja encontrada</p>
+
+    <blockquote>
+      <p>Status Code = 404</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h1 id="notificação-da-antecipação">Notificação da antecipação</h1>
+
+<blockquote>
+  <p>A configuração da URL de notificação é <strong>opcional</strong>.</p>
+</blockquote>
+
+<p>Para receber a notificação o tipo POST é necessário configurar a <code class="language-plaintext highlighter-rouge">URL de Notificação</code> durante o cadastro do master na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+
+<p>Quando houver alteração no status da antecipação, o Split enviará uma notificação com os parâmetros do identificador da antecipação (<code class="language-plaintext highlighter-rouge">AnticipationId</code>) e o novo <code class="language-plaintext highlighter-rouge">Status</code>.</p>
+
+<p><strong>Exemplo de notificação de mudança de Status:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"AnticipationId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"96ffb8be-6693-4f9b-bf8e-925b555b3207"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationId</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Identificador da antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>int ou string</td>
+      <td>Descrição Enum Status ou Id do Enum de Status</td>
+      <td>Identificador do Status. Valores possíveis:<br /><em>Undefined = 0<br />Processing = 1<br />Processed = 2<br />Canceled = 3<br />Settled = 4</em></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
