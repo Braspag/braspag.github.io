@@ -88,7 +88,7 @@ Simula o cadastro de antecipações para o master.
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{`split-anticipation-api`}/merchants/{merchantId}/receivable-anticipations/simulation</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-anticipation-api}/merchants/{merchantId}/receivable-anticipations/simulation</span></aside>
 
 **Parâmetros no cabeçalho (header)**
 
@@ -101,7 +101,7 @@ Simula o cadastro de antecipações para o master.
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |-|-|-|-|-|
-| `MerchantId` | GUID | - | Sim | Código do master merchant |
+| `MerchantId` | GUID | - | Sim | Identificador do master merchant. |
 
 **Parâmetros no corpo (body)**
 
@@ -116,10 +116,10 @@ Simula o cadastro de antecipações para o master.
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |-|-|-|-|-|
-| `Amount` | long | - | Sim | Valor a antecipar |
-| `SettlementDate` | DateTime | - | Sim | Data de liquidação |
+| `Amount` | long | - | Sim | Valor a antecipar. |
+| `SettlementDate` | DateTime | - | Sim | Data de liquidação. |
 | `RecipientDocumentNumber` | String | - | Sim | Número de documento do recebedor. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada. |
-| `RequesterEmail` | string | - | Sim | E-mail do master |
+| `RequesterEmail` | string | - | Sim | E-mail do master. |
 
 ### Resposta
 
@@ -182,7 +182,7 @@ Simula o cadastro de antecipações para o master.
 | `DocumentType` | string | Tipo de documento. |
 | `BankAccountType` | string | Tipo de conta bancária. |
 | `CompeCode` | string | Código de compensação do banco. [Lista de código de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o)|
-| `Href` | string | link de download de planilha dos recebíveis antecipados |
+| `Href` | string | link de download de planilha dos recebíveis antecipados. |
 
 # Criar antecipação de recebíveis
 
@@ -190,7 +190,7 @@ Solicita a antecipação de recebíveis para o master.
 
 ## Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{`split-anticipation-api`}/merchants/{merchantId}/receivable-anticipations</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-anticipation-api}/merchants/{merchantId}/receivable-anticipations</span></aside>
 
 **Parâmetros no cabeçalho (header)**
 
@@ -203,7 +203,7 @@ Solicita a antecipação de recebíveis para o master.
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |-|-|-|-|-|
-| `MerchantId` | GUID | - | Sim | Código do master merchant |
+| `MerchantId` | GUID | - | Sim | Identificador do master merchant. |
 
 **Parâmetros no corpo (body)**
 
@@ -218,7 +218,6 @@ Solicita a antecipação de recebíveis para o master.
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |-|-|-|-|-|
-| `MerchantId` | GUID | - | Sim | Código do master merchant. |
 | `Amount` | long | - | Sim | Valor a antecipar. |
 | `SettlementDate` | DateTime | - | Sim | Data de liquidação. |
 | `RecipientDocumentNumber` | String | - | Sim | Número de documento do recebedor. Pode ser o documento do próprio master ou o documento do seller para o qual a antecipação está sendo solicitada. |
@@ -293,7 +292,7 @@ Consulta uma antecipação pelo identificador da antecipação e do merchant.
 
 ## Requisição
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-anticipation-api}merchants/{{merchantId}}/receivable-anticipations/{{AnticipationId}}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-anticipation-api}merchants/{merchantId}/receivable-anticipations/{AnticipationId}</span></aside>
 
 **Parâmetros no cabeçalho (header)**
 
@@ -307,7 +306,7 @@ Consulta uma antecipação pelo identificador da antecipação e do merchant.
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |-|-|-|-|-|
 | `MerchantId` | GUID | - | Sim | Código do master merchant |
-| `Id` | GUID| -| Sim | Identificador da antecipação.|
+| `AnticipationId` | GUID| -| Sim | Identificador da antecipação.|
 
 ## Resposta
 
@@ -376,19 +375,19 @@ Consulta uma antecipação pelo identificador da antecipação e do merchant.
 
 ### Validações e retornos possíveis
 
-1. Caso o **merchantId** informado na rota não seja do cliente logado e o usuário seja do tipo master
+1. Caso o `MerchantId` informado na rota não seja do cliente logado e o usuário seja do tipo master, o retorno será:
 
     > Status Code = 400
 
     Mensagem: *Not possible to consult an anticipation for {merchantId} master merchant id.*
 
-2. Caso a antecipação informada não faça parte do merchant informado
+2. Caso a antecipação informada não faça parte do merchant informado, o retorno será:
 
     > Status Code = 400
 
     Mensagem: *User hasn't permission for this anticipation or anticipation doesn't exist*
 
-3. Caso a antecipação informada não seja encontrada
+3. Caso a antecipação informada não seja encontrada, o retorno será:
 
     > Status Code = 404
 
