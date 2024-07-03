@@ -171,3 +171,17 @@ Após ser redirecionado para a Shopify, selecione quais bandeiras de cartão de 
 ![Ativar bandeira]({{ site.baseurl_root }}/images/braspag/pagador/ativacao-cartao-credito-6.jpg)
 
 Você receberá uma mensagem de confirmação indicando que o **Cielo Credicard** foi ativado e está pronto para uso.
+
+### Antifraude
+
+Para fazer uma análise de fraude nas transações de cartão de crédito, será necessário ter contratar nosso Antifraude com provedor **Cybersource**. Se já tiver contratado, baixe o aplicativo:
+
+![Aplicativo Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/instalacao-antifraude-1.jpg)
+
+Em seguida, clique em **Instalar**:
+
+![Instalar aplicativo]({{ site.baseurl_root }}/images/braspag/pagador/instalacao-antifraude-2.jpg)
+
+A opção de análise de fraude já estará disponível na configuração de pagamentos com cartão de crédito. Escolha a sequência (`AuthorizeFirst` ou `AnalyzeFirst`) e o critério. Para saber mais sobre essas opções, veja nosso [manual Antifraude](https://braspag.github.io//manual/antifraude#fluxos-da-an%C3%A1lise-de-fraude). O provider será sempre Cybersource:
+
+![Configuração antifraude]({{ site.baseurl_root }}/images/braspag/pagador/configuracao-antifraude.jpg)
