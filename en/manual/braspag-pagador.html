@@ -358,7 +358,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 <p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>required</strong> when the transaction is submitted to the <a href="https://braspag.github.io//en/manual/antifraude" target="_blank">Antifraude</a> or <strong>Velocity</strong> analysis. These parameters are marked with an * in the required column of the table below.</p>
 
 <blockquote>
-  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a>.</p>
+  <p><strong>Mastercard and Hipercard credit card transactions with stored credentials</strong>: Mastercard and Hipercard brands require the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard and Hipercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Transaction Initiator Indicator</a>.</p>
 </blockquote>
 
 <p>Here are request and response examples on how to create a credit transaction:</p>
@@ -1342,7 +1342,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 <img src="https://braspag.github.io//images/fluxo3ds-en.png" alt="3DS 2.0 Flow" /></p>
 
 <blockquote>
-  <p><strong>Mastercard debit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate whether the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a>.</p>
+  <p><strong>Mastercard and Hipercard debit card transactions with stored credentials</strong>: Mastercard and Hipercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate whether the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard and Hipercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Transaction Initiator Indicator</a>.</p>
 </blockquote>
 
 <h4 id="request-1">Request</h4>
@@ -1623,17 +1623,17 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
+      <td>Transaction Initiator Indicator category. <em>Valid for brands Mastercard and Hipercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
       <td>string</td>
       <td>2</td>
-      <td>Conditional. Required only for Mastercard.</td>
+      <td>Conditional. Required for Mastercard and Hipercard.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Indicator subcategory. Valid only for Mastercard brand.<br />Possible values:<br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” or “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /> <em>Installment</em><br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Please refer to <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a> tables for the full list.</td>
+      <td>Indicator subcategory. Valid for brands Mastercard and Hipercard.<br />Possible values:<br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” or “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /> <em>Installment</em><br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Please refer to <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Transaction Initiator Indicator</a> tables for the full list.</td>
       <td>string</td>
       <td>-</td>
-      <td>Conditional. Required only for Mastercard.</td>
+      <td>Conditional. Required for Mastercard and Hipercard.</td>
     </tr>
   </tbody>
 </table>
@@ -1898,7 +1898,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Flag return code that defines period for retry. <em>Valid for Mastercard</em>.</td>
+      <td>Flag return code that defines period for retry. <em>Valid for brands Mastercard and Hipercard</em>.</td>
       <td>Text</td>
       <td>2</td>
       <td>Numeric</td>
@@ -2317,9 +2317,9 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <p>During the transaction flow, the authorization step can be performed separately or together with authentication. To learn more about the second flow, check out the documentation for <a href="https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3 %A7%C3%A3o" target="_blank">Authorization with Authentication</a> from 3DS 2.0.</p>
 
-<h3 id="mastercard-transaction-initiator">Mastercard Transaction Initiator</h3>
+<h3 id="transaction-initiator-indicator">Transaction Initiator Indicator</h3>
 
-<p>The following tables apply to <strong>Mastercard credit and debit</strong> transactions with <strong>stored credentials</strong>. The objective is to identify whether the transaction was initiated by the <strong>cardholder</strong> or by the <strong>merchant</strong>:</p>
+<p>The following tables apply to <strong>Mastercard and Hipercard credit and debit</strong> transactions with <strong>stored credentials</strong>. The objective is to identify whether the transaction was initiated by the <strong>cardholder</strong> or by the <strong>merchant</strong>:</p>
 
 <ul>
   <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.</li>
@@ -2373,15 +2373,15 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
       <td>string</td>
       <td>2</td>
-      <td>Conditional. Required only for Mastercard.</td>
-      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
+      <td>Conditional. Required for Mastercard and Hipercard.</td>
+      <td>Transaction Initiator Indicator category. <em>Valid for brands Mastercard and Hipercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
       <td>string</td>
       <td>-</td>
-      <td>Conditional. Required only for Mastercard.</td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a> tables for the full list.</td>
+      <td>Conditional. Required for Mastercard and Hipercard.</td>
+      <td>Transaction Initiator Indicator subcategory. <em>Valid for brands Mastercard and Hipercard</em>. Please refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Transaction Initiator Indicator</a> tables for the full list.</td>
     </tr>
   </tbody>
 </table>
@@ -2390,7 +2390,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <p>The response will be the default response for the credit or debit transaction, returning the node <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code> as sent in the request.</p>
 
-<h4 id="mastercard-transaction-initiator-tables">Mastercard transaction initiator tables</h4>
+<h4 id="mastercard-and-hipercard-transaction-initiator-tables">Mastercard and Hipercard transaction initiator tables</h4>
 
 <h4 id="cit-and-mit-categories">CIT and MIT categories</h4>
 
