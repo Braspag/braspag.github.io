@@ -15,11 +15,11 @@ language_tabs:
 
 # Antecipação de recebíveis
 
-A API de Antecipação de Recebíveis do Split de Pagamentos é mais um canal para que o master solicite a antecipação de valores, sem precisar entrar em contato com a Braspag.
+A API de Antecipação de Recebíveis do Split de Pagamentos é mais um canal para que o master solicite a antecipação de valores, proporcionando uma conexão segura e direta.
 
 **Quem pode solicitar a antecipação de recebíveis via API?**
 
-Qualquer usuário com perfil master pode solicitar antecipação dos recebíveis do próprio master ou dos seus sellers.
+Qualquer usuário com perfil master pode solicitar antecipação dos recebíveis para si ou para os seus sellers.
 
 **Quais são os requisitos para que a antecipação seja aprovada?**
 
@@ -27,7 +27,11 @@ O master ou seller precisa ter saldo livre disponível em agenda na data do pedi
 
 **Qual é o prazo para receber o valor da antecipação?**
 
-O prazo de liquidação é de **até dois dias úteis** a partir da data da solicitação da antecipação (D+2). É importante considerar que o horário de operação da mesa de antecipação de recebíveis é de segunda à sexta, das 8h às 16h30. Assim, se o pedido de antecipação for feito após às 16h30, o pedido será processado somente no próximo dia útil.
+O prazo de liquidação é de **até dois dias úteis** a partir da data da solicitação da antecipação (D+2). É importante considerar que o horário de operação da mesa de antecipação de recebíveis é de segunda à sexta, das 8h às 16h30.
+
+## Como começar
+
+O cliente master deverá solicitar a habilitação de uso da API de Antecipação de Recebíveis ao time de atendimento Braspag.
 
 # Ambientes
 
