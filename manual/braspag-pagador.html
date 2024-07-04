@@ -361,7 +361,7 @@
 <p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <a href="https://braspag.github.io//manual/antifraude" target="_blank">Antifraude</a> ou à análise do <a href="https://braspag.github.io//manual/velocity" target="_blank">Velocity</a>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
 <blockquote>
-  <p><strong>Transações de crédito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</p>
+  <p><strong>Transações de crédito Mastercard e Hipercard com credenciais armazenadas</strong>: a bandeira Mastercard e Hipercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard e Hipercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</p>
 </blockquote>
 
 <p>Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:</p>
@@ -880,17 +880,17 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+      <td>Categoria do indicador de início da transação. Válido para bandeira Mastercard e Hipercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
       <td>string</td>
       <td>2</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+      <td>Condicional. Obrigatório para bandeira Mastercard e Hipercard</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</td>
+      <td>Subcategoria do indicador. Válido para bandeira Mastercard e Hipercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</td>
       <td>string</td>
       <td>-</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+      <td>Condicional. Obrigatório para bandeira Mastercard e Hipercard</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
@@ -1260,7 +1260,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard</em>. Saiba mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a></td>
+      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard e Hipercard</em>. Saiba mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a></td>
       <td>texto</td>
       <td>2</td>
       <td>Numérico</td>
@@ -1280,7 +1280,7 @@
 <img src="https://braspag.github.io//images/3ds.png" alt="Fluxo 3DS 2.0" /></p>
 
 <blockquote>
-  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</p>
+  <p><strong>Transações de débito Mastercard e Hipercard com credenciais armazenadas</strong>: a bandeira Mastercard e Hipercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard e Hipercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</p>
 </blockquote>
 
 <h4 id="requisição-1">Requisição</h4>
@@ -1563,17 +1563,17 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+      <td>Categoria do indicador de início da transação. Válido para bandeira Mastercard e Hipercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
       <td>string</td>
       <td>2</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+      <td>Condicional. Obrigatório para bandeira Mastercard e Hipercard</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</td>
+      <td>Subcategoria do indicador. Válido para bandeira Mastercard e Hipercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de Início da Transação</a>.</td>
       <td>string</td>
       <td>-</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+      <td>Condicional. Obrigatório para bandeira Mastercard e Hipercard</td>
     </tr>
   </tbody>
 </table>
@@ -1838,7 +1838,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard</em>.</td>
+      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard e Hipercard</em>.</td>
       <td>texto</td>
       <td>2</td>
       <td>numérico</td>
@@ -2243,7 +2243,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard</em>.</td>
+      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard e Hipercard</em>.</td>
       <td>texto</td>
       <td>2</td>
       <td>numérico</td>
@@ -2263,9 +2263,9 @@
 
 <p>Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da <a href="https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o" target="_blank">Autorização com Autenticação</a> do 3DS 2.0.</p>
 
-<h3 id="indicador-de-início-da-transação-mastercard">Indicador de início da transação Mastercard</h3>
+<h3 id="indicador-de-início-da-transação-mastercard-e-hipercard">Indicador de início da transação Mastercard e Hipercard</h3>
 
-<p>As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo <strong>titular do cartão</strong> ou pela <strong>loja</strong>:</p>
+<p>As tabelas a seguir se aplicam para transações de crédito e débito Mastercard/Hipercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo <strong>titular do cartão</strong> ou pela <strong>loja</strong>:</p>
 
 <ul>
   <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;</li>
@@ -2318,15 +2318,15 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
       <td>string</td>
       <td>2</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
-      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+      <td>Condicional. Obrigatório para as bandeira Mastercard e Hipercard.</td>
+      <td>Categoria do indicador de início da transação. Válido para bandeira Mastercard e Hipercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
       <td>string</td>
       <td>-</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
-      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação</a>.</td>
+      <td>Condicional. Obrigatório para as bandeira Mastercard e Hipercard.</td>
+      <td>Subcategoria do indicador. Válido para bandeira Mastercard e Hipercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -2335,7 +2335,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <p>A resposta será o padrão da transação de crédito ou débito com o retorno do mesmo nó inserido na requisição.</p>
 
-<h4 id="tabelas-do-indicador-de-início-da-transação-mastercard">Tabelas do indicador de início da transação Mastercard</h4>
+<h4 id="tabelas-do-indicador-de-início-da-transação-mastercard-e-hipercard">Tabelas do indicador de início da transação Mastercard e Hipercard</h4>
 
 <h5 id="categorias-cit-e-mit">Categorias CIT e MIT</h5>
 
