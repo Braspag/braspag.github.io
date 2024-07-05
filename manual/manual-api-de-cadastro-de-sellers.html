@@ -169,10 +169,10 @@
     <tr>
       <td><strong>API de Onboarding Split 2.0</strong></td>
       <td>https://splitonboardingapisandbox.braspag.com.br</td>
-      <td>Cadastro e consulta de sellers 2.0.</td>
+      <td>Cadastro e consulta de sellers 2.0, alteração de taxas em lote e atualização de domicílio bancário.</td>
     </tr>
     <tr>
-      <td><strong>API de Onboarding Split 1.0</strong> [DEPRECATED]</td>
+      <td><strong>API de Onboarding Split 1.0</strong> [descontinuada]</td>
       <td>https://splitonboardingsandbox.braspag.com.br</td>
       <td>Consulta de sellers 1.0.</td>
     </tr>
@@ -198,10 +198,10 @@
     <tr>
       <td><strong>API de Onboarding Split 2.0</strong></td>
       <td>https://splitonboardingapi.braspag.com.br</td>
-      <td>Cadastro e consulta de sellers 2.0.</td>
+      <td>Cadastro e consulta de sellers 2.0, alteração de taxas em lote e atualização de domicílio bancário.</td>
     </tr>
     <tr>
-      <td><strong>API de Onboarding Split 1.0</strong> [DEPRECATED]</td>
+      <td><strong>API de Onboarding Split 1.0</strong> [descontinuada]</td>
       <td>https://splitonboarding.braspag.com.br</td>
       <td>Consulta de sellers 1.0.</td>
     </tr>
@@ -4320,6 +4320,173 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, siga as instr
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w"> 
 </span></code></pre></div></div>
+
+<h1 id="atualizar-domicílio-bancário-do-seller">Atualizar domicílio bancário do seller</h1>
+
+<p>A API de Onboarding Split 2.0 disponibiliza um endpoint para solicitar a atualização dos dados bancários de um seller específico, através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do seller.</p>
+
+<h2 id="requisição-7">Requisição</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api-2.0}/api/merchants/{merchant-id}/bank-account/request-update</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer {<code class="language-plaintext highlighter-rouge">access_token</code>}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros na rota (path)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Identificador do seller.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (body)</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111110"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"444"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81777265000100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Operation"</span><span class="p">:</span><span class="s2">"123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Number</code></td>
+      <td>string</td>
+      <td>12</td>
+      <td>Sim</td>
+      <td>Número da conta do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VerifierDigit</code></td>
+      <td>string</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito verificador da conta do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyNumber</code></td>
+      <td>string</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Número da agência do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AgencyDigit</code></td>
+      <td>string</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Dígito da agência do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Bank</code></td>
+      <td>string</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Código de compensação do banco.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccountType</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <em>“CheckingAccount”</em> (conta corrente) e <em>“SavingsAccount”</em> (conta poupança).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>string</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Operation</code></td>
+      <td>string</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Operação da conta do seller.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta-7">Resposta</h2>
+
+<p>A resposta irá retornar o Status HTTP para a solicitação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Code</th>
+      <th>Cenário</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>204</td>
+      <td>A solicitação foi enviada com sucesso.</td>
+    </tr>
+    <tr>
+      <td>442</td>
+      <td>Já existe uma solicitação de atualização para o <code class="language-plaintext highlighter-rouge">MerchantId</code> informado. Mensagem: <em>The bank account validation is in progress. Please wait.</em></td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="notificações-do-cadastro-de-sellers">Notificações do cadastro de sellers</h1>
 
