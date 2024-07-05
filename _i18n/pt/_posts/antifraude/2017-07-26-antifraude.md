@@ -2716,7 +2716,6 @@ A resposta sempre irá apresentar no header o `Content-Type` com o valor "applic
 |Elo|Cybersource, ACI Wordwide|-|
 |Hipercard|Cybersource, ACI Wordwide|Será enviado para a Cybersource como Private Label|
 |Aura|Cybersource|Será enviado para a Cybersource como Private Label|
-|Hiper|Cybersource|Será enviado para a Cybersource como Private Label|
 |Naranja|Cybersource|Será enviado para a Cybersource como Private Label|
 |Nevada|Cybersource|Será enviado para a Cybersource como Private Label|
 |Cabal|Cybersource|Será enviado para a Cybersource como Private Label|
