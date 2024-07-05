@@ -35,7 +35,7 @@ Em seguida, clique novamente em **Instalar**:
 
 Você será direcionado para a tela de login na Cielo. Caso você já tenha seu usuário e senha basta fazer login. Caso não tenha, entre em contato com a Cielo para gerar seu usuário e senha.
 
-* **Atendimento via Telefone:** 3003-6554
+* **Atendimento via Telefone:** 3003-4346
 * **Atendimento via WhatsApp:** (11)98541-0288
 
 ![Tela login]({{ site.baseurl_root }}/images/braspag/pagador/tela-login-nova.jpg)
@@ -86,7 +86,7 @@ Em seguida, clique novamente em **Instalar**:
 
 Você será direcionado para a tela de login na Cielo. Caso você já tenha seu usuário e senha basta fazer login. Caso não tenha, entre em contato com a Cielo para gerar seu usuário e senha.
 
-* **Atendimento via Telefone:** 3003-6554
+* **Atendimento via Telefone:** 3003-4346
 * **Atendimento via WhatsApp:** (11)98541-0288
 
 ![Login Cielo]({{ site.baseurl_root }}/images/braspag/pagador/tela-login-nova.jpg)
@@ -137,7 +137,7 @@ Em seguida, clique novamente em **Instalar**:
 
 Você será direcionado para a tela de login na Cielo. Caso você já tenha seu usuário e senha basta fazer login. Caso não tenha, entre em contato com a Cielo para gerar seu usuário e senha.
 
-* **Atendimento via Telefone:** 3003-6554
+* **Atendimento via Telefone:** 3003-4346
 * **Atendimento via WhatsApp:** (11)98541-0288
 
 ![Login Cielo]({{ site.baseurl_root }}/images/braspag/pagador/tela-login-nova.jpg)
