@@ -1821,6 +1821,8 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
 
 A API de Onboarding Split 2.0 disponibiliza um endpoint para solicitar a atualização dos dados bancários de um seller específico, através do `MerchantId` do seller.
 
+A validação pode demorar até dois dias úteis para ser concluída, e todos os passos da validação podem ser acompanhados via Webhook.
+
 ## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api-2.0}/api/merchants/{merchant-id}/bank-account/request-update</span></aside>
