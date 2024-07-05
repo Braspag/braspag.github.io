@@ -46,16 +46,16 @@ O onboarding do seller no Split de Pagamentos ocorre da seguinte forma:
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro e consulta de sellers 2.0.|
-|**API de Onboarding Split 1.0** [DEPRECATED]|https://splitonboardingsandbox.braspag.com.br | Consulta de sellers 1.0.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro e consulta de sellers 2.0, alteração de taxas em lote e atualização de domicílio bancário.|
+|**API de Onboarding Split 1.0** [descontinuada]|https://splitonboardingsandbox.braspag.com.br | Consulta de sellers 1.0.|
 
 ## Produção
 
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro e consulta de sellers 2.0.|
-|**API de Onboarding Split 1.0** [DEPRECATED]|https://splitonboarding.braspag.com.br | Consulta de sellers 1.0.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro e consulta de sellers 2.0, alteração de taxas em lote e atualização de domicílio bancário.|
+|**API de Onboarding Split 1.0** [descontinuada]|https://splitonboarding.braspag.com.br | Consulta de sellers 1.0.|
 
 # Autenticação
 
@@ -1816,6 +1816,64 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
     ]
 } 
 ```
+
+# Atualizar domicílio bancário do seller
+
+A API de Onboarding Split 2.0 disponibiliza um endpoint para solicitar a atualização dos dados bancários de um seller específico, através do `MerchantId` do seller.
+
+## Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api-2.0}/api/merchants/{merchant-id}/bank-account/request-update</span></aside>
+
+**Parâmetros no cabeçalho (header)**
+
+|KEY|VALUE|
+|---|---|
+|`Content-Type`|application/json|
+|`Authorization`| Bearer {`access_token`}|
+
+**Parâmetros na rota (path)**
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `MerchantId` | GUID | - | Sim | Identificador do seller. |
+
+**Parâmetros no corpo (body)**
+
+ ```json
+{
+    "Number": "111110",
+    "VerifierDigit": "X",
+    "AgencyNumber": "444",
+    "AgencyDigit": "X",
+    "Bank": "341",
+    "BankAccountType": "CheckingAccount",
+    "DocumentNumber": "81777265000100",
+    "DocumentType": "CNPJ",
+    "Operation":"123"
+}
+```
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `Number` | string| 12 | Sim | Número da conta do seller. |
+| `VerifierDigit` | string | 1 | Sim |Dígito verificador da conta do seller. |
+| `AgencyNumber` | string| 4| Sim | Número da agência do seller.  |
+| `AgencyDigit` | string | 1 | Sim | Dígito da agência do seller. |
+| `Bank` | string| 3 | Sim | Código de compensação do banco. |
+| `BankAccountType` | string| - | Sim | Tipo de conta bancária. Os tipos válidos são *“CheckingAccount”* (conta corrente) e *“SavingsAccount”* (conta poupança). |
+| `DocumentNumber` | string| 14 | Sim | Número do documento da conta |
+| `DocumentType` | string| - | Sim | Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”. |
+| `Operation` | string | 10 | Não | Operação da conta do seller. |
+
+## Resposta
+
+A resposta irá retornar o Status HTTP para a solicitação.
+
+| Status Code | Cenário|
+|---|---|
+| 204 | A solicitação foi enviada com sucesso. |
+| 442 | Já existe uma solicitação de atualização para o `MerchantId` informado. Mensagem: *The bank account validation is in progress. Please wait.*|
 
 # Notificações do cadastro de sellers
 
