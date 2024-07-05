@@ -109,7 +109,7 @@ Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.
 
 # Meios de Pagamento
 
-A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, pix, QR Code, boleto bancário, transferência eletrônica, *Buy Now Pay Later* (BNPL), e-wallet e voucher. O fluxo da transação depende dos serviços utilizados e das configurações escolhidas pela loja.
+A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, Pix, QR Code, boleto bancário, transferência eletrônica, *Buy Now Pay Later* (BNPL), e-wallet e voucher. O fluxo da transação depende dos serviços utilizados e das configurações escolhidas pela loja.
 
 Veja abaixo a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
 
@@ -2398,7 +2398,7 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 |`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação. |texto |32 |texto alfanumérico|
 |`ReasonMessage`| Mensagem correspondente ao `ReasonCode`.|texto |512 |texto alfanumérico|
 
-### Códigos PIX Bradesco
+### Códigos Pix Bradesco
 
 Abaixo segue os códigos Pix do Bradesco:
 
@@ -2411,7 +2411,7 @@ Abaixo segue os códigos Pix do Bradesco:
 |125| Cancelado | Status informando que o pagamento por Pix foi cancelado. |
 |126| Devolvido completamente | Status informando que o pagamento por Pix teve o valor pago devolvido em sua totalidade. |
 |127| Devovildo parcialmente | Status informando que o pagamento por Pix teve uma fração do valor pago devolvido. |
-|130| PIX Removido pelo SPS | Status informando que o QRCode/Payload encontra-se vencido e foi removido, pelo banco da lista de Pix disponíveis. |
+|130| Pix Removido pelo SPS | Status informando que o QRCode/Payload encontra-se vencido e foi removido, pelo banco da lista de Pix disponíveis. |
 
 ## QR Code
 
@@ -8573,7 +8573,7 @@ Lista de status retornados pela API:
 |3|Denied|Cartões de crédito e débito (transferência eletrônica) e e-wallets.|**Pagamento negado por autorizador**. <br>Possíveis causas: limite insuficiente, falta de pagamento do cartão, bandeira indisponível, bloqueio por fraude, entre outros.<br>Para saber o real motivo da negação é necessário olhar o código de retorno gerado durante a transação.|
 |10|Voided|Todos, exceto boleto.|**Pagamento cancelado**.<br>É a [suspensão da transação](https://suporte.braspag.com.br/hc/pt-br/articles/360003150692-Qual-a-diferen%C3%A7a-entre-cancelamento-e-estorno-){:target="_blank"}, isentando de taxa ou valores cobrados. As transações pré-autorizadas podem ser canceladas mesmo após às 23h59 da data de autorização. Já as transações capturadas podem ser canceladas até às 23h59 do mesmo dia da autorização, após esse horário o valor será estornado.|
 |11|Refunded|Cartões de crédito e débito e e-wallets.|**Pagamento cancelado/estornado**.<br>Significa que foi solicitado o cancelamento da transação, podendo ocorrer a partir das 0h00 do dia após a criação da transação. Independentemente do valor, só é possível realizar uma solicitação de estorno por transação. Isso pode acontecer por conta de dados incorretos ou por solicitação do comprador.|
-|12|Pending|Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.|**Esperando retorno da instituição financeira**. <br>Significa que a transação foi enviada para a Braspag em processo de pré-autorização, esperando uma resposta do banco emissor para validá-la. |
+|12|Pending|Cartões de crédito e débito (transferência eletrônica), e-wallets e Pix.|**Esperando retorno da instituição financeira**. <br>Significa que a transação foi enviada para a Braspag em processo de pré-autorização, esperando uma resposta do banco emissor para validá-la. |
 |13|Aborted|Todos|**Pagamento cancelado por falha no processamento**.<br>Significa que a transação foi cancelada por falha de processamento. Também pode ser abortada, caso o Antifraude negue a transação antes da autorização. |
 |20|Scheduled|Cartão de crédito e e-wallets.|**Recorrência agendada**.<br>Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja. |
 
