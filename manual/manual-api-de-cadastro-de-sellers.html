@@ -4325,6 +4325,8 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, siga as instr
 
 <p>A API de Onboarding Split 2.0 disponibiliza um endpoint para solicitar a atualização dos dados bancários de um seller específico, através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do seller.</p>
 
+<p>A validação pode demorar até dois dias úteis para ser concluída, e todos os passos da validação podem ser acompanhados via Webhook.</p>
+
 <h2 id="requisição-7">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api-2.0}/api/merchants/{merchant-id}/bank-account/request-update</span></aside>
