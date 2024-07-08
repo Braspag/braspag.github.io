@@ -1819,9 +1819,12 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
 
 # Atualizar domicílio bancário do seller
 
-A API de Onboarding Split 2.0 disponibiliza um endpoint para solicitar a atualização dos dados bancários de um seller específico, através do `MerchantId` do seller.
+A API de Onboarding Split 2.0 disponibiliza um *endpoint* para solicitar a atualização dos dados bancários de um seller específico, através do `MerchantId` do seller. Após a solicitação de atualização, os dados serão submetidos ao processo de validação do domicílio bancário.
 
-> A validação pode demorar até dois dias úteis para ser concluída, e todos os passos da validação podem ser acompanhados via [webhook](https://braspag.github.io/manual/manual-api-de-cadastro-de-sellers#notifica%C3%A7%C3%A3o-de-valida%C3%A7%C3%A3o-de-domic%C3%ADlio-banc%C3%A1rio).
+> **Importante:**<br>
+> <br>
+> * Os novos dados bancários serão atualizados de fato na plataforma após a validação de domicílio bancário com sucesso;<br>
+> * A validação pode demorar até dois dias úteis para ser concluída, e todos os passos podem ser acompanhados via webhook. Saiba mais em [Notificação de validação de domicílio bancário](https://braspag.github.io/manual/manual-api-de-cadastro-de-sellers#notifica%C3%A7%C3%A3o-de-valida%C3%A7%C3%A3o-de-domic%C3%ADlio-banc%C3%A1rio).
 
 ## Requisição
 
