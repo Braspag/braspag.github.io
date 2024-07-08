@@ -647,6 +647,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
       }
    },
    "Payment":{
+      "Type":"DebitCard",
       "DebitCard":{
          "CardNumber":"************1106",
          "Holder":"NOME DO TITULAR DO CARTÃO",
@@ -664,7 +665,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
          "Eci":"5",
          "Version":"2",
-         "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+         "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
+         },
       "InitiatedTransactionIndicator": {
             "Category": "C1",
             "Subcategory": "Standingorder"
@@ -673,6 +675,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
+         }
       ]
    }
 }
@@ -716,6 +719,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
       }
    },
    "Payment":{
+      "Type":"DebitCard",
       "DebitCard":{
          "CardNumber":"************1106",
          "Holder":"NOME DO TITULAR DO CARTÃO",
@@ -742,6 +746,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
+         }
       ]
    }
 }

@@ -648,6 +648,7 @@ See below the representation of a standard **transactional flow** in the creatio
       }
    },
    "Payment":{
+      "Type":"DebitCard",
       "DebitCard":{
          "CardNumber":"************1106",
          "Holder":"NOME DO TITULAR DO CARTÃO",
@@ -670,7 +671,8 @@ See below the representation of a standard **transactional flow** in the creatio
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
-]}
+         }
+      ]}
       "InitiatedTransactionIndicator": {
           "Category": "C1",
           "Subcategory": "Standingorder"
@@ -716,6 +718,7 @@ See below the representation of a standard **transactional flow** in the creatio
       }
    },
    "Payment":{
+      "Type":"DebitCard"
       "DebitCard":{
          "CardNumber":"************1106",
          "Holder":"NOME DO TITULAR DO CARTÃO",
@@ -738,6 +741,7 @@ See below the representation of a standard **transactional flow** in the creatio
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
+         }
       ]},
       "InitiatedTransactionIndicator": {
           "Category": "C1",
