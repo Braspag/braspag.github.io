@@ -135,7 +135,7 @@ Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`
 > * client_id: **braspagtestes**<br/>
 > * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
 > * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
-> * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
+> * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cjV0Nnk3dThpOW8wcDBxOXc4ZTdyNnQ1eTR1M2kybzFw**<br/>
 
 **3.** Envie a string em base 64 na requisição de Autenticação (POST);<br/>
 **4.** A API de Autenticação irá validar a string e retornará o `access_token` (token de acesso). 
