@@ -138,7 +138,7 @@ During onboarding, you will be given the `ClientId` and `ClientSecret` credentia
 > * client_id: **braspagtestes**<br/>
 > * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
 > * String to encode in Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
-> * Result after coding: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
+> * Result after coding: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cjV0Nnk3dThpOW8wcDBxOXc4ZTdyNnQ1eTR1M2kybzFw**<br/>
 
 **3.** Send the base64 string in the Authentication request (POST);<br/>
 **4.** The Authentication API will validate the string and return the `access_token`.
