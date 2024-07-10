@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-07-08T13:26:05+00:00</updated>
+    <updated>2024-07-10T20:39:55+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -28696,7 +28696,7 @@ There are two possible flows for fraud analysis:&lt;/p&gt;
     &lt;li&gt;client_id: &lt;strong&gt;braspagtestes&lt;/strong&gt;&lt;br /&gt;&lt;/li&gt;
     &lt;li&gt;client_secret: &lt;strong&gt;1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;br /&gt;&lt;/li&gt;
     &lt;li&gt;String to encode in Base64: &lt;strong&gt;braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p&lt;/strong&gt;&lt;br /&gt;&lt;/li&gt;
-    &lt;li&gt;Result after coding: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;li&gt;Result after coding: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cjV0Nnk3dThpOW8wcDBxOXc4ZTdyNnQ1eTR1M2kybzFw&lt;/strong&gt;&lt;br /&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
