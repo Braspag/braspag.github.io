@@ -750,14 +750,14 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 
 **MDR do master com seller igual a 4%**
 
-| ACORDO SUBADQUIRENTE e MASTER | Visa  | Master | Elo   | Diners  | Amex  | Hiper  |
+| ACORDO SUBADQUIRENTE e MASTER | Visa  | Master | Elo   | Diners  | Amex  | Hipercard  |
 |-------------------------------|----------------------------------------------------|
 | Débito                        | 2.00% | 2.00%  | 2.00% |    -    |   -   |    -    |  
 | Crédito a Vista               | 2.50% | 2.50%  | 2.50% | 2.50%   | 2.50% |  2.50%  |
 | Crédito 2x a 6x               | 3.00% | 3.00%  | 3.00% | 3.00%   | 3.00% |  3.00%  |
 | Crédito 7x a 12x              | 3.50% | 3.50%  | 3.50% | 3.50%   | 3.50% |  3.50%  |
 
-| ACORDO MASTER e SELLER  | Visa  | Master | Elo   | Diners  | Amex   | Hiper  |
+| ACORDO MASTER e SELLER  | Visa  | Master | Elo   | Diners  | Amex   | Hipercard  |
 |------------------------------|----------------------------------------------------|
 | Débito                       | 4.00% | 4.00%  | 4.00% |    -    |   -    |    -   |  
 | Crédito a Vista              | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
