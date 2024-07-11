@@ -51,14 +51,14 @@ There are two ways to establish agreements between Master and its Subordinates w
 
 **MDR from Master to Subordinate: 4%**
 
-| Agreement Acquirer vs. Master | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
+| Agreement Acquirer vs. Master | Visa  | Master | Elo   | Diners | Amex  | Hipercard  |
 |----------------------------------|-------|--------|-------|--------|-------|--------|
 | Debit                            | 2.00% | 2.00%  | 2.00% |        |       |        |  
 | Credit 1x                        | 2.50% | 2.50%  | 2.50% | 2.50%  | 2.50% |  2.50% |
 | Credit 2x to 6x                  | 3.00% | 3.00%  | 3.00% | 3.00%  | 3.00% |  3.00% |
 | Credit 7x to 12x                 | 3.50% | 3.50%  | 3.50% | 3.50%  | 3.50% |  3.50% |
  
-| Agreement Master vs. Subordinate | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
+| Agreement Master vs. Subordinate | Visa  | Master | Elo   | Diners | Amex  | Hipercard  |
 |----------------------------------|-------|--------|-------|--------|-------|--------|
 | Debit                            | 4.00% | 4.00%  | 4.00% |        |       |        |  
 | Credit 1x                        | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
