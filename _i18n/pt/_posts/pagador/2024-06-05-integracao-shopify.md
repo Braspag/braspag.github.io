@@ -174,7 +174,7 @@ Você receberá uma mensagem de confirmação indicando que o **Cielo Credicard*
 
 ### Antifraude
 
-Para fazer uma análise de fraude nas transações de cartão de crédito, será necessário ter contratar nosso Antifraude com provedor **Cybersource**. Se já tiver contratado, baixe o aplicativo:
+Para fazer uma análise de fraude nas transações de cartão de crédito, será necessário ter contratar nosso Antifraude com provedor **Cybersource**. Se já tiver contratado, [baixe o aplicativo](https://apps.shopify.com/cielo-fraud-analysis){:target="_blank"}:
 
 ![Aplicativo Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/instalacao-antifraude-1.jpg)
 
