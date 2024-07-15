@@ -98,7 +98,7 @@ Os seguintes recursos são oferecidos, podendo ser aplicados em diferentes momen
 |Termo|Descrição|
 |---|---|
 |**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Leia mais na seção [Pagamentos com Análise de Fraude](#pagamentos-com-análise-de-fraude) ou consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude){:target="_blank"}.|
-|**Autenticação**|Processo que possibilita passagem da venda por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Leia mais na seção Autenticação 3DS ou consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.|
+|**Autenticação**|Processo que possibilita passagem da venda por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Leia mais na seção Autenticação 3DS ou consulte o manual [Autenticação 3DS 2.2](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.|
 |**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito no formato de *token*. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa*" de envio de transação, sempre preservando a integridade e a confidencialidade das informações. Leia mais na seção [Salvando e Reutilizando Cartões](#salvando-e-reutilizando-cartões) ou consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest){:target="_blank"}.|
 
 ## Suporte Braspag
@@ -602,12 +602,12 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 
 Uma transação com cartão de débito se efetua de forma semelhante à com cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
-Todas as transações de débito devem ser autenticadas por exigência dos bancos emissores e bandeiras, com o objetivo de promover maior segurança. Para autenticar uma transação de débito, usamos o protocolo [EMV 3DS 2.0](https://www.emvco.com/emv-technologies/3-d-secure/){:target="_blank"}. Esse protocolo é um script integrado ao website do e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.
+Todas as transações de débito devem ser autenticadas por exigência dos bancos emissores e bandeiras, com o objetivo de promover maior segurança. Para autenticar uma transação de débito, usamos o protocolo [EMV 3DS 2.2](https://www.emvco.com/emv-technologies/3-d-secure/){:target="_blank"}. Esse protocolo é um script integrado ao website do e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.
 
 Para integrar o método de autenticação, consulte a documentação do [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
 
 Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação de débito, com as etapas de autenticação e autorização:
-![Fluxo 3DS 2.0]({{ site.baseurl_root }}/images/3ds.png)
+![Fluxo 3DS 2.2]({{ site.baseurl_root }}/images/3ds.png)
 
 > **Transações de débito Mastercard e Hipercard com credenciais armazenadas**: a bandeira Mastercard e Hipercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard e Hipercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Indicador de Início da Transação](https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
@@ -766,8 +766,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Payment.ExternalAuthentication.Cavv`| Assinatura retornada nos cenários de sucesso na autenticação. | texto | 28 | Sim, caso a autenticação seja validada. |
 |`Payment.ExternalAuthentication.Xid`| XID retornado no processo de autenticação. | texto | 28 | Sim, quando a versão do 3DS for "1".|
 |`Payment.ExternalAuthentication.Eci`| *Electronic Commerce Indicator* retornado no processo de autenticação. | número | 1 | Sim. |
-|`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | alfanumérico | 1 posição | Sim, quando a versão do 3DS for "2".|
-|`Payment.ExternalAuthentication.ReferenceId`| RequestID retornado no processo de autenticação. | GUID | 36 | Sim, quando a versão do 3DS for "2". |
+|`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | alfanumérico | 1 posição | Sim, quando a versão do 3DS for "2" ou maior.|
+|`Payment.ExternalAuthentication.ReferenceId`| RequestID retornado no processo de autenticação. | GUID | 36 | Sim, quando a versão do 3DS for "2" ou maior. |
 |`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido para bandeira Mastercard e Hipercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório para bandeira Mastercard e Hipercard|
 |`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido para bandeira Mastercard e Hipercard.<br>Valores possíveis:<br>Se `InitiatedTransactionIndicator.Category` = "C1" ou "M1"<br>*CredentialsOnFile*<br>*StandingOrder*<br>*Subscription*<br>*Installment*<br>Se `InitiatedTransactionIndicator.Category` = "M2"<br>*PartialShipment*<br>*RelatedOrDelayedCharge*<br>*NoShow*<br>*Resubmission*<br>Consulte a tabela com a descrição das subcategorias em [Indicador de Início da Transação](https://braspag.github.io//manual/braspag-pagador#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).|string|-|Condicional. Obrigatório para bandeira Mastercard e Hipercard|
 
@@ -1194,13 +1194,13 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 
 Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-O padrão mais atual do autenticador é o [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, sendo que a versão 3DS 1.0 foi descontinuada.
+O padrão mais atual do autenticador é o [3DS 2.2](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, sendo que a versão 3DS 1.0 foi descontinuada.
 
-<aside class="notice">O padrão 3DS 2.0 é indicado também para o ambiente mobile.</aside>
+<aside class="notice">O padrão 3DS 2.2 é indicado também para o ambiente mobile.</aside>
 
-Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
+Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.2](https://braspag.github.io//manualp/emv3ds){:target="_blank"} possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
 
-Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o){:target="_blank"} do 3DS 2.0.
+Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o){:target="_blank"} do 3DS 2.2.
 
 ### Indicador de início da transação Mastercard e Hipercard
 
