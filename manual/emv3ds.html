@@ -206,9 +206,9 @@
   <li><strong>Autenticação com desafio</strong>: quando o emissor precisa realizar uma validação complementar do portador do cartão e apresenta um desafio, que pode ser a confirmação de um código enviado pelo aplicativo do banco, por SMS etc.</li>
 </ul>
 
-<h2 id="como-funciona-a-autorização-com-autenticação-via-3d-secure-2">Como funciona a autorização com autenticação via 3D Secure 2?</h2>
+<h2 id="como-funciona-a-autorização-com-autenticação-via-3d-secure-22">Como funciona a autorização com autenticação via 3D Secure 2.2?</h2>
 
-<p>O processo de autorização de cartão autenticada via 3D Secure 2 ocorre em duas etapas:</p>
+<p>O processo de autorização de cartão autenticada via 3D Secure 2.2 ocorre em duas etapas:</p>
 
 <ol>
   <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e <strong>alguns parâmetros</strong> que devem ser enviados na autorização. Saiba mais em <a href="https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript">Integração do script</a>;</li>
@@ -259,7 +259,7 @@
 
 <blockquote>
   <p><strong>Stand-in pela bandeira (válido para Visa e Mastercard)</strong>:
-Além das bandeiras, o emissor do cartão também precisa processar o protocolo 3DS 2.0. Caso o emissor ainda não esteja apto a responder um pedido de autenticação usando 3DS 2.2, a bandeira avalia os dados enviados, como por exemplo o histórico transacional e comportamental do portador do cartão, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.2, e terão uma maior confiança nas transações autenticadas. Em casos de <em>stand-in</em>, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o <em>liability</em> em caso de fraude ficará com o emissor.</p>
+Além das bandeiras, o emissor do cartão também precisa processar o protocolo 3DS 2.2. Caso o emissor ainda não esteja apto a responder um pedido de autenticação usando 3DS 2.2, a bandeira avalia os dados enviados, como por exemplo o histórico transacional e comportamental do portador do cartão, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.2, e terão uma maior confiança nas transações autenticadas. Em casos de <em>stand-in</em>, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o <em>liability</em> em caso de fraude ficará com o emissor.</p>
 </blockquote>
 
 <h2 id="o-que-é-o-data-only--somente-notificação">O que é o Data Only – somente notificação</h2>
