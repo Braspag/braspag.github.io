@@ -604,7 +604,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 
 Todas as transações de débito devem ser autenticadas por exigência dos bancos emissores e bandeiras, com o objetivo de promover maior segurança. Para autenticar uma transação de débito, usamos o protocolo [EMV 3DS 2.2](https://www.emvco.com/emv-technologies/3-d-secure/){:target="_blank"}. Esse protocolo é um script integrado ao website do e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.
 
-Para integrar o método de autenticação, consulte a documentação do [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
+Para integrar o método de autenticação, consulte a documentação do [3DS 2.2](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
 
 Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação de débito, com as etapas de autenticação e autorização:
 ![Fluxo 3DS 2.2]({{ site.baseurl_root }}/images/3ds.png)
