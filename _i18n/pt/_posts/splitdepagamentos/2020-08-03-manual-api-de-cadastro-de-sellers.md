@@ -469,7 +469,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
 | `BankAccount.Number` | Texto | 10 | Número da conta |
-| `BankAccount.AgencyNumber` | Texto | 15 | Número da agência do seller. *Atenção: Valores zerados como "0", "00", "000" são inválidos*. |
+| `BankAccount.AgencyNumber` | Texto | 4 | Número da agência do seller. *Atenção: Valores zerados como "0", "00", "000" são inválidos*. |
 | `BankAccount.AgencyDigit` | Texto | 1 | Dígito da agência |
 | `BankAccount.DocumentNumber` | Texto | 14 | Número do documento da conta |
 | `BankAccount.DocumentType` | Texto | - | Tipo do documento. Os tipos válidos são Cpf, Cnpj |
@@ -1478,7 +1478,7 @@ Você pode consultar um seller específico através do `MerchantId` do seller. E
 | `BankAccount.Bank` | string | 3 | sim | Código do banco |
 | `BankAccount.BankAccountType` | string | - | sim | Tipo de conta bancária. Os tipos válidos são CheckingAccount (Conta corrente) e SavingsAccount (Conta poupança). |
 | `BankAccount.Number` | string | 10 | sim | Número da conta |
-| `BankAccount.AgencyNumber` | string | 10 | sim | Número da agência |
+| `BankAccount.AgencyNumber` | string | 4 | sim | Número da agência |
 | `BankAccount.AgencyDigit` | Char | 1 | sim | Dígito da agência |
 | `BankAccount.VerifierDigit` | Char | 1 | sim | Dígito verificador da conta |
 | `BankAccount.Operation` | string | 10 | não | Operação da conta |
