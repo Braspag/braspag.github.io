@@ -195,7 +195,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 | `BankAccount.Number` | Texto | 10 | Sim | Número da conta do seller. |
 | `BankAccount.Operation` | Texto | 10 | Não | Operação da conta do seller. |
 | `BankAccount.VerifierDigit` | Texto | 1 | Sim | Dígito verificador da conta do seller. |
-| `BankAccount.AgencyNumber` | Texto | 15 | Sim | Número da agência do seller. *Atenção: Valores zerados como "0", "00", "000" são inválidos*. |
+| `BankAccount.AgencyNumber` | Texto | 4 | Sim | Número da agência do seller. *Atenção: Valores zerados como "0", "00", "000" são inválidos*. |
 | `BankAccount.AgencyDigit` | Texto | 1 | Sim | Dígito da agência do seller. Caso a agência não tenha dígito, informar o valor "x". |
 | `BankAccount.DocumentNumber` | Texto | 14 | Não | Número do documento da conta (apenas números) do seller. |
 | `BankAccount.DocumentType` | Texto | - | Não | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
