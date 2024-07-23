@@ -1194,7 +1194,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 
 Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-O padrão mais atual do autenticador é o [3DS 2.2](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, sendo que a versão 3DS 1.0 foi descontinuada.
+> Acesse o padrão mais atual do autenticador [3DS 2.2](https://braspag.github.io//manual/emv3ds), sendo que a versão 3DS 1.0 foi descontinuada.
 
 <aside class="notice">O padrão 3DS 2.2 é indicado também para o ambiente mobile.</aside>
 
