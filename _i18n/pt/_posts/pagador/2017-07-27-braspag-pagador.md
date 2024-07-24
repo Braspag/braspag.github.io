@@ -1192,15 +1192,68 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 
 ### Autenticação 3DS
 
-Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
+**O que é?**
 
-> Acesse o padrão mais atual do autenticador em [3DS 2.2](https://braspag.github.io//manual/emv3ds), sendo que a versão 3DS 1.0 foi descontinuada.
+É um protocolo de autenticação que confirma se o comprador é de fato o portador do cartão (de crédito ou débito). O objetivo do 3DS (também chamado de EMV 3DS) é evitar fraudes em transações de cartão não presente (CNP).
 
-Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o){:target="_blank"} do 3DS 2.2.
+Por meio do 3DS, os dados do comprador são enviados para as bandeiras e emissores do cartão, que irão realizar a autenticação. Para uma transação autenticada pelo 3DS, a responsabilidade em caso de chargeback será das bandeiras ou emissores.
 
-<aside class="notice">O padrão 3DS 2.2 é indicado também para o ambiente mobile.</aside>
+> Todas as transações de cartão de débito devem ser autenticadas pelo protocolo 3DS.
 
-Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.2](https://braspag.github.io//manual/emv3ds){:target="_blank"} possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
+**Qual é o objetivo?**
+
+O 3DS realiza a autenticação validando dados do portador. A autenticação pode ser silenciosa ou com desafio (o desafio é uma interface para autenticação, ou seja, o cliente será submetido a uma validação adicional do emissor).
+
+**Qual é o impacto do uso no meu negócio?**
+
+Ao autenticar transações pelo protocolo 3DS, a responsabilidade em caso de chargeback será das bandeiras ou emissores.
+
+**Como usar o 3DS?**
+
+O processo de autorização de cartão autenticada via 3D Secure 2.2 ocorre em duas etapas:
+
+1. **Etapa de autenticação**: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e alguns parâmetros (como o ECI) que devem ser enviados na autorização. Saiba mais em [Integração do script](https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript);
+2. **Etapa de autorização**: a loja submete a transação para autorização, informando os parâmetros retornados pelo script na etapa de autenticação. Saiba mais em [Autorização com Autenticação](https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o).
+
+O fluxo a seguir descreve as etapas de autenticação em alto nível:
+
+![Fluxo 3DS 2.2]({{ site.baseurl_root }}/images/3ds-bp.jpg)
+
+**1.** O comprador escolhe pagar com cartão de crédito ou débito;<br>
+**2.** A loja executa um script, solicitando à Cielo autenticação através da solução 3DS 2.2;<br>
+**3.** A loja envia requisição com dados do comprador para a bandeira;<br>
+**4.** A bandeira envia a requisição para avaliação de risco do emissor;<br>
+**5.** O emissor avalia as informações e determina se fluxo será com ou sem desafio ao portador;<br>
+**5.1.** Se o emissor solicitar desafio, cria e envia a URL para a loja;<br>
+**5.2.** A loja apresenta lightbox do desafio na página de checkout para obter resposta do comprador;<br>
+**5.3.** O comprador responde o desafio, completando a autenticação;<br>
+**6.** O emissor envia o resultado da autenticação para o 3DS Server;<br>
+**7.** O 3DS Server envia resultado da autenticação no campo ECI. A loja decide seguir ou não para autorização.
+
+> A loja pode optar por submeter uma transação não autenticada para autorização; no entanto, nesse caso, a loja será responsável em caso de chargeback.
+
+**Como não utilizar? O que não fazer?**
+
+* Não realizar transações de débito sem autenticação ou utilização de senha;
+* Não realizar transações de débito sem CVV.
+
+**Detalhes importantes**
+
+O ECI (Eletronic Commerce Indicator) retornado na resposta da autenticação indica se o portador foi autenticado ou não pela bandeira ou emissor.
+
+Se o ECI retornado indicar que o portador não foi autenticado, recomendamos a utilização de Antifraude para analisar o risco da transação. 
+
+Caso a loja envie suas transações primeiro para o Antifraude e a análise indique alto risco, recomendamos que o pedido seja encaminhado para autenticação no 3DS 2.2.
+
+**Integração do 3DS 2.2**
+
+Para integrar a autenticação às suas transações:
+
+1. **Integre o script do 3DS 2.2** na sua página de pagamento, conforme [manual do 3DS](https://braspag.github.io//manual/emv3ds){:target="\_blank"};
+2. Na **requisição das transações** de crédito ou débito, **envie o nó adicional** `ExternalAuthentication`, conforme exemplos a seguir.
+
+<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.2.</aside>
+
 
 ### Indicador de início da transação Mastercard e Hipercard
 
