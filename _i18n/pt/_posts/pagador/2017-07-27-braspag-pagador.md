@@ -1254,7 +1254,6 @@ Para integrar a autenticação às suas transações:
 
 <aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.2.</aside>
 
-
 ### Indicador de início da transação Mastercard e Hipercard
 
 As tabelas a seguir se aplicam para transações de crédito e débito Mastercard/Hipercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** ou pela **loja**:
