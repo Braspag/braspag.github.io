@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-07-26T18:04:47+00:00</updated>
+    <updated>2024-07-26T18:13:04+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -14784,7 +14784,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrCodeExpiration&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;QR Code expiration time, in seconds. E.g.: 24 hours = 86400.&lt;br /&gt;&lt;strong&gt;Provider Cielo30&lt;/strong&gt;: QR Code expiration time is &lt;strong&gt;two hours&lt;/strong&gt; and cannot be configured.&lt;br /&gt;&lt;strong&gt;Provider Bradesco2&lt;/strong&gt;: QR Code expiration time can be configured at Bradesco Shopfácil or in the authorization request through parameter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrCodeExpiration&lt;/code&gt;.&lt;/td&gt;
+      &lt;td&gt;QR Code expiration time, in seconds. &lt;br /&gt;&lt;strong&gt;Provider Cielo30&lt;/strong&gt;: QR Code expiration time is &lt;strong&gt;two hours&lt;/strong&gt; and cannot be configured.&lt;br /&gt;&lt;strong&gt;Provider Bradesco2&lt;/strong&gt;: QR Code expiration time can be configured at Bradesco Shopfácil or in the authorization request through parameter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrCodeExpiration&lt;/code&gt;, in seconds (e.g.: 24 hours = 86400).&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;3600&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
