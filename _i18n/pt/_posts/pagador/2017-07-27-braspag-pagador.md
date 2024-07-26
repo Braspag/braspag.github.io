@@ -2307,7 +2307,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | texto | - | Sim |
 | `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | texto | - | Sim |
 | `Payment.Amount` | Valor do pedido, em centavos.| número | 15 | Sim |
-| `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. <br> **Para provider Cielo30**: o tempo de expiração é de duas horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`, em segundos (exemplo: 24 horas = 86400).<br>
+| `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. <br> **Para provider Cielo30**: o tempo de expiração é de duas horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`, em segundos (exemplo: 24 horas = 86400).<br>|número|3600|Não|
 
 #### Resposta
 
