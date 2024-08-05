@@ -56,11 +56,11 @@ Clique no aviso de configuração:
 
 Insira as suas credenciais `MerchantId` e `MerchantKey`. Para saber como acessar essas credenciais, [siga essas instruções](https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf).
 
-![Mid e Mk]({{ site.baseurl_root }}/images/braspag/pagador/configuracao-pix-4.jpg)
+![Mid e Mk]({{ site.baseurl_root }}/images/braspag/pagador/configuracao-pix-3.jpg)
 
 Preencha o campo **Provider** com `Cielo30` e informe o tempo de expiração desejado para o código Pix em segundos.
 
-![salvar pix]({{ site.baseurl_root }}/images/braspag/pagador/salvar-pix-5.jpg)
+![salvar pix]({{ site.baseurl_root }}/images/braspag/pagador/configuracao-pix-4.jpg)
 
 Clique em **SALVAR**. Em seguida, clique no aviso indicando para ativar o meio de pagamento na Shopify:
 
