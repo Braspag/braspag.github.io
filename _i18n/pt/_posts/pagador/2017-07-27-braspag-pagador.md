@@ -4197,7 +4197,11 @@ Através da identificação de cartões vencidos no momento da transação, é f
 
 <aside class="notice">Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
 
-Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó `NewCard`.
+**Como usar o Renova Fácil?**
+
+* Para usar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo;
+* Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó `NewCard`, que informa os dados do novo cartão;
+* Se a resposta tiver o nó `NewCard`, é necessário que a loja informe os dados do novo cartão na próxima autorização.
 
 Veja a seguir o exemplo de resposta de uma transação de crédito com o nó `NewCard`.
 
