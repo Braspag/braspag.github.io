@@ -12,6 +12,20 @@ language_tabs:
   
 ---
 
+<aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde 14/08/2024. Acesse o novo portal.</aside>
+
+# As documentações do Antifraude estão em um novo portal
+
+[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/risco)
+
+Acesse o novo portal de desenvolvedores E-commerce **[docs.cielo.com.br](https://docs.cielo.com.br)**.
+
+> **Atenção**: O conteúdo desta página está sendo descontinuado e não receberá atualizações a partir de 14/08/2024. Visite a nova documentação em [docs.cielo.br](https://docs.cielo.com.br/risco).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> O conteúdo a seguir não é atualizado desde 14/08/2024.</aside>
+
 # Sobre essa documentação 
 
 Este manual apresenta a integração com a API do Antifraude Gateway Braspag para chamadas apartadas de análise de fraude. Para integração de chamada conjunta com outros serviços, veja o manual do serviço de interesse: [Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}, [API Cielo E-commerce](https://braspag.github.io//manual/api-ecommerce-cielo-af){:target="_blank"}, [Split Cielo E-commerce](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#antifraude){:target="_blank"} ou [Split Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude){:target="_blank"}.
