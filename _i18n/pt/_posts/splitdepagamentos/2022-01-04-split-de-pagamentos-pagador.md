@@ -14,6 +14,20 @@ language_tabs:
   shell: cURL
 ---
 
+<aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde 14/08/2024. Acesse o novo portal.</aside>
+
+# As documentações do Split de Pagamentos estão em um novo portal
+
+[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/split)
+
+Acesse o novo portal de desenvolvedores E-commerce **[docs.cielo.com.br](https://docs.cielo.com.br)**.
+
+> **Atenção**: O conteúdo desta página está sendo descontinuado e não receberá atualizações a partir de 14/08/2024. Visite a nova documentação em [docs.cielo.br](https://docs.cielo.com.br/split).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> O conteúdo a seguir não é atualizado desde 14/08/2024.</aside>
+
 # Visão geral
 
 ![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-visao-geral.png)
