@@ -16,7 +16,7 @@ language_tabs:
 
 <aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde 14/08/2024. Acesse o novo portal.</aside>
 
-# As documentações do Gateway de Pagamentos estão em um novo portal
+# As documentações do Silent Order Post estão em um novo portal
 
 [![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/gateway/docs/integrando-o-silent-order-post)
 
