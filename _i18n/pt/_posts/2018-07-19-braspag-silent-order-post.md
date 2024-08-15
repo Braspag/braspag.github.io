@@ -14,6 +14,20 @@ language_tabs:
   
 ---
 
+<aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde 14/08/2024. Acesse o novo portal.</aside>
+
+# As documentações do Gateway de Pagamentos estão em um novo portal
+
+[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/gateway/docs/integrando-o-silent-order-post)
+
+Acesse o novo portal de desenvolvedores E-commerce **[docs.cielo.com.br](https://docs.cielo.com.br/gateway/docs/integrando-o-silent-order-post)**.
+
+> **Atenção**: O conteúdo desta página está sendo descontinuado e não receberá atualizações a partir de 14/08/2024. Visite a nova documentação em [docs.cielo.br](https://docs.cielo.com.br/gateway/docs/integrando-o-silent-order-post).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> O conteúdo a seguir não é atualizado desde 14/08/2024</aside>
+
 # Silent Order Post
 
 O Silent Order Post (SOP) é um serviço que oferece mais segurança ao comprador e controle sobre a experiência do checkout; é ideal para a loja que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito.
