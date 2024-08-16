@@ -10,6 +10,12 @@ language_tabs:
   xml: XML
 ---
 
+<aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde março de 2024.</aside>
+
+> Confira a documentação do novo Conciliador em [Cielo Conciliador](https://developercielo.github.io/manual/edi-cielo-conciliador).
+
+--------------------------------------------------------------------------------------------------------------------------
+
 # Visão Geral
 
 O Agiliza é a ferramenta de conciliação da Braspag criada para que você possa conferir o fluxo financeiro das vendas do seu estabelecimento. Nele, é possível cruzar o seu registro de vendas com o os valores pagos pela credenciadora dos pagamentos das transações de cartão de crédito, débito e voucher.
