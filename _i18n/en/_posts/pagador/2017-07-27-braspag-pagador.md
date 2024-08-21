@@ -2429,7 +2429,7 @@ The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used toge
 |`Url`|Boleto URL generated.|string|256|https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d|
 |`BoletoNumber`|"NossoNumero" generated.|Text|50|2017091101|
 |`BarCodeNumber`|Numerical representation of the barcode.|Text|44|00091628800000157000494250100000001200656560|
-|`DigitableLine`|Digitable line.|Texto|256|00090.49420 50100.000004 12006.565605 1 62880000015700|
+|`DigitableLine`|Digitable line. The 'DigitableLine' parameter is not returned for Banco do Brasil boleto.|Texto|256|00090.49420 50100.000004 12006.565605 1 62880000015700|
 |`Address`|Store address registered in the issuer.|Text|256|E.g.: Av. Teste, 160|
 |`Status`|Transaction status. See status list annexed.|Byte|2|E.g.: 1|
 
