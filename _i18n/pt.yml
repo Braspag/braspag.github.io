@@ -15,7 +15,7 @@ global:
   need_help_title: Precisa de ajuda?
   need_help_description: Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>
   hub_title: Braspag Developers
-  hub_description: <br>Este é o portal de documentação da Braspag.<br>Aqui você irá encontrar manuais de integração, documentos, artigos e tutoriais de todos os nossos produtos.
+  hub_description: <br>As nossas documentações foram migradas para um novo portal. Acesse <a href="https://docs.cielo.com.br">docs.cielo.com.br</a>.
 langs:
   en: English
   pt: Português
