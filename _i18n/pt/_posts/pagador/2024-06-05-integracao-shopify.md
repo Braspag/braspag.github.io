@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/conectores/docs/shopify
 title:  Integração Shopify
 description: Integração Shopify
 toc_footers: false
