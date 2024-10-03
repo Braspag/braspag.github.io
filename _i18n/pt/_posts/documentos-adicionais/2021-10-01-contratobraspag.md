@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/page/contrato-stelo
 title: Contrato Braspag
 description:
 search: true
