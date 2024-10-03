@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: 
 title: Política de Privacidade e Proteção de Dados
 description:
 search: true
