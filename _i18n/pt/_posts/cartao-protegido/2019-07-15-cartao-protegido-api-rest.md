@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/docs/cartao-protegido
 title: Manual de Integração - Cartão Protegido
 description: Integração Técnica de Tokenização via REST API Braspag
 search: true
