@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/risco/docs/
 title: Manual de Integração - Antifraude
 description: Integração Técnica API Antifraude Gateway Braspag
 search: true
