@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/conectores/docs/woocommerce
 title:  Módulo WooCommerce
 description: Como Integrar sua Loja WooCommerce com o Módulo de Pagamentos Braspag
 toc_footers: false
