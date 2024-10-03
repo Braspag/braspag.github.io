@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/risco/docs/sdks-anteriores
 title: SDKs Antifraude - Versões Antigas
 description: Integração Técnica API Antifraude Gateway Braspag
 search: true
