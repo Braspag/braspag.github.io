@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/conectores/docs/adobe-commerce-marketplace
 title:  Módulo Adobe Commerce - Marketplace
 description: Como Integrar sua Loja Adobe Commerce com o Módulo de Pagamentos Braspag na Webjump
 toc_footers: false
