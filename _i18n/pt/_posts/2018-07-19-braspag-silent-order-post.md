@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/docs/silent-order-post
 title: Manual de Integração - Silent Order Post
 description: Integração Técnica Gateway Braspag
 search: true
