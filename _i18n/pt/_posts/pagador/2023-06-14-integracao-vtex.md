@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/conectores/docs/vtex
 title:  Integração VTEX
 description: Integração VTEX
 toc_footers: false
