@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/docs/gateway
 title: Manual de Integração - API Rest
 description: Integração Técnica Gateway Braspag
 search: true
