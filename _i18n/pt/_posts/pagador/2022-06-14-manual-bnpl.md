@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/docs/bnpl
 title: Manual de Integração - BNPL
 description: Integração Técnica Gateway Braspag
 search: true
