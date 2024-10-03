@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/conectores/docs/adobe-commerce
 title:  Módulo Adobe Commerce
 description: Como Integrar sua Loja Adobe Commerce com o Módulo de Pagamentos Braspag
 toc_footers: false
