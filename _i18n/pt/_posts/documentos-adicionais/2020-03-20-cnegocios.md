@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/page/continuidade-negocios
 title: Continuidade de Negócios
 description:
 search: true
