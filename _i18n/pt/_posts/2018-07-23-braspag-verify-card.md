@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway/docs/verifycard
 title: Manual de Integração - VerifyCard
 description: Integração Técnica Gateway Braspag
 search: true
