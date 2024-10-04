@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/conciliacao-split
 title: Split de Pagamentos - Conciliação
 description: Manual de Integração API Split de Pagamentos
 search: true
