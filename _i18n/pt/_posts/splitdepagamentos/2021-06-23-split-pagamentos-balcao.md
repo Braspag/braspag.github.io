@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/registro-de-recebiveis
 title: Split de Pagamentos - Balcão de Recebiveis
 description: Manual sobre a Estrutura do Balcao de Recebiveis
 search: true
