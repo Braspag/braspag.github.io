@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway-en/docs/card-vault-cart%C3%A3o-protegido
 title: Cartão Protegido Integration Guide
 description: Technical Integration Tokenization via REST API Braspag
 search: true
