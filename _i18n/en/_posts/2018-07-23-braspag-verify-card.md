@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway-en/docs/verifycard
 title: VerifyCard Integration Guide 
 description: VerifyCard Technical Integration
 search: true
