@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/risk-en/docs/
 title: Antifraude Integration Guide
 description: Technical Integration API Antifraude Gateway Braspag
 search: true
