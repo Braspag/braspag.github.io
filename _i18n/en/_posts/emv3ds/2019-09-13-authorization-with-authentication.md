@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/gateway-en/docs/what-is-3ds-22-authentication
 title: Authorization with Authentication
 description: Gateway Braspag Technical Integration
 search: true
