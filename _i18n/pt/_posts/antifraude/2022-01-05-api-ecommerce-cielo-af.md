@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo/docs/analise-de-fraude
 title: Manual de Integração E-commerce Cielo com Antifraude Braspag
 description: Manual integração técnica de Antifraude via API
 search: true
