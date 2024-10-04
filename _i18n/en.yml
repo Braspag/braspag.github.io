@@ -15,7 +15,7 @@ global:
   need_help_title: Need Help?
   need_help_description: If you did not find the information you need, <a href="https://suporte.braspag.com.br/hc/en-us">please contact us</a>
   hub_title: Braspag Developers
-  hub_description: <br>Welcome to Braspag documentation page.<br> Here you will find integration guides for our APIs.
+  hub_description: <br>Our documentation is on a new portal. Go to <a href="https://docs.cielo.com.br/">docs.cielo.com.br</a><br><img src="images/new-docs.cielo.com.br.jpg" alt="New e-commerce developer portal">.
 langs:
   en: English
   pt: Português
