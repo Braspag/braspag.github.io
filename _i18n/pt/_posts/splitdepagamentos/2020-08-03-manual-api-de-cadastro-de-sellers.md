@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/onboarding-de-sellers
 title: Split de Pagamentos - Onboarding de Sellers
 description: Split de Pagamentos - Onboarding
 search: true
