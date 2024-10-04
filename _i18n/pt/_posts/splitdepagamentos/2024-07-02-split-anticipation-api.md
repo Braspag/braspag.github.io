@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/antecipacao-de-recebiveis
 title: Split de Pagamentos - Antecipação de Recebíveis
 description: Split de Pagamentos - Onboarding
 search: true
