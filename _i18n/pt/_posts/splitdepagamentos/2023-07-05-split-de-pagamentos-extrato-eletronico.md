@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/extrato-eletronico
 title: Split de Pagamentos - Extrato Eletrônico
 description: Manual Extrato Eletrônico
 search: true
