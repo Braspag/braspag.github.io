@@ -565,7 +565,7 @@ Você deve converter os arquivos dos documentos em imagem ou PDF para *base64* e
 
 **Qual o tipo e tamanho máximo dos arquivos?**
 
-* As extensões permitidas são PDF, PNG, JPG ou JPEG convertidos em base64 (encoded);
+* As extensões permitidas são .pdf, .png, .jpg ou .jpeg convertidos em base64 (encoded);
 * A soma de todos os arquivos deve ter no máximo 7MB de tamanho.
 <br>
 A Risk Notification API encaminhará a documentação para a Cielo, que submeterá a disputa para análise da bandeira e do emissor.
@@ -728,7 +728,7 @@ Ocorre quando a requisição de disputa é enviada sem o nome e/ou conteúdo do 
 
 ### Arquivo com extensão inválida 
 
-O arquivo de contestação deve ter extensão JPEG, JPG, PNG ou PDF. Caso a extensão do arquivo enviado seja diferente das mencionadas, o retorno será o erro a seguir:
+O arquivo de contestação deve ter extensão .jpeg, .jpg, .png ou .pdf. Caso a extensão do arquivo enviado seja diferente das mencionadas, o retorno será o erro a seguir:
 
 ```json
 {
