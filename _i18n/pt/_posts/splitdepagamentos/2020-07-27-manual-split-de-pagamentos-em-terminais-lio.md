@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/reference/split-lio-api
 title: Split de Pagamentos - Cielo LIO
 description: Manual de Integração do Split de Pagamentos em Terminais LIO
 search: true
