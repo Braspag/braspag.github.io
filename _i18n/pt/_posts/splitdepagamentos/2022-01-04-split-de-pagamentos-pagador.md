@@ -3575,7 +3575,7 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.Installments`|Número de parcelas. A recorrência só permite uma parcela.<br> Valores possíveis: 01 ou 1. |Número|2|Sim|
 |`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
 |`Payment.RecurrentPayment.Interval`|Intervalo da recorrência. Não utilizar em conjunto com `DailyInterval`.<br><br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não*|
 |`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
