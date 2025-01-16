@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://developercielo.github.io/manual/edi-cielo-conciliador
 title: Manual Agiliza
 description: Integração Técnica
 search: true
