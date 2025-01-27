@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+recdirect: https://developercielo.github.io/manual/api-chargeback-2-0
 title: Risk Notification Integration Guide
 description: Technical Integration API Risk Notification Braspag
 search: true
