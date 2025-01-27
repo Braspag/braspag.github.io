@@ -1,6 +1,6 @@
 ---
 layout: redirect
-recdirect: https://developercielo.github.io/manual/api-chargeback-2-0
+redirect: https://docs.cielo.com.br/risk-en/page/risk-notification-api-en-deprecated
 title: Risk Notification Integration Guide
 description: Technical Integration API Risk Notification Braspag
 search: true
