@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/risco/page/api-risk-notification-deprecated
 title: Manual de Integração - Risk Notification
 description: Integração Técnica Risk Notification API Braspag
 search: true
