@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/split
 title: Split de Pagamentos - Pagador Braspag
 description: Manual Integração do Split de Pagamentos
 search: true
