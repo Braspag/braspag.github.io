@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/split/docs/split
 title: Split de Pagamentos - Cielo E-commerce
 description: Manual de Integração do Split de Pagamentos
 search: true
